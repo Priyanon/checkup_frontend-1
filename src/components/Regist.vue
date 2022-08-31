@@ -265,7 +265,7 @@ export default {
                   type="email"
                   class="form-control"
                   id="Emp_Mail"
-                  placeholder="อีเมล์oooo"
+                  placeholder="อีเมล์"
                 />
               </div>
             </div>
