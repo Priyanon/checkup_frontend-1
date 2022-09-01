@@ -22,7 +22,8 @@ export default {
               Emp_race:'',
               Emp_Scanpic:'',
               Emp_religion:'',
-              Emp_Addressnow:''
+              Emp_Addressnow:'',
+              Emp_Pic:''
             }
         }
     },
@@ -31,7 +32,7 @@ export default {
     },
     methods:{
         async addUser(){
-            await axios.post('http://localhost:3000/user',this.Employee).then(function(response){
+            await axios.post('http://localhost:3000/employee',this.Employee).then(function(response){
                 alert('insert successfully! : '+response)
             })
         }
@@ -126,6 +127,20 @@ export default {
                 />
               </div>
             </div>
+
+            <div class="form-group">
+              <div style="font-family:kanit" class="col-Lg-2" align="center">รูปภาพ :</div>
+              <div style="font-family:kanit" class="col-Lg-7" align="center">
+                <input
+                  name="Emp_Pic"
+                  type="file"
+                  class="form-control"
+                  id="Emp_Pic"
+                  accept="image/*"
+                />
+              </div>
+            </div>
+
             <div style="font-family:kanit" class="form-group">
               <div style="font-family:kanit" class="col-Lg-2" align="center">เลขประจำตัวประชาชน :</div>
               <div style="font-family:kanit" class="col-Lg-7" align="center">

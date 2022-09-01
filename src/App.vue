@@ -1,19 +1,20 @@
 <script>
 
+
+
 import Regist from './components/Regist.vue';
 // import Login from "./components/Login.vue";
 // import Regist from "./components/Regist.vue";
 export default {
   components: {
     Regist
-    
-    
 }
 }
 </script>
 
 <template>
-<regist/>
+
+<Regist/>
 
     <!-- <div class="container mt-4">
       <div class="card">
