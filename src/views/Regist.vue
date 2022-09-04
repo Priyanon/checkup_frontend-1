@@ -31,10 +31,12 @@ export default {
     },
     methods:{
         async addEmployee(){
-            await axios.post('http://localhost:3000/employee',this.Employee).then(function(response){
-                alert('insert successfully! : '+response)
+            await axios.post('http://192.168.43.120:3000/employee',this.Employee).then(function(response){
+              alert('insert successfully! : ' + response)
+              
             })
         },
+        // เพิ่ม error
         test(){
           console.log(this.Employee)
         }
@@ -46,7 +48,6 @@ export default {
 <div class="container">
       <div class="row">
         <div >
-          
             <div class="form-group">
               <div class="col-Lg-4"></div>
               <div class="col-Lg-4" align="center">
@@ -61,25 +62,25 @@ export default {
               /> -->
             </div>
             <div class="form-group">
-              <div style="font-family:kanit" class="col-Lg-2 " align="center">รหัสพนักงาน :</div>
-              <div style="font-family:kanit" class="col-Lg-5" align="center">
+              <div class="col-Lg-2 " align="center">รหัสพนักงาน : </div>
+              <div class="col-Lg-5" align="center">
+                <!-- style="font-family:kanit" -->
                 <input 
                   v-model="this.Employee.Emp_ID" 
                   type="text"
                   style="width:500px;"
                   required
                   class="form-control"
-                  placeholder="username"
+                  placeholder="Username"
                   pattern="^[a-zA-Z0-9]+$"
                   title="ภาษาอังกฤษหรือตัวเลขเท่านั้น"
-                  minlength="5"
-                  
-                />
+                  />
+                  <!--กรอกข้อมูลผิดส่งไม่ได้-->
               </div>
             </div>
             <div class="form-group">
-              <div style="font-family:kanit" class="col-Lg-2" align="center">รหัสผ่าน :</div>
-              <div style="font-family:kanit" class="col-Lg-5" align="center">
+              <div class="col-Lg-2" align="center">รหัสผ่าน :</div>
+              <div class="col-Lg-5" align="center">
                 <input
                   style="width:500px;"
                   v-model="this.Employee.pwd"
@@ -88,17 +89,15 @@ export default {
                   class="form-control"
                   placeholder="password"
                   pattern="^[a-zA-Z0-9]+$"
-                  minlength="2"
-                  
                 />
                 <!-- @change="test()" -->
               </div>
             </div>
 
             <div class="form-group">
-              <div style="font-family:kanit" class="col-Lg-2" align="center">เพศ :</div>
-              <div style="font-family:kanit" class="col-Lg-7" align="center">
-                <select v-model="this.Employee.Emp_Sex" style="width:500px;" >
+              <div class="col-Lg-2" align="center">เพศ :</div>
+              <div class="col-Lg-7" align="center">
+                <select v-model="this.Employee.Emp_Sex" style="width:500px;" required>
                   <option value="man">ชาย</option>
                   <option value="mele">หญิง</option>
                 </select>
@@ -106,24 +105,28 @@ export default {
             </div>
 
             <div class="form-group">
-              <div style="font-family:kanit" class="col-Lg-2" align="center">ชื่อ-สกุล :</div>
-              <div style="font-family:kanit" class="col-Lg-7" align="center">
+              <div class="col-Lg-2" align="center">ชื่อ-สกุล :</div>
+              <div class="col-Lg-7" align="center">
                 <input
                   style="width:500px;"
                   v-model="this.Employee.Emp_Name"
                   type="text"
                   required
                   class="form-control"
-                  placeholder="ชื่อ-สกุล"
+                  placeholder="name-surname"
+                  pattern="^[a-zA-Z]+$"
                 />
+                <span class="validity"></span>
                 <!-- @change="test()" -->
+                <!-- ใส่เกินมีแจ้งเตือน -->
               </div>
             </div>
 
             <div class="form-group">
-              <div style="font-family:kanit" class="col-Lg-2" align="center">รูปภาพ :</div>
-              <div style="font-family:kanit" class="col-Lg-7" align="center">
+              <div class="col-Lg-2" align="center">รูปภาพ :</div>
+              <div class="col-Lg-7" align="center">
                 <input
+                  style="width:500px;"
                   name="Emp_Pic"
                   type="file"
                   class="form-control"
@@ -132,9 +135,9 @@ export default {
               </div>
             </div>
 
-            <div style="font-family:kanit" class="form-group">
-              <div style="font-family:kanit" class="col-Lg-2" align="center">เลขประจำตัวประชาชน :</div>
-              <div style="font-family:kanit" class="col-Lg-7" align="center">
+            <div class="form-group">
+              <div class="col-Lg-2" align="center">เลขประจำตัวประชาชน :</div>
+              <div class="col-Lg-7" align="center">
                 <input
                   style="width:500px;"
                   v-model="this.Employee.Emp_Identity_ID"
@@ -142,26 +145,29 @@ export default {
                   required
                   class="form-control"
                   placeholder="เลขประจำตัวประชาชน"
+                  pattern="[0-9]{13}"
                 />
+                <!-- ใส่ได้เฉพาะตัวเลข -->
               </div>
             </div>
 
-            <div style="font-family:kanit" class="form-group">
-              <div style="font-family:kanit" class="col-Lg-2" align="center">วัน/เดือน/ปี เกิด :</div>
-              <div style="font-family:kanit" class="col-Lg-7" align="center">
+            <div class="form-group">
+              <div class="col-Lg-2" align="center">วัน/เดือน/ปี เกิด :</div>
+              <div class="col-Lg-7" align="center">
                 <input
                   style="width:500px;"
                   v-model="this.Employee.Emp_Birthday"
                   type ="date"
                   class="form-control"
                   placeholder="วัน/เดือน/ปี เกิด"
+                  required
                 />
               </div>
             </div>
 
-            <div style="font-family:kanit" class="form-group">
-              <div style="font-family:kanit" class="col-Lg-2" align="center">วันที่เข้าทำงานวันแรก :</div>
-              <div style="font-family:kanit" class="col-Lg-7" align="center">
+            <div class="form-group">
+              <div class="col-Lg-2" align="center">วันที่เข้าทำงานวันแรก :</div>
+              <div class="col-Lg-7" align="center">
                 <input
                   style="width:500px;"
                   v-model="this.Employee.Emp_IssueDate"
@@ -173,47 +179,38 @@ export default {
             </div>
 
             <div class="form-group">
-              <div style="font-family:kanit" class="col-Lg-2" align="center">อายุ :</div>
-              <div style="font-family:kanit" class="col-Lg-6" align="center">
-                <input
-                  style="width:500px;"
-                  v-model="this.Employee.Emp_Age"
-                  type="text"
-                  class="form-control"
-                  placeholder="อายุ"
-                />
-              </div>
-            </div>
-
-            <div class="form-group">
-              <div style="font-family:kanit" class="col-Lg-2" align="center">กรุ๊ปเลือด :</div>
-              <div style="font-family:kanit" class="col-Lg-6" align="center">
-                <input
-                  style="width:500px;"
-                  v-model="this.Employee.Emp_bloodtype"
-                  type="text"  
-                  class="form-control"
-                  pattern="^[A-Z]+$"
-                  placeholder="กรุ๊ปเลือด"
-                />
+              <div class="col-Lg-2" align="center">กรุ๊ปเลือด :</div>
+              <div class="col-Lg-6" align="center">
+                <select v-model="this.Employee.Emp_bloodtype" style="width:500px;" required>
+                  <option value="A">A</option>
+                  <option value="B">B</option>
+                  <option value="AB">AB</option>
+                  <option value="O">O</option>
+                </select>
               </div>
             </div>
             
             <div class="form-group">
-              <div style="font-family:kanit" class="col-Lg-2" align="center">ศาสนา :</div>
-              <div style="font-family:kanit" class="col-Lg-6" align="center">
-                <input
-                  style="width:500px;"
-                  v-model="this.Employee.Emp_religion"
-                  type="text"
-                  class="form-control"
-                  placeholder="ศาสนา"
-                />
+              <div class="col-Lg-2" align="center">ศาสนา :</div>
+              <div class="col-Lg-6" align="center">
+                <select v-model="this.Employee.Emp_religion" style="width:500px;" required>
+                  <option value="ศาสนาพุทธ">ศาสนาพุทธ</option>
+                  <option value="ศาสนาอิสลาม">ศาสนาอิสลาม</option>
+                  <option value="ศาสนาคริสต์">ศาสนาคริสต์</option>
+                  <option value="ศาสนาพราหมณ์-ฮินดู">ศาสนาพราหมณ์-ฮินดู</option>
+                  <option value="ศาสนาซิกข์">ศาสนาซิกข์</option>
+                  <option value="ศาสนายิว">ศาสนายิว</option>
+                  <option value="ศาสนาเชน">ศาสนาเชน</option>
+                  <option value="ศาสนาโซโรอัสเตอร์">ศาสนาโซโรอัสเตอร์</option>
+                  <option value="ศาสนาบาไฮ">ศาสนาบาไฮ</option>
+                  <option value="ไม่นับถือศาสนา">ไม่นับถือศาสนา</option>
+                </select>
               </div>
             </div>
+            
             <div class="form-group">
-              <div style="font-family:kanit" class="col-Lg-2" align="center">เชื้อชาติ :</div>
-              <div style="font-family:kanit" class="col-Lg-6" align="center">
+              <div class="col-Lg-2" align="center">เชื้อชาติ :</div>
+              <div class="col-Lg-6" align="center">
                 <input
                   style="width:500px;"
                   v-model="this.Employee.Emp_nationality"
@@ -223,27 +220,30 @@ export default {
                 />
               </div>
             </div>
+            
             <div class="form-group">
-              <div style="font-family:kanit" class="col-Lg-2" align="center">สัญชาติ :</div>
-              <div style="font-family:kanit" class="col-Lg-6" align="center">
+              <div class="col-Lg-2" align="center">สัญชาติ :</div>
+              <div class="col-Lg-6" align="center">
                 <input
                   style="width:500px;"
                   v-model="this.Employee.Emp_race"
                   type="text"
                   class="form-control"
                   placeholder="สัญชาติ"
+                  required
                 />
               </div>
             </div>
             <div class="form-group">
-              <div style="font-family:kanit" class="col-Lg-2" align="center">โรคประจำตัว :</div>
-              <div style="font-family:kanit" class="col-Lg-6" align="center">
+              <div class="col-Lg-2" align="center">โรคประจำตัว :</div>
+              <div class="col-Lg-6" align="center">
                 <input
                   style="width:500px;"
                   v-model="this.Employee.Emp_sick"
                   type="text"
                   class="form-control"
                   placeholder="โรคประจำตัว"
+                  required
                 />
               </div>
             </div>
@@ -255,27 +255,29 @@ export default {
             </div>
             
             <div class="form-group">
-              <div style="font-family:kanit" class="col-Lg-2" align="center">อีเมล์ :</div>
-              <div style="font-family:kanit" class="col-Lg-6" align="center">
+              <div class="col-Lg-2" align="center">อีเมล์ :</div>
+              <div class="col-Lg-6" align="center">
                 <input
                   style="width:500px;"
                   v-model="this.Employee.Emp_Mail"
                   type="email"
                   class="form-control"
                   placeholder="อีเมล์"
+                  required
                 />
               </div>
             </div>
             
             <div class="form-group">
-              <div style="font-family:kanit" class="col-Lg-2" align="center">เบอร์โทร :</div>
-              <div style="font-family:kanit" class="col-Lg-6" align="center">
+              <div class="col-Lg-2" align="center">เบอร์โทร :</div>
+              <div class="col-Lg-6" align="center">
                 <input
                   style="width:500px;"
                   v-model="this.Employee.Emp_Phone"
                   type="text"
                   class="form-control"
                   placeholder="เบอร์โทร"
+                  required
                 />
               </div>
             </div>
@@ -288,8 +290,8 @@ export default {
             
 
             <div class="form-group">
-              <div style="font-family:kanit" class="col-Lg-2" align="center">ที่อยู่ตามทะเบียนบ้าน :</div>
-              <div style="font-family:kanit" class="col-Lg-6" align="center">
+              <div class="col-Lg-2" align="center">ที่อยู่ตามทะเบียนบ้าน :</div>
+              <div class="col-Lg-6" align="center">
                 <textarea 
                   v-model="this.Employee.Emp_Addresshome" 
                   style="width:500px;"
@@ -298,7 +300,7 @@ export default {
             </div>
             
             <div class="form-group">
-              <div style="font-family:kanit" class="col-Lg-2" align="center">ที่อยู่ปัจจุบัน :</div>
+              <div class="col-Lg-2" align="center">ที่อยู่ปัจจุบัน :</div>
               <div class="col-Lg-6" align="center">
                <textarea 
                   v-model="this.Employee.Emp_Addressnow" 
@@ -310,12 +312,10 @@ export default {
                 <div class="col-Lg-4" align="center">
                 <div class="col-Lg-2">
                 <div class="col-Lg-6">
-                <button style="font-family:kanit;" 
-                        @click="this.addEmployee()" 
+                <button @click="this.addEmployee()" 
                         class="btn btn-primary" 
                         >
                         บันทึก
-                        
                 </button>
                 </div>
                 </div>
