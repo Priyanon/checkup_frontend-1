@@ -1,12 +1,34 @@
 <script>
-    export default{
-        mounted () {
-            document.body.classList.add('Login_body')
-        },
-        destroyed () {
-            document.body.classList.remove('Login_body')
-        }
+// import axios from 'axios';
+export default {
+  data() {
+    return {
+      Login: {
+        Emp_Mail: '',
+        pwd: ''
+      }
     }
+  },
+  mounted() {
+    document.body.classList.add('Login_body')
+    },
+  destroyed () {
+    document.body.classList.remove('Login_body')
+    },
+//   methods: {
+//     async addLeaves() {
+//       await axios.post('http://localhost:3000/leaves', this.Leaves).then(function (response) {
+//         alert('insert successfully! : ' + response)
+//       })
+//     },
+//     // เพิ่ม error
+//     test() {
+//       console.log(this.Leaves)
+//       // @change="test()"
+//     }
+//   }
+}
+
 </script>
 
 
@@ -36,20 +58,22 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;700&display=swap');
 @import url('/css/signin.css');
-form{
+
+form {
     text-align: center;
 }
+
 .Login_body {
-  display: flex;
-  justify-content: center;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  padding-top: 40px;
-  padding-bottom: 40px;
-  background-color: #4fc3f7!important;
-  color: white;
-  align-items:center;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: #4fc3f7 !important;
+    color: white;
+    align-items: center;
 }
 
 .bd-placeholder-img {
