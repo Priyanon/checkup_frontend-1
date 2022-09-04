@@ -5,7 +5,8 @@ export default {
     return {
       Login: {
         Emp_Mail: '',
-        pwd: ''
+        pwd: '',
+        Emp_ID:''
       }
     }
   },
