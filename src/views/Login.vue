@@ -1,5 +1,6 @@
 <script>
-// import axios from 'axios';
+import axios from 'axios';
+// import router from '../router'
 export default {
   data() {
     return {
@@ -16,18 +17,29 @@ export default {
   destroyed () {
     document.body.classList.remove('Login_body')
     },
-//   methods: {
-//     async addLeaves() {
-//       await axios.post('http://localhost:3000/leaves', this.Leaves).then(function (response) {
-//         alert('insert successfully! : ' + response)
-//       })
-//     },
-//     // เพิ่ม error
-//     test() {
-//       console.log(this.Leaves)
-//       // @change="test()"
-//     }
-//   }
+  methods: {
+    // async addLogin() {
+        // const response = await axios.put('http://localhost:3000/login', {
+        //     email: this.Emp_Mail,
+        //     password: this.pwd
+        // })
+        // console.log(response);
+      async addLogin() {
+        await axios.put('http://localhost:3000/login', this.Employee).then(function (response) {
+        if(response.data.message == "ok"){
+            localStorage.setItem('token', response.data.user_token);
+            router.push('/main')
+        } else {
+            router.push('/login')
+        }
+      })
+    },
+    // เพิ่ม error
+    test() {
+      console.log(this.Leaves)
+      // @change="test()"
+    }
+  }
 }
 
 </script>
@@ -41,13 +53,20 @@ export default {
             <!-- <img class="mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> -->
             <h4 class="h4 mb-3 fw-normal">Check Up</h4>
 
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="รหัสพนักงาน">
+            <input  type="email" 
+                    class="form-control" 
+                    placeholder="รหัสพนักงาน">
+                    <!-- v-model="this.Employee.Emp_Mail" -->
 
-            <input type="email" class="form-control password" id="exampleFormControlInput1" style="margin-top: 15px;"
-                placeholder="รหัสผ่าน">
+            <input  type="password" 
+                    class="form-control password" 
+                    style="margin-top: 15px;"
+                    placeholder="รหัสผ่าน">
 
-            <button style="font-family:kanit;border-radius: 100;" class="w-100 btn btn-lg btn-signin"
-                type="submit">เข้าสู่ระบบ</button>
+            <button style="font-family:kanit;border-radius: 100;" 
+                    class="w-100 btn btn-lg btn-signin"
+                    @click="addLogin">เข้าสู่ระบบ
+            </button>
             <br>
             <button href="" class="text-white forgot">ลืมรหัสผ่านใช่หรือไม่?</button>
         </form>
@@ -57,8 +76,8 @@ export default {
 
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;700&display=swap');
-@import url('/css/signin.css');
+/* @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;700&display=swap');
+@import url('/css/signin.css'); */
 
 form {
     text-align: center;
