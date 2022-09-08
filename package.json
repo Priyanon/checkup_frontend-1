@@ -10,6 +10,12 @@
     "axios": "^0.27.2",
     "bootstrap": "^5.2.0",
     "cors": "^2.8.5",
+    "datatables.net-bs5": "^1.12.1",
+    "datatables.net-buttons-dt": "^2.2.3",
+    "datatables.net-dt": "^1.12.1",
+    "datatables.net-select": "^1.4.0",
+    "datatables.net-vue3": "^1.0.0",
+    "jquery": "^3.6.1",
     "vue": "^3.2.37",
     "vue-axios": "^3.4.1",
     "vue-router": "^4.0.13"

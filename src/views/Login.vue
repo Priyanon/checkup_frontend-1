@@ -25,18 +25,19 @@ export default {
         // })
         // console.log(response);
       async addLogin() {
-        await axios.put('http://localhost:3000/login', this.Employee).then(function (response) {
-        if(response.data.message == "ok"){
-            localStorage.setItem('token', response.data.user_token);
-            router.push('/main')
-        } else {
-            router.push('/login')
-        }
-      })
+        this.$router.push({name:'main'})
+    //     await axios.put('http://192.168.1.37:3000/login', this.Employee).then(function (response) {
+    //     if(response.data.message == "ok"){
+    //         // localStorage.setItem('token', response.data.user_token);
+    //         router.push('/main')
+    //     } else {
+    //         router.push('/login')
+    //     }
+    //   })
     },
     // เพิ่ม error
     test() {
-      console.log(this.Leaves)
+      console.log(this.Employee)
       // @change="test()"
     }
   }
@@ -55,13 +56,15 @@ export default {
 
             <input  type="email" 
                     class="form-control" 
-                    placeholder="รหัสพนักงาน">
+                    placeholder="อีเมล์"
+                    @change="test()">
                     <!-- v-model="this.Employee.Emp_Mail" -->
 
             <input  type="password" 
                     class="form-control password" 
                     style="margin-top: 15px;"
-                    placeholder="รหัสผ่าน">
+                    placeholder="รหัสผ่าน"
+                    @change="test()">
 
             <button style="font-family:kanit;border-radius: 100;" 
                     class="w-100 btn btn-lg btn-signin"
@@ -152,16 +155,16 @@ form {
 }
 
 input {
-    color: black;
+    color: rgb(255, 255, 255);
     border-radius: 10px !important;
     text-align: center;
-    font-family: "kanit";
+    /* font-family: "kanit"!important; */
 
 }
 
 .btn-signin {
-    color: #4fc3f7;
-    background-color: white;
+    color: #4fc3f7!important;
+    background-color: white !important;
     margin-top: 25px;
 
 }

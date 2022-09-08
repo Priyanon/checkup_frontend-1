@@ -31,7 +31,8 @@ export default {
     },
     methods:{
         async addEmployee(){
-            await axios.post('http://192.168.43.120:3000/employee',this.Employee).then(function(response){
+            await axios.post('http://192.168.1.37:3000/employee',this.Employee)
+            .then(function(response){
               alert('insert successfully! : ' + response)
               
             })
@@ -40,7 +41,6 @@ export default {
         test(){
           console.log(this.Employee)
         }
-        
     }
 }
 </script>
@@ -293,7 +293,7 @@ export default {
               <div class="col-Lg-2" align="center">ที่อยู่ตามทะเบียนบ้าน :</div>
               <div class="col-Lg-6" align="center">
                 <textarea 
-                  v-model="this.Employee.Emp_Addresshome" 
+                  v-model="this.Employee.Emp_Address" 
                   style="width:500px;"
                   class="form-control"></textarea>
               </div>

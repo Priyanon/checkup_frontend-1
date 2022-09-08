@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router"
-import Home from "@/views/Home.vue"
+// import Home from "@/views/Home.vue"
 import Login from "@/views/Login.vue"
 import Navbar from "@/views/Navbar.vue"
 import Regist from "@/views/Regist.vue"
@@ -11,17 +11,20 @@ import main from "@/views/main.vue"
 import Checkout from "@/views/Checkout.vue"
 import Checkinmonth from "@/views/Checkinmonth.vue"
 import Checkinyear from "@/views/Checkinyear.vue"
+import Calendar from "@/views/Checkinyear.vue"
+import Edituser from "@/views/Edituser.vue"
+import test from "@/views/test.vue"
 import axios from 'axios';
 
 const routes = [
+    // {
+    //     path: "/",
+    //     name:"Home",
+    //     component: Home,
+    //     meta:{requiresAuth: true}
+    // },
     {
         path: "/",
-        name:"Home",
-        component: Home,
-        meta:{requiresAuth: true}
-    },
-    {
-        path: "/login",
         name:"Login",
         component: Login,
         meta:{requiresAuth: false}
@@ -36,7 +39,7 @@ const routes = [
         path: "/leave",
         name:"Leave",
         component: Leave,
-        meta:{requiresAuth: true}
+        meta:{requiresAuth: false}
     },
     {
         path: "/leaveend",
@@ -84,7 +87,25 @@ const routes = [
         path: "/checkinyear",
         name:"Checkinyear",
         component: Checkinyear,
-        meta:{requiresAuth: true}
+        meta:{requiresAuth: false}
+    },
+    {
+        path: "/calendar",
+        name:"Calendar",
+        component: Calendar,
+        meta:{requiresAuth: false}
+    },
+    {
+        path: "/edituser",
+        name:"Edituser",
+        component: Edituser,
+        meta:{requiresAuth: false}
+    },
+    {
+        path: "/test",
+        name:"test",
+        component: test,
+        meta:{requiresAuth: false}
     },
 ]
 const router = createRouter({
@@ -107,17 +128,17 @@ function isLoggedIn(){
     })
 }
 
-router.beforeEach((to, from) => {
-    // instead of having to check every route record with
-    // to.matched.some(record => record.meta.requiresAuth)
-    if (to.meta.requiresAuth && !isLoggedIn()) {
-      // this route requires auth, check if logged in
-      // if not, redirect to login page.
-      return {
-        path: '/login',
-        // save the location we were at to come back later
-        query: { redirect: to.fullPath },
-      }
-    }
-  })
+// router.beforeEach((to, from) => {
+//     // instead of having to check every route record with
+//     // to.matched.some(record => record.meta.requiresAuth)
+//     if (to.meta.requiresAuth && !isLoggedIn()) {
+//       // this route requires auth, check if logged in
+//       // if not, redirect to login page.
+//       return {
+//         path: '/login',
+//         // save the location we were at to come back later
+//         query: { redirect: to.fullPath },
+//       }
+//     }
+//   })
 export default router;
