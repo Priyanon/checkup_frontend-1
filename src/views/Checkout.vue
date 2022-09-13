@@ -1,8 +1,8 @@
 <template>
-  <div class="my-container bg-white text-back">
+  <div class="my-container bg-white text-back container">
     <!-- <input type="text" placeholder="search..." v-on:keyup="showMyText"> -->
       <h1>test text</h1>
-      <table class="table table-bordered">
+      <table class="table table-bordered table-bordered">
         <thead>
         <tr class="table-info">
           <th scope="col">วันที่</th>

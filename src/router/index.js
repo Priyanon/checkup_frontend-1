@@ -13,7 +13,7 @@ import Checkinmonth from "@/views/Checkinmonth.vue"
 import Checkinyear from "@/views/Checkinyear.vue"
 import Calendar from "@/views/Checkinyear.vue"
 import Edituser from "@/views/Edituser.vue"
-import test from "@/views/test.vue"
+import Test from "@/views/Test.vue"
 import axios from 'axios';
 
 const routes = [
@@ -33,7 +33,7 @@ const routes = [
         path: "/regist",
         name:"Regist",
         component: Regist,
-        meta:{requiresAuth: true}
+        meta:{requiresAuth: false}
     },
     {
         path: "/leave",
@@ -45,43 +45,43 @@ const routes = [
         path: "/leaveend",
         name:"Leaveend",
         component: Leaveend,
-        meta:{requiresAuth: true}
+        meta:{requiresAuth: false}
     },
     {
         path: "/navbar",
         name:"Navbar",
         component: Navbar,
-        meta:{requiresAuth: true}
+        meta:{requiresAuth: false}
     },
     {
         path: "/attendancestatus",
         name:"Attendancestatus",
         component: Attendancestatus,
-        meta:{requiresAuth: true}
+        meta:{requiresAuth: false}
     },
     {
         path: "/attendancestatusnext",
         name:"Attendancestatusnext",
         component: Attendancestatusnext,
-        meta:{requiresAuth: true}
+        meta:{requiresAuth: false}
     },
     {
         path: "/main",
         name:"main",
         component: main,
-        meta:{requiresAuth: true}
+        meta:{requiresAuth: false}
     },
     {
         path: "/checkout",
         name:"Checkout",
         component: Checkout,
-        meta:{requiresAuth: true}
+        meta:{requiresAuth: false}
     },
     {
         path: "/checkinmonth",
         name:"Checkinmonth",
         component: Checkinmonth,
-        meta:{requiresAuth: true}
+        meta:{requiresAuth: false}
     },
     {
         path: "/checkinyear",
@@ -103,8 +103,8 @@ const routes = [
     },
     {
         path: "/test",
-        name:"test",
-        component: test,
+        name:"Test",
+        component: Test,
         meta:{requiresAuth: false}
     },
 ]
@@ -113,20 +113,20 @@ const router = createRouter({
     routes,
 });
 
-function isLoggedIn(){
-   var obj = {
-    // "Emp_ID":localStorage.getItem("Emp_ID"),
-    "token" :localStorage.getItem("token")
-   }
-   axios.get('http://192.168.43.120:3000/checkauthen',obj).then(function(response){
-          if(response.message=='ok'){
-            return true;
-          } else {
-            return false;
-          }
+// function isLoggedIn(){
+//    var obj = {
+//     // "Emp_ID":localStorage.getItem("Emp_ID"),
+//     "token" :localStorage.getItem("token")
+//    }
+//    axios.get('http://192.168.43.120:3000/checkauthen',obj).then(function(response){
+//           if(response.message=='ok'){
+//             return true;
+//           } else {
+//             return false;
+//           }
     
-    })
-}
+//     })
+// }
 
 // router.beforeEach((to, from) => {
 //     // instead of having to check every route record with

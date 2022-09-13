@@ -1,12 +1,12 @@
 <template>
-    <div>
+    <div class="container">
         <div>
             <h1>สถานะการเข้าทำงาน</h1>
             <a href="#" class="previous round">&#8249;</a>
             <a href="#" class="next round">&#8250;</a>
         </div>
         <div>
-            <table class="table tabel-striped">
+            <table class="table tabel-striped table-bordered">
               <thead class="thead-dark">  
                 <tr>
                   <th>ลำดับ</th>

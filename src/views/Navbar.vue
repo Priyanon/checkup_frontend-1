@@ -1,20 +1,32 @@
 <template>
-<nav class="navbar navbar-light bg-ligth" >
-  <div class="container-fluid">
-    <div>
-    <a class="navbar-brand" href="#">
-      <img src="/logo.png" alt=""  height="60" class="d-inline-block align-text-top">
-     </a>
-    <span>Check Up</span> 
+<nav class="navbar sticky-top navbar-expand-lg bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">Logo</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+   <i class="fas fa-bars"></i>
+  </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto w-100 justify-content-end">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact</a>
+            </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Services</a>
+              </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Other</a>
+                </li>
+        </ul>
+      </div>
     </div>
-    <div class="d-flex">
-      <img src="/home.png" class="nav-icon">
-       <img src="/use.png" class="nav-icon">
-       <img src="/alert.png" class="nav-icon">
-       <img src="/setting.png" class="nav-icon">
-    </div>
-  </div>
-</nav>
+  </nav>
 </template>
 
 <script>
@@ -24,5 +36,29 @@ export default {
 </script>
 
 <style>
+
+
+@import url("https://fonts.googleapis.com/css?family=Titillium+Web");
+* {
+  font-family: "Titillium Web", sans-serif;
+}
+body {
+  height: 2000px;
+}
+.navbar .navbar-brand {
+  font-size: 30px;
+}
+.navbar .nav-item {
+  padding: 10px 20px;
+}
+.navbar .nav-link {
+  font-size: 20px;
+  margin-left: 10px;
+}
+.fa-bars {
+  color: #007bff;
+  font-size: 30px;
+}
+
 
 </style>
