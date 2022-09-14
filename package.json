@@ -16,11 +16,14 @@
     "datatables.net-select": "^1.4.0",
     "datatables.net-vue3": "^1.0.0",
     "jquery": "^3.6.1",
+    "jszip": "^3.10.1",
+    "pdfmake": "^0.2.5",
     "vue": "^3.2.37",
     "vue-axios": "^3.4.1",
     "vue-router": "^4.0.13"
   },
   "devDependencies": {
+    "@types/datatables.net-buttons": "^1.4.7",
     "@vitejs/plugin-vue": "^3.0.1",
     "vite": "^3.0.4"
   }

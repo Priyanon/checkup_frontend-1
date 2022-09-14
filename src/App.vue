@@ -1,10 +1,16 @@
 <script>
-
+import Navbar from './views/Navbar.vue';
+export default {
+components: {
+    Navbar
+  },
+}
 </script>
 
 <template>
 <!-- <Leave/> -->
-  <router-view/>
+<Navbar/>
+<router-view/>
     <!-- <div class="container mt-4">
       <div class="card">
         <div class="card-body">

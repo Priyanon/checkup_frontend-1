@@ -1,81 +1,90 @@
-<!-- <script setup lang="ts">
-import DataTable from 'datatables.net-vue3';
-import axios from 'axios';
-    const columns = [
-      { data: 'รหัสพนักงาน' },
-      { data: 'ชื่อ-สกุล' },
-      { data: 'เลขประจำตัวประชาชน' },
-      { data: 'เพศ' },
-      { data: 'เบอร์โทรศัพท์' },
-      { data: 'E-mail' },
-      { data: 'วัน/เดือน/ปี เกิด' },
-      { data: 'กรุ๊ปเลือด' },
-      { data: 'โรคประจำตัว' },
-      { data: 'เชื้อชาติ' },
-      { data: 'สัญชาติ' },
-      { data: 'ที่อยู่ตามทะเบียนบ้าน' },
-      { data: 'ที่อยู่ปัจจุบัน' },
-      { data: 'วันที่เข้าทำงานวันแรก' },
-    ];
-    
-    </script> -->
-
 <template>
- <DataTable class="display">
-    <thead>
-        <tr>
-            <th>First</th>
-            <th>Second</th>
+    <div class="container">
+      <h1>ข้อมูลสมาชิก</h1>
+      <Datatable class="display" id="userTable">
+        <thead>
+          <tr class="table-info">
+            <th scope="col">รหัสพนักงาน</th>
+            <th scope="col">ชื่อ-สกุล</th>
+            <th scope="col">เลขประจำตัวประชาชน</th>
+            <th scope="col">เพศ</th>
+            <th scope="col">เบอร์โทรศัพท์</th>
+            <th scope="col">E-mail</th>
+            <th scope="col">วัน/เดือน/ปี เกิด</th>
+            <th scope="col">กรุ๊ปเลือด</th>
+            <th scope="col">โรคประจำตัว</th>
+            <th scope="col">เชื้อชาติ</th>
+            <th scope="col">สัญชาติ</th>
+            <th scope="col">ที่อยู่ตามทะเบียนบ้าน</th>
+            <th scope="col">ที่อยู่ปัจจุบัน</th>
+            <th scope="col">วันที่เข้าทำงานวันแรก</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="Employee in posts" :key="Employee.id">
+          <td>{{Employee.Emp_ID}}</td>
+          <td>{{Employee.Emp_Name}}</td>
+          <td>{{Employee.Emp_Identity_ID}}</td>
+          <td>{{Employee.Emp_Sex}}</td>
+          <td>{{Employee.Emp_Birthday}}</td>
+          <td>{{Employee.Emp_bloodtype}}</td>
+          <td>{{Employee.Emp_nationality}}</td>
+          <td>{{Employee.Emp_race}}</td>
+          <td>{{Employee.Emp_sick}}</td>
+          <td>{{Employee.Emp_Mail}}</td>
+          <td>{{Employee.Emp_Phone}}</td>
+          <td>{{Employee.Emp_Address}}</td>
+          <td>{{Employee.Emp_Addressnow}}</td>
+          <td>{{Employee.Emp_IssueDate}}</td>
         </tr>
-    </thead>
-</DataTable>
-</template>
+        </tbody>
+      </Datatable>
+      <p>Total:{{}}</p>
+    </div>
+  </template>
+  
+  <script>
+  import axios from 'axios';
+  // import DataTable from 'datatables.net-vue3';
 
-<script>
-// import DataTable from 'datatables.net-vue3';
-// import axios from 'axios';
-// import $ from "jquery"
-// export default {
-//     data(){
-//         return {
-//             Employee:[]
-//         }
-//     },
-//     methods:{
-//         async getEmployee(){
-//             await axios.get('http://192.168.43.120:3000/employee',this.Employee)
-//             .then((response) => {
-//                 // console.log(response)
-//                 $('#Employeetable').DataTable( {
-//                 data:response.data,
-//                 columns: [
-//                     { data: "Emp_ID" },
-//                     { data: "Emp_Name" },
-//                     { data: "Emp_Identity_ID" },
-//                     { data: "Emp_Birthday" },
-//                     { data: "Emp_Sex" },
-//                     { data: "Emp_Phone" },
-//                     { data: "E-mail" },
-//                     { data: "Emp_bloodtype" },
-//                     { data: "Emp_sick" },
-//                     { data: "Emp_nationality" },
-//                     { data: "Emp_race" },
-//                     { data: "Emp_religion" },
-//                     { data: "Emp_Addresshome" },
-//                     { data: "Emp_Addressnow" },
-//                     { data: "Emp_IssueDate" },
-//                     { data: "pwd" },
-//                 ]
-//         } );
-//             })
-//             .catch(error => console.log(error.response))
-//         },
-//     }
-// }
+  export default {
+    data() {
+      return {
+        posts: []
+      }
+    },
+    mounted() {
+      axios
+        .get('http://192.168.1.37:3000/employee')
+        .then((response) => {
+          this.posts = response.data
+          console.log(response)
+        })
+        .catch((error) => console.log(error.response))
+      }
+  };
+  
+  </script>
+    
+    
+  <!-- <th scope="col">รหัสพนักงาน</th>
+  <th scope="col">ชื่อ-สกุล</th>
+  <th scope="col">เลขประจำตัวประชาชน</th>
+  <th scope="col">เพศ</th>
+  <th scope="col">เบอร์โทรศัพท์</th>
+  <th scope="col">E-mail</th>
+  <th scope="col">วัน/เดือน/ปี เกิด</th>
+  <th scope="col">กรุ๊ปเลือด</th>
+  <th scope="col">โรคประจำตัว</th>
+  <th scope="col">เชื้อชาติ</th>
+  <th scope="col">สัญชาติ</th>
+  <th scope="col">ที่อยู่ตามทะเบียนบ้าน</th>
+  <th scope="col">ที่อยู่ปัจจุบัน</th>
+  <th scope="col">วันที่เข้าทำงานวันแรก</th> 
+  
+   <h1 class="text-canter my-text" id="my-h1">LOLOLOLOL</h1>  
+      <div class="my-container bg-white text-back container" id="app" v-cloak>
+          <input type="text" placeholder="search..." v-on:keyup="showMyText"> 
+  
 
-</script>
-
-<style>
-/* @import 'datatables.net-dt';
-@import 'datatables.net-bs5'; */
-</style>
+      -->

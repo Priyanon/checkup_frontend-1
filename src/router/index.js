@@ -7,9 +7,9 @@ import Leave from "@/views/Leave.vue"
 import Leaveend from "@/views/Leaveend.vue"
 import Attendancestatus from "@/views/Attendancestatus.vue"
 import Attendancestatusnext from "@/views/Attendancestatusnext.vue"
-import main from "@/views/main.vue"
+import Mainadmin from "@/views/Mainadmin.vue"
 import Checkout from "@/views/Checkout.vue"
-import Checkinmonth from "@/views/Checkinmonth.vue"
+import Checkin from "@/views/Checkin.vue"
 import Checkinyear from "@/views/Checkinyear.vue"
 import Calendar from "@/views/Checkinyear.vue"
 import Edituser from "@/views/Edituser.vue"
@@ -66,9 +66,9 @@ const routes = [
         meta:{requiresAuth: false}
     },
     {
-        path: "/main",
-        name:"main",
-        component: main,
+        path: "/mainadmin",
+        name:"Mainadmin",
+        component: Mainadmin,
         meta:{requiresAuth: false}
     },
     {
@@ -78,9 +78,9 @@ const routes = [
         meta:{requiresAuth: false}
     },
     {
-        path: "/checkinmonth",
-        name:"Checkinmonth",
-        component: Checkinmonth,
+        path: "/checkin",
+        name:"Checkin",
+        component: Checkin,
         meta:{requiresAuth: false}
     },
     {

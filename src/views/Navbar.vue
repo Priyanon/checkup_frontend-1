@@ -1,32 +1,20 @@
 <template>
-<nav class="navbar sticky-top navbar-expand-lg bg-dark">
-    <div class="container">
-      <a class="navbar-brand" href="#">Logo</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-   <i class="fas fa-bars"></i>
-  </button>
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto w-100 justify-content-end">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
-          </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Contact</a>
-            </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Services</a>
-              </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Other</a>
-                </li>
-        </ul>
-      </div>
+<nav class="navbar navbar-light bg-info" >
+  <div class="container-fluid">
+    <div>
+    <a class="navbar-brand" href="#">
+      <img src="/img/Logonavbar.png" alt=""   class="Logonavbar">
+     </a>
+     <span>Check Up</span>
     </div>
-  </nav>
+    <div class="d-flex">
+      <img src="/img/Home.png" class="nav-icon" href="/Mainadmin" type="button">
+       <img src="/img/User.png" class="nav-icon" href="#">
+       <img src="/img/Alert.png" class="nav-icon" href="#">
+       <img src="/img/Setting.png" class="nav-icon" href="#">
+    </div>
+  </div>
+</nav>
 </template>
 
 <script>
@@ -36,29 +24,12 @@ export default {
 </script>
 
 <style>
-
-
-@import url("https://fonts.googleapis.com/css?family=Titillium+Web");
-* {
-  font-family: "Titillium Web", sans-serif;
+.Logonavbar{
+  position: absolute;
+  width: 40px;
+  height: 70px;
+  left: 40px;
+  top: 3px;
 }
-body {
-  height: 2000px;
-}
-.navbar .navbar-brand {
-  font-size: 30px;
-}
-.navbar .nav-item {
-  padding: 10px 20px;
-}
-.navbar .nav-link {
-  font-size: 20px;
-  margin-left: 10px;
-}
-.fa-bars {
-  color: #007bff;
-  font-size: 30px;
-}
-
 
 </style>

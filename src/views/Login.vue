@@ -25,7 +25,7 @@ export default {
         // })
         // console.log(response);
       async addLogin() {
-        this.$router.push({name:'main'})
+        this.$router.push({name:'Mainadmin'})
     //     await axios.put('http://192.168.1.37:3000/login', this.Employee).then(function (response) {
     //     if(response.data.message == "ok"){
     //         // localStorage.setItem('token', response.data.user_token);
