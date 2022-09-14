@@ -1,120 +1,246 @@
 <template>
-  <div class="container">
-    <h1>ข้อมูลสมาชิก</h1>
-    <Datatable class="display" id="userTable">
-      <thead>
-        <tr class="table-info">
-          <th scope="col">รหัสพนักงาน</th>
-          <th scope="col">ชื่อ-สกุล</th>
-          <th scope="col">เลขประจำตัวประชาชน</th>
-          <th scope="col">เพศ</th>
-          <th scope="col">เบอร์โทรศัพท์</th>
-          <th scope="col">E-mail</th>
-          <th scope="col">วัน/เดือน/ปี เกิด</th>
-          <th scope="col">กรุ๊ปเลือด</th>
-          <th scope="col">โรคประจำตัว</th>
-          <th scope="col">เชื้อชาติ</th>
-          <th scope="col">สัญชาติ</th>
-          <th scope="col">ที่อยู่ตามทะเบียนบ้าน</th>
-          <th scope="col">ที่อยู่ปัจจุบัน</th>
-          <th scope="col">วันที่เข้าทำงานวันแรก</th>
-        </tr>
-      </thead>
-      <tbody>
-        <!-- <tr v-for="Employee in posts" :key="Employee.id">
-          <td>{{Employee.Emp_ID}}</td>
-          <td>{{Employee.Emp_Name}}</td>
-          <td>{{Employee.Emp_Identity_ID}}</td>
-          <td>{{Employee.Emp_Sex}}</td>
-          <td>{{Employee.Emp_Birthday}}</td>
-          <td>{{Employee.Emp_bloodtype}}</td>
-          <td>{{Employee.Emp_nationality}}</td>
-          <td>{{Employee.Emp_race}}</td>
-          <td>{{Employee.Emp_sick}}</td>
-          <td>{{Employee.Emp_Mail}}</td>
-          <td>{{Employee.Emp_Phone}}</td>
-          <td>{{Employee.Emp_Address}}</td>
-          <td>{{Employee.Emp_Addressnow}}</td>
-          <td>{{Employee.Emp_IssueDate}}</td>
-        </tr> -->
-      </tbody>
-    </Datatable>
-    <p>Total:{{}}</p>
-  </div>
+
+  <div class="smart-forms smart-container wrap-0">
+
+    <div class="form-header header-primary">
+      <div class="frm-row">
+        <div class="colm colm8">
+          <h4><b>SCMS </b>:<span style="font-size:20px;"> Sripatum Campus Management System </span></h4>
+        </div>
+        <div class="colm colm4">
+          <span style="float: right"><img src="images/spu_logo.png" width="80px;"></span>
+        </div>
+      </div>
+
+
+    </div><!-- end .form-header section -->
+
+
+
+
+
+    <form method="post" action="/" id="account2">
+      <div class="form-body  theme-blue">
+
+
+
+        <div class="frm-row">
+
+          <div class="colm colm4">
+
+            <div class="section theme-yellow">
+              <div class="price-box  selected-box">
+                <div class="ribbon-large">
+                  <div class="ribbon-inner">Student..</div>
+                </div>
+                <h4><i class="fa fa-graduation-cap  fa-2x" aria-hidden="true"></i></h4>
+                <h5> นักศึกษา </h5>
+
+                <div class="spacer spacer-t20 spacer-b20"></div>
+                <a href="https://studentscms.spu.ac.th/estudent/estudentlogin1.cfm"
+                  class="button  btn-yellow block pushed expand">Student</a>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="colm colm4">
+
+            <div class="section theme-green ">
+              <div class="price-box  selected-box">
+                <div class="ribbon-large">
+                  <div class="ribbon-inner  refresh-purple">Instructor, Staff</div>
+                </div>
+                <h4><i class="fa fa-id-card-o fa-2x" aria-hidden="true"></i></h4>
+                <h5>อาจารย์, เจ้าหน้าที่ </h5>
+                <div class="spacer spacer-t20 spacer-b20"></div>
+                <a href="https://staffscms.spu.ac.th/scmsmain61_login_instructor.cfm"
+                  class="button btn-green block pushed expand"> Instructor, Staff </a>
+              </div>
+            </div>
+
+          </div>
+
+
+
+
+
+
+          <div class="colm colm4">
+
+            <div class="section theme-black">
+              <div class="price-box  selected-box">
+                <div class="ribbon-large">
+                  <div class="ribbon-inner">Guardian</div>
+                </div>
+                <h4><i class="fa fa-podcast fa-2x" aria-hidden="true"></i></h4>
+                <h5>ผู้ปกครอง</h5>
+                <div class="spacer spacer-t20 spacer-b20"></div>
+                <a href="https://studentscms.spu.ac.th/scmsmain61_login_guardian.cfm"
+                  class="button btn-black block pushed expand">Guardian</a>
+              </div>
+            </div>
+
+          </div>
+
+
+
+
+          <div class="colm colm4">
+
+            <div class="section theme-purple">
+              <div class="price-box selected-box ">
+                <div class="ribbon-large">
+                  <div class="ribbon-inner">Executives </div>
+                </div>
+                <h4><i class="fa fa-pie-chart  fa-2x" aria-hidden="true"></i></h4>
+                <h5>ผู้บริหาร</h5>
+                <div class="spacer spacer-t20 spacer-b20"></div>
+                <a href="https://staffscms.spu.ac.th/scmsmain61_login_executives.cfm"
+                  class="button btn-purple block pushed expand"> Executives</a>
+              </div>
+            </div>
+
+          </div>
+
+
+          <div class="colm colm4">
+            <div class="section theme-blue">
+
+              <div class="price-box selected-box ">
+                <div class="ribbon-large">
+                  <div class="ribbon-inner">BackOffice</div>
+                </div>
+                <h4><i class="fa fa-cubes  fa-2x" aria-hidden="true"></i></h4>
+                <h5> งานบริหาร </h5>
+                <div class="spacer spacer-t20 spacer-b20"></div>
+                <a href="https://staffscms.spu.ac.th/scmsmain61_login_backoffice.cfm"
+                  class="button btn-blue block pushed expand"> BackOffice </a>
+              </div>
+            </div>
+
+          </div>
+
+
+
+
+
+
+        </div><!-- end frm-row section -->
+
+
+
+        <div class="spacer-t10 spacer-b40">
+          <div class="tagline"><span>แจ้งปัญหา SCMS ผ่าน LINE </span></div><!-- .tagline -->
+        </div>
+
+        <div class="frm-row">
+          <div class=" colm colm12">
+
+            <div class="section  align-center">
+
+              <a href="https://lin.ee/uFojAts" target="_blank" class="button btn-social line span-left"> <span><i
+                    class="fa fa-weixin"></i></span> https://lin.ee/uFojAts </a>
+
+
+              <br>
+              <img src="scmsqr.png" alt="Line SCMS" width="200">
+
+            </div><!-- end section -->
+
+          </div>
+        </div><!-- end frm-row section -->
+
+
+
+      </div><!-- end .form-body section -->
+      <div class="form-footer align-right">
+
+        <div class="notification alert-warning">
+          <p>เว็บไซต์นี้เหมาะสำหรับใช้ กับเว็บเบราว์เซอร์ Firefox , <a href="https://staffscms.spu.ac.th/download.html"
+              target="_blank">ดาวโหลดโปรแกรมที่ใช้สำหรับ ระบบ SCMS</a></p>
+          <a href="#" class="close-btn">×</a>
+        </div>
+        <!---<button type="submit" class="button btn-primary">Place Order </button>
+                  <button type="reset" class="button">Cancel Order </button>--->
+      </div><!-- end .form-footer section -->
+    </form>
+
+  </div><!-- end .smart-forms section -->
+
 </template>
 
 <script>
-import axios from 'axios';
-// import DataTable from 'datatables.net-vue3';
-import $ from 'jquery';
 export default {
-  mounted(){
-    
-  },
-  methods: {
-    getUser() {
-      axios
-        .get("http://192.168.1.37:3000/employee")
-        .then((response)=>{
-          $("#userTable").DataTable({
-            data: response.data,
-            posts:[
-              {data:"Emp_ID"},
-              {data:"Emp_Name"},
-              {data:"Emp_Identity_ID"},
-              {data:"Emp_Sex"},
-              {data:"Emp_Birthday"},
-              {data:"Emp_bloodtype"},
-              {data:"Emp_nationality"},
-              {data:"Emp_race"},
-              {data:"Emp_sick"},
-              {data:"Emp_Mail"},
-              {data:"Emp_Phone"},
-              {data:"Emp_Address"},
-              {data:"Emp_Addressnow"},
-              {data:"Emp_IssueDate"},
-            ],
-          });
-        })
-        .catch((error) => console.log(error.response));
-    },
-  },
-};
 
+}
 </script>
-  
-  
-<!-- <th scope="col">รหัสพนักงาน</th>
-<th scope="col">ชื่อ-สกุล</th>
-<th scope="col">เลขประจำตัวประชาชน</th>
-<th scope="col">เพศ</th>
-<th scope="col">เบอร์โทรศัพท์</th>
-<th scope="col">E-mail</th>
-<th scope="col">วัน/เดือน/ปี เกิด</th>
-<th scope="col">กรุ๊ปเลือด</th>
-<th scope="col">โรคประจำตัว</th>
-<th scope="col">เชื้อชาติ</th>
-<th scope="col">สัญชาติ</th>
-<th scope="col">ที่อยู่ตามทะเบียนบ้าน</th>
-<th scope="col">ที่อยู่ปัจจุบัน</th>
-<th scope="col">วันที่เข้าทำงานวันแรก</th> 
 
- <h1 class="text-canter my-text" id="my-h1">LOLOLOLOL</h1>  
-    <div class="my-container bg-white text-back container" id="app" v-cloak>
-        <input type="text" placeholder="search..." v-on:keyup="showMyText"> 
-
-  data() {
-    return {
-      posts: []
-    }
-  },
-  mounted() {
-    axios
-      .get('http://192.168.1.37:3000/employee')
-      .then((response) => {
-        this.posts = response.data
-        console.log(response)
-      })
-      .catch((error) => console.log(response.error))
-    }
-    -->
+<style>
+.smart-wrap {
+  padding: 0 20px;
+}
+.smart-container {
+  position: relative;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -o-border-radius: 0;
+  border-radius: 0;
+}
+.wrap-0 {
+  max-width: 952px;
+}
+.smart-container {
+  background: #fff;
+  margin: 10px auto;
+  -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.65);
+  -moz-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.65);
+  -o-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.65);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.65);
+  -webkit-border-radius: 5px 5px 0 0;
+  -moz-border-radius: 5px 5px 0 0;
+  -o-border-radius: 5px 5px 0 0;
+  border-radius: 5px 5px 0 0;
+}
+.smart-forms {
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  line-height: 1.231;
+  font-weight: 400;
+  font-size: 14px;
+  color: #34495E;
+}
+.smart-forms, .smart-forms * {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.smart-forms .header-primary {
+  background-color: #1ABC9C;
+  border-top: 1px solid #23E0BA;
+  border-bottom: 5px solid #16A085;
+  background-color: #cc0079;
+  border-top: 1px solid #ff0097;
+  border-bottom: 5px solid #be0071;
+}
+.smart-forms .form-header {
+  overflow: hidden;
+  position: relative;
+  padding: 15px 30px;
+  -webkit-border-radius: 5px 5px 0 0;
+  -moz-border-radius: 5px 5px 0 0;
+  -o-border-radius: 5px 5px 0 0;
+  border-radius: 5px 5px 0 0;
+}
+.smart-forms, .smart-forms * {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.smart-forms {
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  line-height: 1.231;
+  font-weight: 400;
+  font-size: 14px;
+  color: #34495E;
+}
+</style>

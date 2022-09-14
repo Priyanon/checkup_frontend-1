@@ -1,23 +1,23 @@
 <template>
-    <div class="container">
+    <div class="container table-responsive">
       <h1>ข้อมูลสมาชิก</h1>
-      <Datatable class="display" id="userTable">
+      <Datatable class="display " id="userTable">
         <thead>
           <tr class="table-info">
             <th scope="col">รหัสพนักงาน</th>
             <th scope="col">ชื่อ-สกุล</th>
             <th scope="col">เลขประจำตัวประชาชน</th>
-            <th scope="col">เพศ</th>
+            <!-- <th scope="col">เพศ</th> -->
             <th scope="col">เบอร์โทรศัพท์</th>
             <th scope="col">E-mail</th>
-            <th scope="col">วัน/เดือน/ปี เกิด</th>
+            <!-- <th scope="col">วัน/เดือน/ปี เกิด</th>
             <th scope="col">กรุ๊ปเลือด</th>
             <th scope="col">โรคประจำตัว</th>
             <th scope="col">เชื้อชาติ</th>
             <th scope="col">สัญชาติ</th>
             <th scope="col">ที่อยู่ตามทะเบียนบ้าน</th>
             <th scope="col">ที่อยู่ปัจจุบัน</th>
-            <th scope="col">วันที่เข้าทำงานวันแรก</th>
+            <th scope="col">วันที่เข้าทำงานวันแรก</th> -->
           </tr>
         </thead>
         <tbody>
@@ -25,17 +25,17 @@
           <td>{{Employee.Emp_ID}}</td>
           <td>{{Employee.Emp_Name}}</td>
           <td>{{Employee.Emp_Identity_ID}}</td>
-          <td>{{Employee.Emp_Sex}}</td>
-          <td>{{Employee.Emp_Birthday}}</td>
+          <!-- <td>{{Employee.Emp_Sex}}</td> -->
+          <!-- <td>{{Employee.Emp_Birthday}}</td>
           <td>{{Employee.Emp_bloodtype}}</td>
           <td>{{Employee.Emp_nationality}}</td>
           <td>{{Employee.Emp_race}}</td>
-          <td>{{Employee.Emp_sick}}</td>
-          <td>{{Employee.Emp_Mail}}</td>
+          <td>{{Employee.Emp_sick}}</td> -->
           <td>{{Employee.Emp_Phone}}</td>
-          <td>{{Employee.Emp_Address}}</td>
+          <td>{{Employee.Emp_Mail}}</td>
+          <!-- <td>{{Employee.Emp_Address}}</td>
           <td>{{Employee.Emp_Addressnow}}</td>
-          <td>{{Employee.Emp_IssueDate}}</td>
+          <td>{{Employee.Emp_IssueDate}}</td> -->
         </tr>
         </tbody>
       </Datatable>

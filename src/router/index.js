@@ -5,8 +5,8 @@ import Navbar from "@/views/Navbar.vue"
 import Regist from "@/views/Regist.vue"
 import Leave from "@/views/Leave.vue"
 import Leaveend from "@/views/Leaveend.vue"
-import Attendancestatus from "@/views/Attendancestatus.vue"
-import Attendancestatusnext from "@/views/Attendancestatusnext.vue"
+import Status from "@/views/Status.vue"
+import Status_next from "@/views/Status_next.vue"
 import Mainadmin from "@/views/Mainadmin.vue"
 import Checkout from "@/views/Checkout.vue"
 import Checkin from "@/views/Checkin.vue"
@@ -14,6 +14,11 @@ import Checkinyear from "@/views/Checkinyear.vue"
 import Calendar from "@/views/Checkinyear.vue"
 import Edituser from "@/views/Edituser.vue"
 import Test from "@/views/Test.vue"
+import Status_coo from "@/views/Status_coo.vue"
+import Status_mkt from "@/views/Status_mkt.vue"
+import Status_md from "@/views/Status_md.vue"
+import Status_dev from "@/views/Status_dev.vue"
+import Status_csr from "@/views/Status_csr.vue"
 import axios from 'axios';
 
 const routes = [
@@ -54,15 +59,15 @@ const routes = [
         meta:{requiresAuth: false}
     },
     {
-        path: "/attendancestatus",
-        name:"Attendancestatus",
-        component: Attendancestatus,
+        path: "/status",
+        name:"Status",
+        component: Status,
         meta:{requiresAuth: false}
     },
     {
-        path: "/attendancestatusnext",
-        name:"Attendancestatusnext",
-        component: Attendancestatusnext,
+        path: "/status_next",
+        name:"Status_next",
+        component: Status_next,
         meta:{requiresAuth: false}
     },
     {
@@ -105,6 +110,36 @@ const routes = [
         path: "/test",
         name:"Test",
         component: Test,
+        meta:{requiresAuth: false}
+    },
+    {
+        path: "/status_csr",
+        name:"Status_csr",
+        component: Status_csr,
+        meta:{requiresAuth: false}
+    },
+    {
+        path: "/status_dev",
+        name:"Status_dev",
+        component: Status_dev,
+        meta:{requiresAuth: false}
+    },
+    {
+        path: "/status_md",
+        name:"Status_md",
+        component: Status_md,
+        meta:{requiresAuth: false}
+    },
+    {
+        path: "/status_mkt",
+        name:"Status_mkt",
+        component: Status_mkt,
+        meta:{requiresAuth: false}
+    },
+    {
+        path: "/status_coo",
+        name:"Status_coo",
+        component: Status_coo,
         meta:{requiresAuth: false}
     },
 ]
