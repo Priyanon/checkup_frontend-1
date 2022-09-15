@@ -2,9 +2,9 @@
     <div align="center">
         <h5>วีรภัทร เอี๊ยบกงไซ</h5>
         <div class="d-flex justify-content-between">
-                    <a href="#" class="previous round">&#8249;</a>
-                    <a href="#" class="next round">&#8250;</a>
-    </div>
+            <router-link to="/Mainadmin">&#8249;</router-link>
+            <router-link to="/Checkin">&#8250;</router-link>
+        </div>
         <div class="year" align="center" >
             <label for="leave" style="width: 20px; height: 30px;">ปี</label>
             <select  name="year" required style="width: 72px; height: 22px;" @change="test()">

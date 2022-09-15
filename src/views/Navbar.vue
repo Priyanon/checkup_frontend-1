@@ -2,15 +2,15 @@
   <nav class="navbar navbar-light bg-white" >
     <div class="container-fluid">
       <div>
-        <a class="navbar-brand" href="#">
-          <img src="/img/Logonavbar.png" alt=""   class="Logonavbar">
+        <a class="navbar-brand">
+          <img src="/img/Logonavbar.png" class="Logonavbar">
         </a>
       </div>
       <div class="d-flex">
-        <img src="/img/Home.png" class="nav-icon1" href="/Mainadmin" type="button">
-        <img src="/img/User.png" class="nav-icon2" href="#">
-        <img src="/img/Alert.png" class="nav-icon3" href="#">
-        <img src="/img/Setting.png" class="nav-icon4" href="#">
+        <router-link to="/Mainadmin"><img src="/img/Home.png" class="nav-icon1"  type="button"></router-link>
+        <router-link to="/users"><img src="/img/User.png" class="nav-icon2" ></router-link>
+        <router-link to="/users"><img src="/img/Alert.png" class="nav-icon3" ></router-link>
+        <router-link to="/users"><img src="/img/Setting.png" class="nav-icon4"></router-link>
       </div>
     </div>
   </nav>

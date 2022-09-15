@@ -3,9 +3,7 @@
         <div style="margin-top: 50px;"  class="text-center">
             <h1>สถานะการเข้าทำงาน</h1>
         </div>
-
-        <a href="#" class="previous round">&#8249;</a>
-
+        <router-link to="/Status">&#8249;</router-link>
         <div class="text-center">
             <table class="table table-bordered">
               <thead class="thead-dark">

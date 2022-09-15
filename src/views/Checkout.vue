@@ -1,6 +1,9 @@
 <template>
   <div align="center" >
       <h5 >วีรภัทร เอี๊ยบกงไซ</h5>
+    <div class="d-flex justify-content-between">
+      <router-link to="/Checkin">&#8249;</router-link>
+    </div>
       <div  >
           <label for="leave" align="center" 
                   style="width: 20px; height: 30px;">ปี</label>

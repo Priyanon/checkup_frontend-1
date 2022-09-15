@@ -1,7 +1,11 @@
 <template>
   <div align="center" >
       <h5 >วีรภัทร เอี๊ยบกงไซ</h5>
-      <div  >
+        <div class="d-flex justify-content-between">
+            <router-link to="/Checkinyear">&#8249;</router-link>
+            <router-link to="/Checkout">&#8250;</router-link>
+        </div>
+        <div>
           <label for="leave" align="center" 
                   style="width: 20px; height: 30px;">ปี</label>
           <select  name="year" 
@@ -21,7 +25,7 @@
               <option value="พฤศจิกายน">พฤศจิกายน</option>
               <option value="ธันวาคม">ธันวาคม</option>
           </select>
-      </div>
+        </div>
 
       <table class="table table-bordered" >
           <thead>
@@ -231,7 +235,8 @@
                   </tr>
           </thead>
           <tbody>
-              <tr v-for="(data, index) in ListCheckIn" :key="index">
+                <tr>
+              <!-- <tr v-for="(data, index) in ListCheckIn" :key="index">
                   <td>{{data.day}}</td>
                   <td>{{data.fname + " " + data.lname}}</td>
                   <td>{{data.time}}</td>
@@ -245,7 +250,7 @@
                   <td></td>
                   <td></td>
                   <td></td>
-                  <td></td>
+                  <td></td> -->
               </tr>
           </tbody>
       </table>

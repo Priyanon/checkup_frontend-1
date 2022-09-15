@@ -52,7 +52,7 @@ export default {
               <div class="col-Lg-4"></div>
               <div class="col-Lg-4" align="center">
                 <br />
-                <h4 style="font-family:kanit;" >สมัครสมาชิก</h4>
+                <h4 style="font-family:kanit;" >เพิ่มข้อมูลผู้ใช้งาน</h4>
               </div>
               <!-- <input
                 name="Admin_level"
@@ -61,10 +61,9 @@ export default {
                 value="2"
               /> -->
             </div>
-            <div class="form-group">
+            <!-- <div class="form-group">
               <div class="col-Lg-2 " align="center">รหัสพนักงาน : </div>
               <div class="col-Lg-5" align="center">
-                <!-- style="font-family:kanit" -->
                 <input 
                   v-model="this.Employee.Emp_ID" 
                   type="text"
@@ -75,9 +74,8 @@ export default {
                   pattern="^[a-zA-Z0-9]+$"
                   title="ภาษาอังกฤษหรือตัวเลขเท่านั้น"
                   />
-                  <!--กรอกข้อมูลผิดส่งไม่ได้-->
               </div>
-            </div>
+            </div> -->
             <div class="form-group">
               <div class="col-Lg-2" align="center">รหัสผ่าน :</div>
               <div class="col-Lg-5" align="center">
@@ -87,7 +85,7 @@ export default {
                   type="password"
                   required
                   class="form-control"
-                  placeholder="password"
+                  placeholder="ใช้ได้เฉพาะ a-z,A-Z,0-9"
                   pattern="^[a-zA-Z0-9]+$"
                 />
                 <!-- @change="test()" -->
@@ -144,7 +142,7 @@ export default {
                   type="text"
                   required
                   class="form-control"
-                  placeholder="เลขประจำตัวประชาชน"
+                  placeholder="เลขประจำตัวประชาชน 13 หลัก"
                   pattern="[0-9]{13}"
                 />
                 <!-- ใส่ได้เฉพาะตัวเลข -->
@@ -262,7 +260,7 @@ export default {
                   v-model="this.Employee.Emp_Mail"
                   type="email"
                   class="form-control"
-                  placeholder="อีเมล์"
+                  placeholder="E-mail"
                   required
                 />
               </div>
@@ -276,7 +274,7 @@ export default {
                   v-model="this.Employee.Emp_Phone"
                   type="text"
                   class="form-control"
-                  placeholder="เบอร์โทร"
+                  placeholder="เบอร์โทรศัพท์"
                   required
                 />
               </div>

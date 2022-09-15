@@ -3,7 +3,6 @@
     <main class="justify-content-center">
       <form>
         <img src="/img/Profile.png" class="Profile justify-content-center">
-
         <div class="row">
           <div col-6>
             <button style="font-family:kanit; margin-left: 30px !important;"
