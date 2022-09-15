@@ -19,6 +19,7 @@ import Status_mkt from "@/views/Status_mkt.vue"
 import Status_md from "@/views/Status_md.vue"
 import Status_dev from "@/views/Status_dev.vue"
 import Status_csr from "@/views/Status_csr.vue"
+import Upscan from "@/views/Upscan.vue"
 import axios from 'axios';
 
 const routes = [
@@ -140,6 +141,12 @@ const routes = [
         path: "/status_coo",
         name:"Status_coo",
         component: Status_coo,
+        meta:{requiresAuth: false}
+    },
+    {
+        path: "/upscan",
+        name:"Upscan",
+        component: Upscan,
         meta:{requiresAuth: false}
     },
 ]
