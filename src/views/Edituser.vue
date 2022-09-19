@@ -1,16 +1,22 @@
 <template>
-    <div class="container table-responsive">
-      <h1>ข้อมูลสมาชิก</h1>
-      <Datatable class="display " id="userTable">
-        <thead>
-          <tr class="table-info">
-            <th scope="col">รหัสพนักงาน</th>
-            <th scope="col">ชื่อ-สกุล</th>
-            <th scope="col">เลขประจำตัวประชาชน</th>
-            <!-- <th scope="col">เพศ</th> -->
-            <th scope="col">เบอร์โทรศัพท์</th>
-            <th scope="col">E-mail</th>
-            <!-- <th scope="col">วัน/เดือน/ปี เกิด</th>
+  <div Style="margin-top:30px;" class="container table-responsive text-center">
+    <h1>ข้อมูลสมาชิก</h1>
+    <div class="btn-group" role="group" aria-label="Default button group">
+      <button type="button" class="btn btn-outline-dark">เพิ่ม</button>
+      <button type="button" class="btn btn-outline-dark">แก้ไข</button>
+      <button type="button" class="btn btn-outline-dark">ลบ</button>
+    </div>
+    <br>
+    <Datatable class="table table-bordered container table-responsive text-center">
+      <thead>
+        <tr class="table-info">
+          <th scope="col">รหัสพนักงาน</th>
+          <th scope="col">ชื่อ-สกุล</th>
+          <th scope="col">เลขประจำตัวประชาชน</th>
+          <!-- <th scope="col">เพศ</th> -->
+          <th scope="col">เบอร์โทรศัพท์</th>
+          <th scope="col">E-mail</th>
+          <!-- <th scope="col">วัน/เดือน/ปี เกิด</th>
             <th scope="col">กรุ๊ปเลือด</th>
             <th scope="col">โรคประจำตัว</th>
             <th scope="col">เชื้อชาติ</th>
@@ -18,10 +24,10 @@
             <th scope="col">ที่อยู่ตามทะเบียนบ้าน</th>
             <th scope="col">ที่อยู่ปัจจุบัน</th>
             <th scope="col">วันที่เข้าทำงานวันแรก</th> -->
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="Employee in posts" :key="Employee.id">
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="Employee in posts" :key="Employee.id">
           <td>{{Employee.Emp_ID}}</td>
           <td>{{Employee.Emp_Name}}</td>
           <td>{{Employee.Emp_Identity_ID}}</td>
@@ -37,34 +43,34 @@
           <td>{{Employee.Emp_Addressnow}}</td>
           <td>{{Employee.Emp_IssueDate}}</td> -->
         </tr>
-        </tbody>
-      </Datatable>
-      <p>Total:{{}}</p>
-    </div>
-  </template>
+      </tbody>
+    </Datatable>
+    <p>Total:{{}}</p>
+  </div>
+</template>
   
-  <script>
-  import axios from 'axios';
-  // import DataTable from 'datatables.net-vue3';
+<script>
+import axios from 'axios';
+// import DataTable from 'datatables.net-vue3';
 
-  export default {
-    data() {
-      return {
-        posts: []
-      }
-    },
-    mounted() {
-      axios
-        .get('http://192.168.1.37:3000/employee')
-        .then((response) => {
-          this.posts = response.data
-          console.log(response)
-        })
-        .catch((error) => console.log(error.response))
-      }
-  };
-  
-  </script>
+export default {
+  data() {
+    return {
+      posts: []
+    }
+  },
+  mounted() {
+    axios
+      .get('http://192.168.1.37:3000/employee')
+      .then((response) => {
+        this.posts = response.data
+        console.log(response)
+      })
+      .catch((error) => console.log(error.response))
+  }
+};
+
+</script>
     
     
   <!-- <th scope="col">รหัสพนักงาน</th>

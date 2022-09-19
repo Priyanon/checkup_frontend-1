@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-      <div style="margin-top: 50px;" class="text-center">
+      <div class="text-center">
           <h1>สถานะการเข้าทำงาน</h1>
           
           <div class="d-flex justify-content-between">
@@ -8,7 +8,7 @@
           </div>     
         
       </div>
-      <div>
+      <div style="margin-top:20px;">
           <table class="table tabel-striped table-bordered">
             <thead class="thead-dark">  
               <tr>

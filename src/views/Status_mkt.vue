@@ -1,10 +1,10 @@
 <template>
-    <div>
-        <div style="margin-top: 50px;"  class="text-center">
+    <div class="container">
+        <div class="text-center">
             <h1>สถานะการเข้าทำงาน</h1>
         </div>
         <router-link to="/Status">&#8249;</router-link>
-        <div class="text-center">
+        <div class="text-center" style="margin-top:20px;">
             <table class="table table-bordered">
               <thead class="thead-dark">
                 <tr>

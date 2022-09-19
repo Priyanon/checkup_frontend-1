@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <div style="margin-top: 50px;"  class="text-center">
+    <div class="container">
+        <div class="text-center">
             <h1>สถานะการเข้าทำงาน</h1>
         </div>
         <router-link to="/Status">&#8249;</router-link>
