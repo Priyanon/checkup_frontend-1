@@ -8,8 +8,8 @@
       </div>
       <div class="d-flex">
         <router-link to="/Mainadmin"><img src="/img/Home.png" class="nav-icon1"  type="button"></router-link>
-        <router-link to="/users"><img src="/img/User.png" class="nav-icon2" ></router-link>
-        <router-link to="/users"><img src="/img/Alert.png" class="nav-icon3" ></router-link>
+        <router-link to="/User"><img src="/img/User.png" class="nav-icon2" ></router-link>
+        <router-link to="/Alert"><img src="/img/Alert.png" class="nav-icon3" ></router-link>
         <router-link to="/Setting"><img src="/img/Setting.png" class="nav-icon4"></router-link>
       </div>
     </div>

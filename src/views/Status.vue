@@ -4,7 +4,7 @@
           <h1>สถานะการเข้าทำงาน</h1>
           
           <div class="d-flex justify-content-between">
-          <router-link to="/Mainadmin">&#8249;</router-link>
+          <router-link to="/Mainadmin"><img src="/img/ArrowLeft.png" class="nav-icon1"  type="button"></router-link>
           </div>     
         
       </div>

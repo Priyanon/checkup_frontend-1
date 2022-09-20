@@ -2,8 +2,8 @@
     <div align="center">
         <h5>วีรภัทร เอี๊ยบกงไซ</h5>
         <div class="d-flex justify-content-between">
-            <router-link to="/Mainadmin">&#8249;</router-link>
-            <router-link to="/Checkin">&#8250;</router-link>
+            <router-link to="/Mainadmin"><img src="/img/ArrowLeft.png" class="nav-icon1"  type="button"></router-link>
+            <router-link to="/Checkin"><img src="/img/ArrowR.png" class="nav-icon1"  type="button"></router-link>
         </div>
         <div class="year" align="center" >
             <label for="leave" style="width: 20px; height: 30px;">ปี</label>

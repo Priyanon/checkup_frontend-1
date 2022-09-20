@@ -2,12 +2,12 @@
   <div align="center" >
       <h5 >วีรภัทร เอี๊ยบกงไซ</h5>
         <div class="d-flex justify-content-between">
-            <router-link to="/Checkinyear">&#8249;</router-link>
-            <router-link to="/Checkout">&#8250;</router-link>
+            <router-link to="/Checkinyear"><img src="/img/ArrowLeft.png" class="nav-icon1"  type="button"></router-link>
+            <router-link to="/Checkout"><img src="/img/ArrowR.png" class="nav-icon1"  type="button"></router-link>
         </div>
         <div>
           <label for="leave" align="center" 
-                  style="width: 20px; height: 30px;">ปี</label>
+                  style="width: 20px; height: 30px;">เดือน</label>
           <select  name="year" 
                    required 
                    style="width: 100px; 

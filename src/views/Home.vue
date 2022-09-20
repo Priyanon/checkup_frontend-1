@@ -12,7 +12,7 @@
 
                 <h5> พนักงาน </h5>
                 <div class="spacer spacer-t20 spacer-b20"></div>
-                <a class="btn btn-warning" href="https://studentscms.spu.ac.th/estudent/estudentlogin1.cfm"
+                <a class="btn btn-warning" href=""
                   role="button">Employee</a>
               </div>
             </div>
@@ -26,9 +26,8 @@
                 </div>
                 <h5>เจ้าหน้าที่ </h5>
                 <div class="spacer spacer-t20 spacer-b20"></div>
-                <a class="btn btn-info" href="https://staffscms.spu.ac.th/scmsmain61_login_instructor.cfm"
-                  role="button">
-                  Admin</a>
+                <router-link to="/login" class="btn btn-info">Admin</router-link>
+                  
               </div>
             </div>
           </div>
@@ -41,7 +40,7 @@
                 </div>
                 <h5>ผู้บริหาร</h5>
                 <a class="btn btn-warning " id="button3"
-                  href="https://staffscms.spu.ac.th/scmsmain61_login_executives.cfm" role="button">Executives</a>
+                   role="button">Executives</a>
                 <div class="spacer spacer-t20 spacer-b20"></div>
               </div>
             </div>
@@ -57,7 +56,7 @@
                 <h4></h4>
                 <h5> จดจำใบหน้า </h5>
                 <div class="spacer spacer-t20 spacer-b20"></div>
-                <a class="btn btn-warning" href="https://staffscms.spu.ac.th/scmsmain61_login_backoffice.cfm"
+                <a class="btn btn-warning" 
                   role="button">Face ID</a>
               </div>
             </div>

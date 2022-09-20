@@ -1,12 +1,12 @@
 import { createRouter, createWebHistory } from "vue-router"
-// import Home from "@/views/Home.vue"
+import Home from "@/views/Home.vue"
 import Login from "@/views/Login.vue"
 import Navbar from "@/views/Navbar.vue"
 import Regist from "@/views/Regist.vue"
 import Leave from "@/views/Leave.vue"
 import Leaveend from "@/views/Leaveend.vue"
 import Status from "@/views/Status.vue"
-import Status_next from "@/views/Status_next.vue"
+import Alert from "@/views/Alert.vue"
 import Mainadmin from "@/views/Mainadmin.vue"
 import Checkout from "@/views/Checkout.vue"
 import Checkin from "@/views/Checkin.vue"
@@ -26,14 +26,14 @@ import Setting from "@/views/Setting.vue"
 import axios from 'axios';
 
 const routes = [
-    // {
-    //     path: "/",
-    //     name:"Home",
-    //     component: Home,
-    //     meta:{requiresAuth: true}
-    // },
     {
         path: "/",
+        name:"Home",
+        component: Home,
+        meta:{requiresAuth: false}
+    },
+    {
+        path: "/login",
         name:"Login",
         component: Login,
         meta:{requiresAuth: false}
@@ -69,9 +69,9 @@ const routes = [
         meta:{requiresAuth: false}
     },
     {
-        path: "/status_next",
-        name:"Status_next",
-        component: Status_next,
+        path: "/alert",
+        name:"Alert",
+        component: Alert,
         meta:{requiresAuth: false}
     },
     {
