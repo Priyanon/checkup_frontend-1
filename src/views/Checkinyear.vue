@@ -1,7 +1,8 @@
 <template>
+    <div class="body">
     <div align="center">
-        <h5>วีรภัทร เอี๊ยบกงไซ</h5>
-        <div class="d-flex justify-content-between">
+        <h4>วีรภัทร เอี๊ยบกงไซ</h4>
+        <div class="d-flex justify-content-between " style="height: 30px;">
             <router-link to="/Mainadmin"><img src="/img/ArrowLeft.png" class="nav-icon1"  type="button"></router-link>
             <router-link to="/Checkin"><img src="/img/ArrowR.png" class="nav-icon1"  type="button"></router-link>
         </div>
@@ -16,7 +17,7 @@
 
         <table class="table table-bordered" >
             <thead>
-                <tr class="table-info" align="center">
+                <tr  bgcolor="#A6E0FA" align="center">
                     <th scope="col" rowspan="2" style="padding-bottom:25px;">เดือน</th>
                     <th scope="col" colspan="3">วันทำงาน</th>
                     <th scope="col" colspan="2">วันหยุด</th>
@@ -24,7 +25,7 @@
                     <th scope="col" rowspan="2" style="padding-bottom:25px;">มาสาย</th>
                     <th scope="col" rowspan="2" style="padding-bottom:25px;">ขาด</th>  
                 </tr>
-                <tr align="center" border="3" class="table-info">
+                <tr  bgcolor="#A6E0FA" align="center" border="3" >
                         <td>ปกติ</td>
                         <td>OT</td>
                         <td>อื่นๆ</td>
@@ -226,6 +227,7 @@
         </table>
         <p>{{}}</p>
     </div>
+</div>
 </template>
     
 <script>
@@ -259,5 +261,14 @@ export default {
 .year {
     height: 30px; 
     width: 300px;
+    font-family:kanit;
 }
+.body {    
+    padding-top: 30px;
+    margin-left: 100px;
+    margin-right: 100px;
+    font-family:kanit;
+}
+    
 </style>
+

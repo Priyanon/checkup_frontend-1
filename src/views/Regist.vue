@@ -34,7 +34,6 @@ export default {
             await axios.post('http://192.168.1.37:3000/employee',this.Employee)
             .then(function(response){
               alert('insert successfully! : ' + response)
-              
             })
         },
         // เพิ่ม error
@@ -47,7 +46,7 @@ export default {
 <template>
 <div class="container">
       <div class="row">
-        <div >
+        <div>
             <div class="form-group">
               <div class="col-Lg-4"></div>
               <div class="col-Lg-4" align="center">
@@ -272,7 +271,7 @@ export default {
                 <input
                   style="width:500px;"
                   v-model="this.Employee.Emp_Phone"
-                  type="text"
+                  type="tel"
                   class="form-control"
                   placeholder="เบอร์โทรศัพท์"
                   required

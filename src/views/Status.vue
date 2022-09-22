@@ -3,55 +3,143 @@
       <div class="text-center">
           <h1>สถานะการเข้าทำงาน</h1>
           
-          <div class="d-flex justify-content-between">
+          <div class="d-flex">
           <router-link to="/Mainadmin"><img src="/img/ArrowLeft.png" class="nav-icon1"  type="button"></router-link>
           </div>     
         
       </div>
-      <div style="margin-top:20px;">
+      <div style="margin-top:20px;"  class="text-center">
           <table class="table tabel-striped table-bordered">
-            <thead class="thead-dark">  
+            <thead class="thead-dark" style="">  
               <tr>
                 <th>ลำดับ</th>
-                <th>ชื่อแผนก</th>
-                <th>จำนวน</th>
-                <th>หมายเหตุ</th>
+                <th>ชื่อ-นามสกุล </th>
+                <th>แผนก</th>
+                <th>สถานะ</th>
+                <th>เวลา</th>
               </tr>
 
               <tr>
-                <th>1</th>
-                <th><router-link to="/Status_md">Founder & Managing Director</router-link> </th>
-                <th>1</th>
-                <th></th>
+                <td>1</td>
+                <td>Thanawat Temchitaree</td>
+                <td>Founder & Managing Director</td>
+                <td></td>
+                <td></td>
               </tr>
 
               <tr>
-                <th>2</th>
-                <th><router-link to="/Status_coo">Founder & Chief Operating Officer</router-link></th>
-                <th>1</th>
-                <th></th>
+                <td>2</td>
+                <td>Wichai Shinnarong</td>
+                <td>Founder & Chief Operating Officer</td>
+                <td></td>
+                <td></td>
               </tr>
 
               <tr>
-                <th>3</th>
-                <th><router-link to="/Status_dev">Software Developer</router-link></th>
-                <th>5</th>
-                <th></th>
+                <td>3</td>
+                <td>Pongsakorn Phophool</td>
+                <td>Software Developer</td>
+                <td></td>
+                <td></td>
               </tr>
 
               <tr>
-                <th>4</th>
-                <th><router-link to="/Status_mkt">Markting</router-link></th>
-                <th>4</th>
-                <th></th>
+                <td>4</td>
+                <td>Chachai Netso</td>
+                <td>Software Developer</td>
+                <td></td>
+                <td></td>
               </tr>
 
               <tr>
-                <th>5</th>
-                <th><router-link to="/Status_csr">Customer Service</router-link></th>
-                <th>4</th>
-                <th></th>
+                <td>5</td>
+                <td>Suppanath Sattayarath</td>
+                <td>Software Developer</td>
+                <td></td>
+                <td></td>
               </tr>
+
+              <tr>
+                <td>6</td>
+                <td>Wiruyut Purathaka</td>
+                <td>Software Developer</td>
+                <td></td>
+                <td></td>
+
+              </tr>
+
+              <tr>
+                <td>7</td>
+                <td>Theerasak Putklang</td>
+                <td>Software Developer</td>
+                <td></td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>8</td>
+                <td>Jirarat Kaenamkaew</td>
+                <td>Markting</td>
+                <td></td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>9</td>
+                <td>Anucha Thonglor</td>
+                <td>Markting</td>
+                <td></td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>10</td>
+                <td>Sirikarnjana Sukkasem</td>
+                <td>Markting</td>
+                <td></td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>11</td>
+                <td>Sitar Na Talang</td>
+                <td>Markting</td>
+                <td></td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>12</td>
+                <td>Sukanya Wongtho</td>
+                <td>Customer Service</td>
+                <td></td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>13</td>
+                <td>Natthanicha Piansmer</td>
+                <td>Customer Service</td>
+                <td></td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>14</td>
+                <td>Ratchadaporn Seehawat</td>
+                <td>Customer Service</td>
+                <td></td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>15</td>
+                <td>Phatcharee Puadchoo</td>
+                <td>Customer Service</td>
+                <td></td>
+                <td></td>
+              </tr>
+            
             </thead>
           </table>
       </div>

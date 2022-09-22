@@ -1,12 +1,16 @@
 <template>
   <div Style="margin-top:30px;" class="container table-responsive text-center">
+    
     <h1>ข้อมูลสมาชิก</h1>
+    <br>
     <div class="btn-group" role="group" aria-label="Default button group">
-      <button type="button" class="btn btn-outline-dark">เพิ่ม</button>
+      <button type="button" class="btn btn-outline-dark">
+        <router-link to="/Regist">เพิ่ม</router-link>
+      </button>
       <button type="button" class="btn btn-outline-dark">แก้ไข</button>
       <button type="button" class="btn btn-outline-dark">ลบ</button>
     </div>
-    <br>
+    <br><br>
     <Datatable class="table table-bordered container table-responsive text-center">
       <thead>
         <tr class="table-info">

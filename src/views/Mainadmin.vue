@@ -39,7 +39,7 @@
           <div>
             <button style="font-family:kanit;" 
                     class="w-40 btn btn-outline-dark btn2 col-3"
-                    @click="addtoRegist">
+                    @click="addtoEdituser">
               <img src="/img/User.png" width="20" height="20" style="margin-right:30px;">
               <span>เพิ่มข้อมูลผู้ใช้งาน</span>
             </button>
@@ -70,8 +70,8 @@ export default {
     addtoLeave() {
       this.$router.push({name:'Leave'})
     },
-    addtoRegist() {
-      this.$router.push({name:'Regist'})
+    addtoEdituser() {
+      this.$router.push({name:'Edituser'})
     },
     addtoUpscan() {
       this.$router.push({name:'Upscan'})

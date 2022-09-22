@@ -29,15 +29,17 @@
 
                     <div class="s2">
                         <button
-                        style="font-size: 20px!important;
-                        margin-top:25px;"
-                        class="w-40 btn btn-outline-dark col-md-3">
-                        <img src="/img/logout.png" 
-                        width="40" 
-                        height="40" 
-                        style="margin-right:25px;">
-                        <span style="margin-right:25px;">ออกจากระบบ</span>
-                        </button>
+                            style="font-size: 20px!important;
+                            margin-top:25px;"
+                            class="w-40 btn btn-outline-dark col-md-3">
+                            <router-link to="/Login">
+                            <img src="/img/logout.png" 
+                            width="40" 
+                            height="40" 
+                            style="margin-right:25px;">
+                            <span style="margin-right:25px;">ออกจากระบบ</span>
+                            </router-link>
+                        </button> 
                     </div>
                 </div>
                 </form>

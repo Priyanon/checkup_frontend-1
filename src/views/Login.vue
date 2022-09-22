@@ -51,26 +51,16 @@ export default {
         <form>
             <img src="/img/Logo.png" class="Logo">
 
-            <!-- <img class="mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> -->
+            
             <h4 class="h4 mb-3 fw-normal">Check Up</h4>
 
-            <input  type="email" 
-                    class="form-control" 
-                    placeholder="อีเมล์"
-                    @change="test()">
-                    <!-- v-model="this.Employee.Emp_Mail" -->
+            <input  type="email" class="w-100 form-control mail" placeholder="อีเมล์" @change="test()">
+                    
 
-            <input  type="password" 
-                    class="form-control password" 
-                    style="margin-top: 15px;"
-                    placeholder="รหัสผ่าน"
-                    @change="test()">
+            <input  type="password" class="w-100 form-control password"  placeholder="รหัสผ่าน" @change="test()">
 
-            <button style="font-family:kanit;border-radius: 100;" 
-                    class="w-100 btn btn-lg btn-signin"
-                    @click="addLogin">เข้าสู่ระบบ
-            </button>
-            <br>
+            <button class="w-100 btn btn-lg btn-signin" @click="addLogin">เข้าสู่ระบบ</button>
+
             <button href="" class="text-white forgot">ลืมรหัสผ่านใช่หรือไม่?</button>
         </form>
     </main>
@@ -79,24 +69,48 @@ export default {
 
 
 <style>
-/* @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;700&display=swap');
-@import url('/css/signin.css'); */
+.mail{
+    font-family: "kanit";
+    margin-top: 55px;
+    width: 60px;
+    height: 50px;
+}
+
+.password {
+    margin-top: 15px !important;
+    font-family: "kanit";
+    margin-top: 20px !important;
+    width: 60px;
+    height: 50px;
+}
+
+.btn-signin {
+    color: #4fc3f7!important;
+    background-color: white !important;
+    margin-top: 20px;
+    border-radius: 100;
+    font-family:kanit !important;
+}
+
+.forgot {
+    text-decoration: none;
+    margin-top: 15px !important;
+    border: none;
+    font-family: "kanit";
+    background-color: transparent;
+    margin-top: 20px !important;
+}
 
 form {
     text-align: center;
+    margin-top: 50px;
 }
 
 .Login_body {
-    display: flex;
     justify-content: center;
-    height: 100vh;
-    display: flex;
     align-items: center;
-    padding-top: 40px;
-    padding-bottom: 40px;
     background-color: #4fc3f7 !important;
     color: white;
-    align-items: center;
 }
 
 .bd-placeholder-img {
@@ -151,38 +165,19 @@ form {
 }
 
 .Logo {
-    height: 155px;
+    height: 200px !important;
 }
 
 input {
     color: rgb(255, 255, 255);
     border-radius: 10px !important;
     text-align: center;
-    /* font-family: "kanit"!important; */
+    font-family: "kanit"!important;
 
-}
-
-.btn-signin {
-    color: #4fc3f7!important;
-    background-color: white !important;
-    margin-top: 25px;
-
-}
-
-.password {
-    margin-top: 15px !important;
-    font-family: "kanit";
-}
-
-.forgot {
-    text-decoration: none;
-    margin-top: 15px !important;
-    border: none;
-
-    background-color: transparent;
 }
 
 .forgot:hover {
     color: blue !important;
 }
+
 </style>`
