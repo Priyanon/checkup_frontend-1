@@ -3,17 +3,17 @@
         <div class align="center">
             <h5>ข้อมูลใบหน้า</h5>
             <div class="d-flex justify-content-between">
-                 <router-link to="/Mainadmin">&#8249;</router-link>
+                 <router-link to="/Mainadmin"><img src="/img/ArrowLeft.png" class="nav-icon1"  type="button"></router-link>
             </div>
 
         </div>
     
-        <div class="justify-content-center"   >
-                  <div class="price-box2">
-                    <div class="ribbon-large">
-                      <img src="/img/face-id.png" class="face-id"    href="#">
-        </div>
-        </div>
+        <div class="justify-content-center">
+          <div class="price-box2">
+            <div class="ribbon-large">
+              <img src="/img/face-id.png" class="face-id" >
+            </div>
+          </div>
         </div> 
     
         <div class align="center" >
@@ -40,16 +40,16 @@
     <style>
     
     .face-id{
-      width: 200px;
-      height: 200px;
-      margin-left: 540px;
-      margin-right: 460px;
+      width: 200px !important;
+      height: 200px !important;
+      margin-left: 440px !important;
+      margin-right: 450px !important;
     }
     .body{
     font-family:kanit;
     }
     .btn1{
-    margin-left: 540px;
+    margin-left: 460px !important;
     
     }
     </style>

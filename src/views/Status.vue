@@ -1,7 +1,7 @@
 <template>
   <div class="container">
       <div class="text-center">
-          <h1>สถานะการเข้าทำงาน</h1>
+          <h4>สถานะการเข้าทำงาน</h4>
           
           <div class="d-flex">
           <router-link to="/Mainadmin"><img src="/img/ArrowLeft.png" class="nav-icon1"  type="button"></router-link>

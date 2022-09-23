@@ -15,8 +15,8 @@ import Calendar from "@/views/Calendar.vue"
 import Edituser from "@/views/Edituser.vue"
 import Test from "@/views/Test.vue"
 import Status_coo from "@/views/Status_coo.vue"
-import Status_mkt from "@/views/Status_mkt.vue"
-import Status_md from "@/views/Status_md.vue"
+import Forgotpassword from "@/views/Forgotpassword.vue"
+import Main_executives from "@/views/Main_executives.vue"
 import Status_dev from "@/views/Status_dev.vue"
 import Status_csr from "@/views/Status_csr.vue"
 import Upscan from "@/views/Upscan.vue"
@@ -129,15 +129,15 @@ const routes = [
         meta:{requiresAuth: false}
     },
     {
-        path: "/status_md",
-        name:"Status_md",
-        component: Status_md,
+        path: "/main_executives",
+        name:"Main_executives",
+        component: Main_executives,
         meta:{requiresAuth: false}
     },
     {
-        path: "/status_mkt",
-        name:"Status_mkt",
-        component: Status_mkt,
+        path: "/forgotpassword",
+        name:"Forgotpassword",
+        component: Forgotpassword,
         meta:{requiresAuth: false}
     },
     {

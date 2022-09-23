@@ -36,7 +36,7 @@
                   <router-link to="/login" class="btn btn-info">Admin</router-link>
                  <br>
                  <div class="ribbon-large4" >
-                  <img src="/img/face-id.png" class="face-id" href="#">
+                  <img src="/img/face-id.png" class="face-id2" href="#">
                 
                   <h5 > จดจำใบหน้า </h5>
                   <div class="spacer spacer-t20 spacer-b20"></div>
@@ -68,7 +68,7 @@
 
 }
 
-.face-id {
+.face-id2 {
   width: 60px !important;
   height: 60px !important;
   margin-left: 0px !important;
