@@ -7,7 +7,7 @@ import Leave from "@/views/Leave.vue"
 import Leaveend from "@/views/Leaveend.vue"
 import Status from "@/views/Status.vue"
 import Alert from "@/views/Alert.vue"
-import Mainadmin from "@/views/Mainadmin.vue"
+import Main_admin from "@/views/Main_admin.vue"
 import Checkout from "@/views/Checkout.vue"
 import Checkin from "@/views/Checkin.vue"
 import Checkinyear from "@/views/Checkinyear.vue"
@@ -33,9 +33,9 @@ const routes = [
         meta:{requiresAuth: false}
     },
     {
-        path: "/login",
-        name:"Login",
-        component: Login,
+        path: "/login_admin",
+        name:"Login_admin",
+        component: Login_admin,
         meta:{requiresAuth: false}
     },
     {
@@ -75,9 +75,9 @@ const routes = [
         meta:{requiresAuth: false}
     },
     {
-        path: "/mainadmin",
-        name:"Mainadmin",
-        component: Mainadmin,
+        path: "/main_admin",
+        name:"Main_admin",
+        component: Main_admin,
         meta:{requiresAuth: false}
     },
     {
@@ -114,25 +114,25 @@ const routes = [
         path: "/test",
         name:"Test",
         component: Test,
-        meta:{requiresAuth: false}
+        meta:{requiresAuth: true}
     },
     {
         path: "/status_csr",
         name:"Status_csr",
         component: Status_csr,
-        meta:{requiresAuth: false}
+        meta:{requiresAuth: true}
     },
     {
         path: "/status_dev",
         name:"Status_dev",
         component: Status_dev,
-        meta:{requiresAuth: false}
+        meta:{requiresAuth: true}
     },
     {
         path: "/main_executives",
         name:"Main_executives",
         component: Main_executives,
-        meta:{requiresAuth: false}
+        meta:{requiresAuth: true}
     },
     {
         path: "/forgotpassword",
@@ -144,7 +144,7 @@ const routes = [
         path: "/status_coo",
         name:"Status_coo",
         component: Status_coo,
-        meta:{requiresAuth: false}
+        meta:{requiresAuth: true}
     },
     {
         path: "/upscan",
@@ -156,7 +156,7 @@ const routes = [
         path: "/user",
         name:"User",
         component: User,
-        meta:{requiresAuth: false}
+        meta:{requiresAuth: true}
     },
     {
         path: "/setting",
@@ -172,7 +172,7 @@ const router = createRouter({
 
 // function isLoggedIn(){
 //    var obj = {
-//     // "Emp_ID":localStorage.getItem("Emp_ID"),
+//     "Emp_ID":localStorage.getItem("Emp_ID"),
 //     "token" :localStorage.getItem("token")
 //    }
 //    axios.get('http://192.168.43.120:3000/checkauthen',obj).then(function(response){
@@ -185,17 +185,54 @@ const router = createRouter({
 //     })
 // }
 
-// router.beforeEach((to, from) => {
-//     // instead of having to check every route record with
-//     // to.matched.some(record => record.meta.requiresAuth)
-//     if (to.meta.requiresAuth && !isLoggedIn()) {
-//       // this route requires auth, check if logged in
-//       // if not, redirect to login page.
-//       return {
-//         path: '/login',
-//         // save the location we were at to come back later
-//         query: { redirect: to.fullPath },
-//       }
+// function checkAuthen(path){
+//     // alert(localStorage.getItem("token"))
+//     var obj = {
+//         "token" :localStorage.getItem("token"),
+//         "path" : path
 //     }
-//   })
+//     axios.post('http://10.99.178.208:3000/checkauthen',obj)
+//     .then(function(response){
+//       console.log('response',response)
+//       if(response.data.isLogin == true){
+//         return true
+//       } else {
+//         return false
+//       }
+//     })
+// }
+
+router.beforeEach((to, from,next) => {
+    // alert(to.path)
+    // {
+    //     isLogin:true
+    // }
+    if(to.meta.requiresAuth){
+        
+        var obj = {
+            "token" :localStorage.getItem("token"),
+            "path" : to.path
+        }
+        axios.post('http://10.99.178.208:3000/checkauthen',obj)
+        .then(function(response){
+          console.log('response',response)
+          if(response.data.isLogin == true ){
+            // alert('kooooooook')
+            next()
+          } else {
+            // alert('uuuuuuuuuu')
+            next()
+          }
+        }).catch(error => {
+            // do something with error
+            // next({path:"/login"})
+        })
+    }else{
+        // alert('hooooooo')
+        next();
+    }
+    
+   
+})
+
 export default router;

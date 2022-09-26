@@ -8,7 +8,7 @@
         <small class="text-muted" align="left">รออนุมัติ</small>
         <img src="/img/Profile2.jpg" class="rounded me-2" alt="" align="left">
         <p class="me" align="left">นายปริยนนท์ ขันโมลี</p>
-        <p class="card-text2" align="left">ยื่นคำร้องขอลากิจ ตั้งแต่วันที่ 1 สิงหาคม 2565 ถึงวันที่ 3 สิงหาคม 2565
+        <p class="card-text2" align="left">ยื่นคำร้องขอ : ลากิจ ตั้งแต่วันที่ 1 สิงหาคม 2565 ถึงวันที่ 3 สิงหาคม 2565
           เวลา3วัน</p>
         <div class="card-body">
 
@@ -46,7 +46,7 @@
 </template>
       
       
-<style>
+<style scoped>
 .btn-close {
   margin-left: 550px;
   margin-top: 10px;

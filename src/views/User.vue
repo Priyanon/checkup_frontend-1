@@ -51,7 +51,7 @@
 </div>
 </template>
 
-<style>
+<style scoped>
   .bd{
     background: #EAEBEC;
   }

@@ -62,28 +62,28 @@
 export default {
   methods: {
     addtoCheckiny() {
-      this.$router.push({name:'Checkinyear'})
+      this.$router.replace({path:'/checkinyear'})
     },
     addtoStatus() {
-      this.$router.push({name:'Status'})
+      this.$router.replace({path:'/status'})
     },
     addtoLeave() {
-      this.$router.push({name:'Leave'})
+      this.$router.push({path:'/leave'})
     },
     addtoEdituser() {
-      this.$router.push({name:'Edituser'})
+      this.$router.push({path:'/edituser'})
     },
     addtoUpscan() {
-      this.$router.push({name:'Upscan'})
+      this.$router.push({path:'/upscan'})
     },
     addtoCalendar() {
-      this.$router.push({name:'Calendar'})
+      this.$router.push({path:'/calendar'})
     }
   }
 }
 </script>
 
-<style>
+<style scoped>
 .btn1 {
 
   height: 50px;

@@ -33,7 +33,7 @@
                   
                   <h5>เจ้าหน้าที่ </h5>
                   <div class="spacer spacer-t20 spacer-b20"></div>
-                  <router-link to="/login" class="btn btn-info">Admin</router-link>
+                  <router-link to="/login_admin" class="btn btn-info">Admin</router-link>
                  <br>
                  <div class="ribbon-large4" >
                   <img src="/img/face-id.png" class="face-id2" href="#">
@@ -51,7 +51,7 @@
   
   </template>
   
-  <style>
+  <style scoped>
     .User {
   width: 50px;
   height: 50px;

@@ -37,7 +37,7 @@
     }
     </script>
     
-    <style>
+    <style scoped>
     
     .face-id{
       width: 200px !important;

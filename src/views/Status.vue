@@ -166,7 +166,7 @@ data(){
 }
 </script>
 
-<style>
+<style scoped>
 a {
 text-decoration: none;
 display: inline-block;

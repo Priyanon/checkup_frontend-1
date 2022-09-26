@@ -22,7 +22,8 @@ export default {
               Emp_Scanpic:'',
               Emp_religion:'',
               Emp_Addressnow:'',
-              Emp_Pic:''
+              Emp_Pic:'',
+              Role:''
             }
         }
     },
@@ -31,7 +32,7 @@ export default {
     },
     methods:{
         async addEmployee(){
-            await axios.post('http://192.168.1.37:3000/employee',this.Employee)
+            await axios.post('http://10.99.178.208:3000/employee',this.Employee)
             .then(function(response){
               alert('insert successfully! : ' + response)
             })
@@ -43,282 +44,212 @@ export default {
     }
 }
 </script>
+<!-- เพิ่มสิทธิตอนสร้าง user -->
 <template>
-<div class="container">
-      <div class="row">
-        <div>
+<div class="body" style="margin-left:300px !important;">
+  <h4 style="font-family:kanit; margin-left:200px">เพิ่มข้อมูลผู้ใช้งาน</h4>
+  <div class="col-md-8">
+     <label for="exampleFormControlInput1" class="form-label">รหัสพนักงาน</label>
+    <input 
+      type="email" 
+      class="form-control" 
+      id="exampleFormControlInput1" 
+      placeholder=""
+      v-model="this.Employee.Emp_ID">
+  </div>
+  <div class="col-md-8" >
+     <label for="exampleFormControlInput1" class="form-label" >รหัสผ่าน</label>
+    <input 
+      type="email" 
+      class="form-control" 
+      id="exampleFormControlInput1" 
+      placeholder=""
+      v-model="this.Employee.pwd">
+  </div>
+  
+<br>
+
+  <h5 style="font-family:kanit;">ข้อมูลส่วนตัว</h5>
+
+  <div class="col-md-8">
+     <label for="exampleFormControlInput1" class="form-label">ชื่อ-นามสกุล</label>
+    <input type="email" 
+      class="form-control" 
+      id="exampleFormControlInput1" 
+      placeholder=""
+      v-model="this.Employee.Emp_Name" >
+  </div>
+  <div class="col-md-8">
+    <label for="firstName" class="form-label">เลขบัตรประจำตัวประชาชน</label>
+    <input  
+      type="text" 
+      class="form-control" 
+      placeholder="" 
+      required
+      v-model="this.Employee.Emp_Identity_ID">
+  </div>
+  <!-- <form class="row g-3"> -->
+  <!-- <div class="col-md-4">
+    <label for="inputEmail4" class="form-label">ชื่อ-นามสกุล</label>
+    <input type="email" class="form-control" id="inputEmail4">
+  </div> -->
+
+  <!-- <div class="col-md-4">
+    <label for="firstName" class="form-label">เลขบัตรประจำตัวประชาชน</label>
+    <input  type="text" class="form-control" placeholder="" required>
+  </div>
+</form> -->
+  <div class="col-md-8">
+    <label for="firstName" class="form-label">วัน/เดือน/ปี เกิด</label>
+    <input  
+      type="date" 
+      class="form-control" 
+      placeholder="" 
+      required
+      v-model="this.Employee.Emp_Birthday">
+  </div> 
+
+  <br>
+  <form class="row g-3">
+  <div class="col-md-2">
+    <label for="input gender1" class="form-label">เพศ</label>
+    <select id="input gender" class="form-select" v-model="this.Employee.Emp_Sex">
+      <option value="man">ชาย</option>
+      <option value="mele">หญิง</option>
+    </select>
+  </div> 
+  <div class="col-md-3">
+    <label for="input gender1" class="form-label">กรุ๊ปเลือด</label>
+    <select id="input gender" class="form-select" v-model="this.Employee.Emp_bloodtype">
+      <option value="A">A</option>
+      <option value="B">B</option>
+      <option value="AB">AB</option>
+      <option value="O">O</option>
+    </select>
+    </div> 
+<div class="col-md-3">
+    <label for="firstName" class="form-label">โรคประจำตัว</label>
+    <input  type="text" 
+      class="form-control" 
+      placeholder="" 
+      required
+      v-model="this.Employee.Emp_sick">
+  </div>
+  
+  </form>
+<br>
+  <form class="row g-3">
+  
+  <div class="col-md-4">
+    <label for="input gender1" class="form-label">ศาสนา</label>
+    <select id="input gender" class="form-select" v-model="this.Employee.Emp_religion">
+      <option value="ศาสนาพุทธ" >ศาสนาพุทธ</option>
+      <option value="ศาสนาอิสลาม">ศาสนาอิสลาม</option>
+      <option value="ศาสนาคริสต์">ศาสนาคริสต์</option>
+      <option value="ศาสนาพราหมณ์-ฮินดู">ศาสนาพราหมณ์-ฮินดู</option>
+      <option value="ศาสนาซิกข์">ศาสนาซิกข์</option>
+      <option value="ศาสนายิว">ศาสนายิว</option>
+      <option value="ศาสนาเชน">ศาสนาเชน</option>
+      <option value="ศาสนาโซโรอัสเตอร์">ศาสนาโซโรอัสเตอร์</option>
+      <option value="ศาสนาบาไฮ">ศาสนาบาไฮ</option>
+      <option value="ไม่นับถือศาสนา">ไม่นับถือศาสนา</option>
+    </select>
+  </div> 
+
+  <div class="col-md-2">
+    <label for="firstName" class="form-label">เชื้อชาติ</label>
+    <input  
+      type="text" 
+      class="form-control" 
+      placeholder="" 
+      required
+      v-model="this.Employee.Emp_nationality">
+  </div>
+
+  <div class="col-md-2">
+    <label for="firstName" class="form-label">สัญชาติ</label>
+    <input  
+      type="text" 
+      class="form-control" 
+      placeholder="" 
+      required
+      v-model="this.Employee.Emp_race">
+  </div>
+</form>
+<br>
+<h5 style="font-family:kanit;" >ข้อมูลติดต่อ</h5>
+<div class="col-md-8">
+  <label for="exampleFormControlInput1" class="form-label">เบอร์โทรศัพท์</label>
+  <input 
+    type="Phone" 
+    class="form-control" 
+    id="exampleFormControlInput1" 
+    placeholder=""
+    v-model="this.Employee.Emp_Phone">
+</div>
+<div class="col-md-8">
+  <label for="exampleFormControlInput1" class="form-label">E-mail</label>
+  <input 
+    type="email" 
+    class="form-control" 
+    id="exampleFormControlInput1" 
+    placeholder=""
+    v-model="this.Employee.Emp_Mail">
+</div>
+
+<br>
+<h5 style="font-family:kanit;" >ที่อยู่ตามทะเบียนบ้าน</h5>
+<div class="col-md-8">
+  <input 
+    type="Phone" 
+    class="form-control" 
+    id="exampleFormControlInput1" 
+    placeholder=""
+    v-model="this.Employee.Emp_Addresshome">
+</div>
+<br>
+<h5 style="font-family:kanit;" >ที่อยู่ปัจจุบัน</h5>
+<div class="col-md-8">
+  <input 
+    type="email" 
+    class="form-control" 
+    id="exampleFormControlInput1" 
+    placeholder=""
+    v-model="this.Employee.Emp_Addressnow">
+</div>
+<br>
+<div class="col-md-8"> 
             <div class="form-group">
-              <div class="col-Lg-4"></div>
-              <div class="col-Lg-4" align="center">
-                <br />
-                <h4 style="font-family:kanit;" >เพิ่มข้อมูลผู้ใช้งาน</h4>
-              </div>
-              <!-- <input
-                name="Admin_level"
-                type="hidden"
-                id="Admin_level"
-                value="2"
-              /> -->
-            </div>
-            <!-- <div class="form-group">
-              <div class="col-Lg-2 " align="center">รหัสพนักงาน : </div>
-              <div class="col-Lg-5" align="center">
+             <label for="exampleFormControlInput1" class="form-label">รูปภาพ</label>
                 <input 
-                  v-model="this.Employee.Emp_ID" 
-                  type="text"
-                  style="width:500px;"
-                  required
-                  class="form-control"
-                  placeholder="Username"
-                  pattern="^[a-zA-Z0-9]+$"
-                  title="ภาษาอังกฤษหรือตัวเลขเท่านั้น"
-                  />
-              </div>
-            </div> -->
-            <div class="form-group">
-              <div class="col-Lg-2" align="center">รหัสผ่าน :</div>
-              <div class="col-Lg-5" align="center">
-                <input
-                  style="width:500px;"
-                  v-model="this.Employee.pwd"
-                  type="password"
-                  required
-                  class="form-control"
-                  placeholder="ใช้ได้เฉพาะ a-z,A-Z,0-9"
-                  pattern="^[a-zA-Z0-9]+$"
-                />
-                <!-- @change="test()" -->
-              </div>
-            </div>
-
-            <div class="form-group">
-              <div class="col-Lg-2" align="center">เพศ :</div>
-              <div class="col-Lg-7" align="center">
-                <select v-model="this.Employee.Emp_Sex" style="width:500px;" required>
-                  <option value="man">ชาย</option>
-                  <option value="mele">หญิง</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <div class="col-Lg-2" align="center">ชื่อ-สกุล :</div>
-              <div class="col-Lg-7" align="center">
-                <input
-                  style="width:500px;"
-                  v-model="this.Employee.Emp_Name"
-                  type="text"
-                  required
-                  class="form-control"
-                  placeholder="name-surname"
-                  pattern="^[a-zA-Z]+$"
-                />
-                <span class="validity"></span>
-                <!-- @change="test()" -->
-                <!-- ใส่เกินมีแจ้งเตือน -->
-              </div>
-            </div>
-
-            <div class="form-group">
-              <div class="col-Lg-2" align="center">รูปภาพ :</div>
-              <div class="col-Lg-7" align="center">
-                <input
-                  style="width:500px;"
                   name="Emp_Pic"
-                  type="file"
-                  class="form-control"
+                  type="file" 
+                  class="form-control" 
                   accept="image/*"
-                />
+                  >
+                  <!-- v-model="this.Employee.Emp_Pic" -->
               </div>
-            </div>
+ </div>             
+<br>
+<div class="col-md-8">            
+  <div class=" form-group">
+    <label for="input gender1" class="form-label">สิทธ์การเข้าถึง</label>
+    <select id="input gender" class="form-select" v-model="this.Employee.Role">
+      <option value="สิทธ์การเข้าถึง">สิทธ์การเข้าถึง</option>
+      <option value="Employee">Employee</option>
+      <option value="Admin">Admin</option>
+      <option value="Executive">Executive</option>
+    </select>
+  </div>  
+</div> 
 
-            <div class="form-group">
-              <div class="col-Lg-2" align="center">เลขประจำตัวประชาชน :</div>
-              <div class="col-Lg-7" align="center">
-                <input
-                  style="width:500px;"
-                  v-model="this.Employee.Emp_Identity_ID"
-                  type="text"
-                  required
-                  class="form-control"
-                  placeholder="เลขประจำตัวประชาชน 13 หลัก"
-                  pattern="[0-9]{13}"
-                />
-                <!-- ใส่ได้เฉพาะตัวเลข -->
-              </div>
-            </div>
-
-            <div class="form-group">
-              <div class="col-Lg-2" align="center">วัน/เดือน/ปี เกิด :</div>
-              <div class="col-Lg-7" align="center">
-                <input
-                  style="width:500px;"
-                  v-model="this.Employee.Emp_Birthday"
-                  type ="date"
-                  class="form-control"
-                  placeholder="วัน/เดือน/ปี เกิด"
-                  required
-                />
-              </div>
-            </div>
-
-            <div class="form-group">
-              <div class="col-Lg-2" align="center">วันที่เข้าทำงานวันแรก :</div>
-              <div class="col-Lg-7" align="center">
-                <input
-                  style="width:500px;"
-                  v-model="this.Employee.Emp_IssueDate"
-                  type  ="date"
-                  class="form-control"
-                  placeholder="วันที่เข้าทำงานวันแรก"
-                />
-              </div>
-            </div>
-
-            <div class="form-group">
-              <div class="col-Lg-2" align="center">กรุ๊ปเลือด :</div>
-              <div class="col-Lg-6" align="center">
-                <select v-model="this.Employee.Emp_bloodtype" style="width:500px;" required>
-                  <option value="A">A</option>
-                  <option value="B">B</option>
-                  <option value="AB">AB</option>
-                  <option value="O">O</option>
-                </select>
-              </div>
-            </div>
-            
-            <div class="form-group">
-              <div class="col-Lg-2" align="center">ศาสนา :</div>
-              <div class="col-Lg-6" align="center">
-                <select v-model="this.Employee.Emp_religion" style="width:500px;" required>
-                  <option value="ศาสนาพุทธ">ศาสนาพุทธ</option>
-                  <option value="ศาสนาอิสลาม">ศาสนาอิสลาม</option>
-                  <option value="ศาสนาคริสต์">ศาสนาคริสต์</option>
-                  <option value="ศาสนาพราหมณ์-ฮินดู">ศาสนาพราหมณ์-ฮินดู</option>
-                  <option value="ศาสนาซิกข์">ศาสนาซิกข์</option>
-                  <option value="ศาสนายิว">ศาสนายิว</option>
-                  <option value="ศาสนาเชน">ศาสนาเชน</option>
-                  <option value="ศาสนาโซโรอัสเตอร์">ศาสนาโซโรอัสเตอร์</option>
-                  <option value="ศาสนาบาไฮ">ศาสนาบาไฮ</option>
-                  <option value="ไม่นับถือศาสนา">ไม่นับถือศาสนา</option>
-                </select>
-              </div>
-            </div>
-            
-            <div class="form-group">
-              <div class="col-Lg-2" align="center">เชื้อชาติ :</div>
-              <div class="col-Lg-6" align="center">
-                <input
-                  style="width:500px;"
-                  v-model="this.Employee.Emp_nationality"
-                  type="text"
-                  class="form-control"
-                  placeholder="เชื้อชาติ"
-                />
-              </div>
-            </div>
-            
-            <div class="form-group">
-              <div class="col-Lg-2" align="center">สัญชาติ :</div>
-              <div class="col-Lg-6" align="center">
-                <input
-                  style="width:500px;"
-                  v-model="this.Employee.Emp_race"
-                  type="text"
-                  class="form-control"
-                  placeholder="สัญชาติ"
-                  required
-                />
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="col-Lg-2" align="center">โรคประจำตัว :</div>
-              <div class="col-Lg-6" align="center">
-                <input
-                  style="width:500px;"
-                  v-model="this.Employee.Emp_sick"
-                  type="text"
-                  class="form-control"
-                  placeholder="โรคประจำตัว"
-                  required
-                />
-              </div>
-            </div>
+  <br>                 
+<div class="md-8" >
+  <button class="btn btn-primary" type="submit" 
+  style="font-family:kanit;width:580px; 
+  margin-bottom: 30px;" >บันทึก</button>
+</div>
 
 
-            <div class="col-Lg-4" align="center">
-              <br />
-              <h4 style="font-family:kanit;" >ข้อมูลติดต่อ</h4>
-            </div>
-            
-            <div class="form-group">
-              <div class="col-Lg-2" align="center">อีเมล์ :</div>
-              <div class="col-Lg-6" align="center">
-                <input
-                  style="width:500px;"
-                  v-model="this.Employee.Emp_Mail"
-                  type="email"
-                  class="form-control"
-                  placeholder="E-mail"
-                  required
-                />
-              </div>
-            </div>
-            
-            <div class="form-group">
-              <div class="col-Lg-2" align="center">เบอร์โทร :</div>
-              <div class="col-Lg-6" align="center">
-                <input
-                  style="width:500px;"
-                  v-model="this.Employee.Emp_Phone"
-                  type="tel"
-                  class="form-control"
-                  placeholder="เบอร์โทรศัพท์"
-                  required
-                />
-              </div>
-            </div>
-
-
-            <div class="col-Lg-4" align="center">
-              <br />
-              <h4 style="font-family:kanit;" >ที่อยู่</h4>
-            </div>
-            
-
-            <div class="form-group">
-              <div class="col-Lg-2" align="center">ที่อยู่ตามทะเบียนบ้าน :</div>
-              <div class="col-Lg-6" align="center">
-                <textarea 
-                  v-model="this.Employee.Emp_Address" 
-                  style="width:500px;"
-                  class="form-control"></textarea>
-              </div>
-            </div>
-            
-            <div class="form-group">
-              <div class="col-Lg-2" align="center">ที่อยู่ปัจจุบัน :</div>
-              <div class="col-Lg-6" align="center">
-               <textarea 
-                  v-model="this.Employee.Emp_Addressnow" 
-                  style="width:500px;"
-                  class="form-control"></textarea>
-              </div>
-            </div>
-            <div class="form-group">  
-                <div class="col-Lg-4" align="center">
-                <div class="col-Lg-2">
-                <div class="col-Lg-6">
-                <button @click="this.addEmployee()" 
-                        class="btn btn-primary" 
-                        >
-                        บันทึก
-                </button>
-                </div>
-                </div>
-                </div>
-            </div>
-        </div>
-      </div>
-    </div>
+</div>
 </template>

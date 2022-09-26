@@ -1,45 +1,39 @@
 <script>
 import axios from 'axios';
-// import router from '../router'
 export default {
   data() {
     return {
       Login: {
-        Emp_Mail: '',
-        pwd: '',
-        Emp_ID:''
+        Emp_Mail: 'admin@test.com',
+        pwd: '123456'
       }
     }
   },
-  mounted() {
-    document.body.classList.add('Login_body')
-    },
-  destroyed () {
-    document.body.classList.remove('Login_body')
-    },
   methods: {
-    // async addLogin() {
-        // const response = await axios.put('http://localhost:3000/login', {
-        //     email: this.Emp_Mail,
-        //     password: this.pwd
+      async addLogin(){
+        // console.log(this.Login)
+        // let response = await axios.post(
+        //     'http://10.99.178.208:3000/checklogin',
+        //     this.Login)
+
+        // if (response.data.message == 'ok'){
+        //     console.log(response.data)
+        //     localStorage.setItem('token',response.data.token)
+        //     this.$router.push({path:'/main_admin'})
+        // } else {
+        //     console.log("555")
+        this.$router.push({path:'/main_admin'})
+
+        // .then(function(response){
+        //     console.log(response)
+        //     if (response.data.message == 'ok'){
+        //         this.$router.push({name:'Mainadmin'})
+        //     } else {
+                
+        //     }
         // })
-        // console.log(response);
-      async addLogin() {
-        this.$router.push({name:'Mainadmin'})
-    //     await axios.put('http://192.168.1.37:3000/login', this.Employee).then(function (response) {
-    //     if(response.data.message == "ok"){
-    //         // localStorage.setItem('token', response.data.user_token);
-    //         router.push('/main')
-    //     } else {
-    //         router.push('/login')
-    //     }
-    //   })
-    },
-    // เพิ่ม error
-    test() {
-      console.log(this.Employee)
-      // @change="test()"
-    }
+    
+      }
   }
 }
 
@@ -47,28 +41,44 @@ export default {
 
 
 <template>
-    <main class="form-signin d-flex justify-content-center">
-        <form>
-            <img src="/img/Logo.png" class="Logo">
-
-            
-            <h4 class="h4 mb-3 fw-normal">Check Up</h4>
-
-            <input  type="email" class="w-100 form-control mail" placeholder="อีเมล์" @change="test()">
+    <div class="container">
+        <main class="form-signin d-flex justify-content-center">
+            <div>
+                <img src="/img/Logo.png" class="Logo">
+                    <h4 class="h4 mb-3 fw-normal">Check Up</h4>
                     
+                    
+                <div class="frame">   
+                    <h5 class="admin">สำหรับเจ้าหน้าที่</h5>
+                </div>
+                    
+                    <input  type="email" class="w-100 form-control mail" placeholder="อีเมล์" @change="test()">
+                
+                    <input  type="password" class="w-100 form-control password"  placeholder="รหัสผ่าน" @change="test()">
 
-            <input  type="password" class="w-100 form-control password"  placeholder="รหัสผ่าน" @change="test()">
+                    <button class="w-100 btn btn-lg btn-signin" @click="addLogin">เข้าสู่ระบบ</button>
 
-            <button class="w-100 btn btn-lg btn-signin" @click="addLogin">เข้าสู่ระบบ</button>
-
-            <button href="" class="text-white forgot">ลืมรหัสผ่านใช่หรือไม่?</button>
-        </form>
-    </main>
+                    <button class="text-white forgot">ลืมรหัสผ่านใช่หรือไม่?</button>
+            </div>
+        </main>
+    </div> 
 </template>
 
 
 
-<style>
+<style scoped>
+.frame{
+    background-color:#14be66;
+    height: 50px;
+    border-radius: 8px;
+    font-family: "kanit";
+}
+.admin{
+    margin-left: 100px;
+    color: white;
+    padding: 10px;
+}
+
 .mail{
     font-family: "kanit";
     margin-top: 55px;
@@ -99,6 +109,7 @@ export default {
     font-family: "kanit";
     background-color: transparent;
     margin-top: 20px !important;
+    margin-left: 100px;
 }
 
 form {
@@ -166,6 +177,14 @@ form {
 
 .Logo {
     height: 200px !important;
+    justify-content: center;
+    margin-top: 40px;
+    margin-left: 100px;
+    
+}
+
+.fw-normal{
+    margin-left: 100px;
 }
 
 input {
@@ -173,11 +192,11 @@ input {
     border-radius: 10px !important;
     text-align: center;
     font-family: "kanit"!important;
-
+  
 }
 
 .forgot:hover {
     color: blue !important;
 }
 
-</style>`
+</style>

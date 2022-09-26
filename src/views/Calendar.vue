@@ -1,10 +1,32 @@
+<script>
+  import axios from 'axios';
+  // import DataTable from 'datatables.net-vue3';
+  
+  export default {
+    data() {
+      return {
+        posts: []
+      }
+    },
+    mounted() {
+      axios
+        .get('http://192.168.1.37:3000/Leaves')
+        .then((response) => {
+          this.posts = response.data
+          console.log(response)
+        })
+        .catch((error) => console.log(error))
+    }
+  };
+  
+</script>
 <template>
   <div class="online-table">
     <div class="d-flex justify-content-between">
           <router-link to="/Mainadmin"><img src="/img/ArrowLeft.png" 
             class="nav-icon1"  
             type="button"></router-link>
-  </div>
+    </div>
     <p align="center"></p>
     <h4 class="calendaryearheader">
       <font style="vertical-align: inherit">ปฏิทิน ปี2565 </font>
@@ -5235,7 +5257,7 @@
         </table>
       </div>
     </div>
-    <div style="margin-top: 20px" class="center">
+    <div style="margin-top: 20px" >
       <table class="table tabel-striped table-bordered">
         <thead class="thead-dark" align="center">
           <tr>
@@ -5245,47 +5267,21 @@
             <th>หมายเหตุ</th>
           </tr>
 
-          <tr>
-            <th>1</th>
-            <th>name</th>
-            <th>1</th>
-            <th></th>
+          <tr v-for="Leave in posts" :key="Leave.id">
+            <td>{{'วันที่ลา : '+Leave.Leave_day+' ถึง '+Leave_dayend}}</td>
+            <td>{{}}</td>
+            <td>{{Leave.Leave_type}}</td>
+            <td>{{Leave.Leave_Inform}}</td>
           </tr>
 
-          <tr>
-            <th>2</th>
-            <th>name</th>
-            <th>1</th>
-            <th></th>
-          </tr>
-
-          <tr>
-            <th>3</th>
-            <th>name</th>
-            <th>5</th>
-            <th></th>
-          </tr>
-
-          <tr>
-            <th>4</th>
-            <th>name</th>
-            <th>4</th>
-            <th></th>
-          </tr>
-
-          <tr>
-            <th>5</th>
-            <th>name</th>
-            <th>4</th>
-            <th></th>
-          </tr>
+          
         </thead>
       </table>
     </div>
   </div>
 </template>
 
-<style>
+<style scoped>
 .online-table {
   float: left;
   margin: 0;

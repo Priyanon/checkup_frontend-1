@@ -257,7 +257,7 @@ export default {
 }
 </script>
 
-<style> 
+<style scoped> 
 .year {
     height: 30px; 
     width: 300px;

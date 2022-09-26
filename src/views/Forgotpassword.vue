@@ -76,7 +76,7 @@
   
   
   
-  <style>
+  <style scoped>
   .newpassword{
       font-family: "kanit";
       width: 60px;

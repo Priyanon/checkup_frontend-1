@@ -7,8 +7,6 @@
       <button type="button" class="btn btn-outline-dark">
         <router-link to="/Regist">เพิ่ม</router-link>
       </button>
-      <button type="button" class="btn btn-outline-dark">แก้ไข</button>
-      <button type="button" class="btn btn-outline-dark">ลบ</button>
     </div>
     <br><br>
     <Datatable class="table table-bordered container table-responsive text-center">
@@ -20,6 +18,7 @@
           <!-- <th scope="col">เพศ</th> -->
           <th scope="col">เบอร์โทรศัพท์</th>
           <th scope="col">E-mail</th>
+          <th scope="col">ดำเนินการ</th>
           <!-- <th scope="col">วัน/เดือน/ปี เกิด</th>
             <th scope="col">กรุ๊ปเลือด</th>
             <th scope="col">โรคประจำตัว</th>
@@ -43,6 +42,19 @@
           <td>{{Employee.Emp_sick}}</td> -->
           <td>{{Employee.Emp_Phone}}</td>
           <td>{{Employee.Emp_Mail}}</td>
+          <!-- v-if="index !== editIndex" -->
+          <td>
+            <button
+              type="button"
+              class="btn btn-danger mr-2"
+              v-on:click="deleteStudent(index,student._id)"
+              >ลบ</button>
+            <button
+              type="button"
+              class="btn btn-warning"
+              v-on:click="openEdit(index,student)"
+              >แก้ไข</button>
+          </td>
           <!-- <td>{{Employee.Emp_Address}}</td>
           <td>{{Employee.Emp_Addressnow}}</td>
           <td>{{Employee.Emp_IssueDate}}</td> -->

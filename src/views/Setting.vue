@@ -47,7 +47,7 @@
     </div> 
 </template>
 
-<style>
+<style scoped>
     .s1 {
      font-family:kanit;
     }

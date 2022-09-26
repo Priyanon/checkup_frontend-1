@@ -16,7 +16,7 @@
   </nav>
   </template>
   
-  <script>
+  <script scoped>
   export default {
   
   }

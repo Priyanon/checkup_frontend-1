@@ -286,7 +286,7 @@
     }
   }
   </script>
-  <style >
+  <style scoped>
   .body {
       padding-top: 30px;
       margin-left: 100px;

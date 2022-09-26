@@ -260,7 +260,7 @@
   </div>  
   </template>
     
-  <script>
+  <script >
   import axios from 'axios'
   export default {
     name: 'app',
@@ -286,7 +286,7 @@
     }
   }
   </script>
-  <style>
+  <style scoped>
   .body {
       margin-left: 100px;
       margin-right: 100px;
