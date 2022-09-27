@@ -32,7 +32,7 @@ export default {
     },
     methods:{
         async addEmployee(){
-            await axios.post('http://10.99.178.208:3000/employee',this.Employee)
+            await axios.post('http://192.168.1.37:3000/employee',this.Employee)
             .then(function(response){
               alert('insert successfully! : ' + response)
             })
@@ -245,9 +245,12 @@ export default {
 
   <br>                 
 <div class="md-8" >
-  <button class="btn btn-primary" type="submit" 
-  style="font-family:kanit;width:580px; 
-  margin-bottom: 30px;" >บันทึก</button>
+  <button 
+    class="btn btn-primary" 
+    type="submit" 
+    style="font-family:kanit;width:580px; 
+    margin-bottom: 30px;" 
+    @click="addEmployee">บันทึก</button>
 </div>
 
 

@@ -3,7 +3,7 @@
         <div class align="center">
             <h5>ข้อมูลใบหน้า</h5>
             <div class="d-flex justify-content-between">
-                 <router-link to="/Mainadmin"><img src="/img/ArrowLeft.png" class="nav-icon1"  type="button"></router-link>
+                 <router-link to="/Main_admin"><img src="/img/ArrowLeft.png" class="nav-icon1"  type="button"></router-link>
             </div>
 
         </div>

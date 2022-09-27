@@ -1,10 +1,11 @@
 import { createRouter, createWebHistory } from "vue-router"
 import Home from "@/views/Home.vue"
-import Login from "@/views/Login.vue"
+import Login_admin from "@/views/Login_admin.vue"
+import Login_employee from "@/views/Login_employee.vue"
+import Login_executves from "@/views/Login_executves.vue"
 import Navbar from "@/views/Navbar.vue"
 import Regist from "@/views/Regist.vue"
 import Leave from "@/views/Leave.vue"
-import Leaveend from "@/views/Leaveend.vue"
 import Status from "@/views/Status.vue"
 import Alert from "@/views/Alert.vue"
 import Main_admin from "@/views/Main_admin.vue"
@@ -17,7 +18,6 @@ import Test from "@/views/Test.vue"
 import Status_coo from "@/views/Status_coo.vue"
 import Forgotpassword from "@/views/Forgotpassword.vue"
 import Main_executives from "@/views/Main_executives.vue"
-import Status_dev from "@/views/Status_dev.vue"
 import Status_csr from "@/views/Status_csr.vue"
 import Upscan from "@/views/Upscan.vue"
 import User from "@/views/User.vue"
@@ -51,9 +51,9 @@ const routes = [
         meta:{requiresAuth: false}
     },
     {
-        path: "/leaveend",
-        name:"Leaveend",
-        component: Leaveend,
+        path: "/login_executves",
+        name:"Login_executves",
+        component: Login_executves,
         meta:{requiresAuth: false}
     },
     {
@@ -123,10 +123,10 @@ const routes = [
         meta:{requiresAuth: true}
     },
     {
-        path: "/status_dev",
-        name:"Status_dev",
-        component: Status_dev,
-        meta:{requiresAuth: true}
+        path: "/login_employee",
+        name:"Login_employee",
+        component: Login_employee,
+        meta:{requiresAuth: false}
     },
     {
         path: "/main_executives",

@@ -1,91 +1,173 @@
 <template>
-  <div class="row g-5">
-        <div class="col-md-6">
-          
-        
-          <div class="ribbon-large1" >
-              <img src="/img/User.png" class="User" href="#">
-              <h5>พนักงาน</h5>
-              <div class="spacer spacer-t20 spacer-b20"></div>
-                  <a class="btn btn-warning" href=""
-                    role="button">Employee</a>
-              </div>
-  
-              <div class="section theme-purple">
-                  <div class="ribbon-large2">
-                    <img src="/img/chart.png" class="chart" href="#">
-            
-  
-                  <h5>ผู้บริหาร</h5>
-                  <a class="btn btn-warning " id="button3"
-                     role="button">Executives</a>
-                  <div class="spacer spacer-t20 spacer-b20"></div>
+  <div class="container">
+    <main class="justify-content-center">
+      <div class="text-center">
+        <div class="row">  
+            <div class="col-md-6 bg-white border rounded-3" >
+                <div class="ribbon-large1">
+                  <img src="/img/User.png" class="User">
+                  <h5 style="margin-left:50px; margin-bottom:20px; margin-top: 10px;">พนักงาน</h5>
+                  <router-link to="/login_employee" class="btn btn-light button1 ">Admin</router-link>
                 </div>
-              </div>
-          </div>
-        
-       
-        <div class="col-md-6">
-          <div class="section theme-green ">
-                <div class="price-box2">
-                  <div class="ribbon-large3">
-                    <img src="/img/id-card.png" class="id-card" href="#">
-                  
-                  <h5>เจ้าหน้าที่ </h5>
-                  <div class="spacer spacer-t20 spacer-b20"></div>
-                  <router-link to="/login_admin" class="btn btn-info">Admin</router-link>
-                 <br>
-                 <div class="ribbon-large4" >
-                  <img src="/img/face-id.png" class="face-id2" href="#">
-                
-                  <h5 > จดจำใบหน้า </h5>
-                  <div class="spacer spacer-t20 spacer-b20"></div>
-                  <a class="btn btn-warning" 
-                    role="button">Face ID</a>
+            </div> 
+         
+           
+
+            <div class="col-md-6 bg-white border rounded-3">   
+              <div class="ribbon-large2" >
+                  <img src="/img/id-card.png" class="id-card"   >
+                  <h5 class="idc" style="margin-right:300px; margin-bottom:10px;" >เจ้าหน้าที่</h5>
+                  <router-link to="/login_admin" class="btn btn-light button2 ">Admin</router-link>
+              </div> 
+            </div>
+
+            <div class="col-md-6 bg-white border rounded-3">
+              <div class="ribbon-large3">
+                  <img src="/img/chart.png"  class="chart">
+                  <h5 style="margin-left:0px; margin-bottom:10px; margin-top:10px;">ผู้บริหาร</h5>
+                  <router-link to="/login_executves" class="btn btn-light button3">Executives</router-link>
                   </div>
-                  </div>
-                </div>
-              </div>
-            </div>    
+            </div>
+
+
+            <div class="col-md-6 bg-white border rounded-3">   
+              <div class="ribbon-large4">
+                  <img src="/img/face-id.png" class="faceid">
+                  <h5 style="margin-right:0px ; margin-bottom:10px;">จดจำใบหน้า</h5>
+                  <router-link to="/upscan" class="btn btn-light button4">Face ID</router-link>
+              </div>   
+            </div>     
+        </div>  
       </div>
+    </main>
+  </div>
+</template>
+
+<style scoped>
+
+
+  /* .back{
+    background-color: salmon;
+  } */
   
-  </template>
+  /* ปุ่มที่ 1 */
+  .User {
+    width: 90px;
+    height: 90px;
+    margin-left: 50px;
   
-  <style scoped>
-    .User {
-  width: 50px;
-  height: 50px;
-}
+  }
 
-.id-card {
-  width: 60px;
-  height: 60px;
-}
+  .button1{
+    border-radius: 12px;
+    background-color: #FF9F2F !important;
+    color: white !important;
+    margin-left: 50px;
+    width: 150px;
+    height: 40px;
+    font-size: 15px;
+    margin-bottom: 20px;
+    
+    
+  }
 
-.chart {
-  width: 50px;
-  height: 50px;
-
-}
-
-.face-id2 {
-  width: 60px !important;
-  height: 60px !important;
-  margin-left: 0px !important;
-  margin-right: 0px !important;
-}
   .ribbon-large1{
-    margin-left: 300px;
+    margin-left: 0px;
+    padding-right: 40px;
+    align-content: center;
     font-family: kanit;
+    margin-top: 100px;
+    
   }
+
+
+  /* ปุ่มที่ 2 */
+  
+  .id-card{
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+   
+  }
+
+  .button2{
+    border-radius: 12px;
+    background-color:#1CBE66 !important;
+    color: white;
+    margin-top: 10px;
+    width: 180px;
+    height: 40px;
+    font-size: 15px;
+    margin-bottom: 20px;
+  }
+  
   .ribbon-large2{
-    margin-left: 300px;
+    margin-top: 100px;
+    margin-left: 0px;
+    margin-right: 0px !important;
     font-family: kanit;
+    align-content: center !important;
   }
+
+  /* ปุ่มที่ 3 */
+  
+  .chart{
+    width: 90px;
+    height: 90px;
+    margin-left: 0px !important;
+    margin-bottom: 10px;
+   
+  }
+
+  .button3{
+    border-radius: 12px;
+    background-color:#A41BBA !important;
+    color: white;
+    margin-left: 0px;
+    width: 150px;
+    height: 40px;
+    font-size: 15px;
+    margin-bottom: 20px;
+  }
+
   .ribbon-large3{
+    margin-top: 100px !important;
     font-family: kanit;
+
   }
+ 
+  
+  /* ปุ่มที่ 4 */
+  .faceid {
+    width: 110px;
+    height: 110px;
+    margin-right:0px;
+  }   
+
+  .button4{
+    border-radius: 12px;
+    background-color: #4fc3f7 !important;
+    color: white !important;
+    margin-right:0px;
+    width: 150px !important;
+    height: 40px;
+    font-size: 15px;
+    margin-bottom: 20px;
+  
+   
+  }
+
   .ribbon-large4{
-   font-family: kanit;
-  }
-  </style>
+    align-content: center;
+    font-family: kanit;
+    margin-top: 100px;
+    
+  } 
+.idc{
+  width: 180px !important;
+  width: 200px; 
+  margin-left: 180px;
+  margin-right: 0px; 
+  margin-bottom: 10px;
+}
+</style>

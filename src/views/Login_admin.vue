@@ -41,7 +41,7 @@ export default {
 
 
 <template>
-    <div class="container">
+    <div  id="Login_body">
         <main class="form-signin d-flex justify-content-center">
             <div>
                 <img src="/img/Logo.png" class="Logo">
@@ -52,9 +52,9 @@ export default {
                     <h5 class="admin">สำหรับเจ้าหน้าที่</h5>
                 </div>
                     
-                    <input  type="email" class="w-100 form-control mail" placeholder="อีเมล์" @change="test()">
+                    <input  type="email" class="w-100 form-control mail" placeholder="อีเมล์" v-model="this.Login.Emp_Mail">
                 
-                    <input  type="password" class="w-100 form-control password"  placeholder="รหัสผ่าน" @change="test()">
+                    <input  type="password" class="w-100 form-control password"  placeholder="รหัสผ่าน" v-model="this.Login.pwd">
 
                     <button class="w-100 btn btn-lg btn-signin" @click="addLogin">เข้าสู่ระบบ</button>
 
@@ -117,7 +117,7 @@ form {
     margin-top: 50px;
 }
 
-.Login_body {
+#Login_body {
     justify-content: center;
     align-items: center;
     background-color: #4fc3f7 !important;
@@ -188,7 +188,7 @@ form {
 }
 
 input {
-    color: rgb(255, 255, 255);
+    color: grey(255, 255, 255);
     border-radius: 10px !important;
     text-align: center;
     font-family: "kanit"!important;
