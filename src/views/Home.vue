@@ -2,21 +2,18 @@
   <div class="container">
     <main class="justify-content-center">
       <div class="text-center">
-        <div class="row">  
+        <div class="row" style=" margin-top: 10px; margin-bottom: 10px !important;">  
             <div class="col-md-6 bg-white border rounded-3" >
                 <div class="ribbon-large1">
                   <img src="/img/User.png" class="User">
-                  <h5 style="margin-left:50px; margin-bottom:20px; margin-top: 10px;">พนักงาน</h5>
-                  <router-link to="/login_employee" class="btn btn-light button1 ">Admin</router-link>
+                  <h5  style="margin-right:0px;" >พนักงาน</h5>
+                  <router-link to="/login_admin" class="btn btn-light button1 ">Employee</router-link>
                 </div>
             </div> 
-         
-           
-
             <div class="col-md-6 bg-white border rounded-3">   
               <div class="ribbon-large2" >
-                  <img src="/img/id-card.png" class="id-card"   >
-                  <h5 class="idc" style="margin-right:300px; margin-bottom:10px;" >เจ้าหน้าที่</h5>
+                  <img src="/img/id-card.png" class="id-card">
+                  <h5  style="margin-right:0px;" >เจ้าหน้าที่</h5>
                   <router-link to="/login_admin" class="btn btn-light button2 ">Admin</router-link>
               </div> 
             </div>
@@ -54,7 +51,9 @@
   .User {
     width: 90px;
     height: 90px;
-    margin-left: 50px;
+    margin-left: 0px;
+    margin-bottom: 20px;
+   
   
   }
 
@@ -62,8 +61,9 @@
     border-radius: 12px;
     background-color: #FF9F2F !important;
     color: white !important;
-    margin-left: 50px;
-    width: 150px;
+    margin-left: 0px;
+    margin-top: 0px;
+    width: 180px;
     height: 40px;
     font-size: 15px;
     margin-bottom: 20px;
@@ -73,9 +73,9 @@
 
   .ribbon-large1{
     margin-left: 0px;
-    padding-right: 40px;
+    padding-right: 0px;
     align-content: center;
-    font-family: kanit;
+    /* font-family: kanit; */
     margin-top: 100px;
     
   }
@@ -94,7 +94,7 @@
     border-radius: 12px;
     background-color:#1CBE66 !important;
     color: white;
-    margin-top: 10px;
+    margin-top: 0px;
     width: 180px;
     height: 40px;
     font-size: 15px;
@@ -105,7 +105,7 @@
     margin-top: 100px;
     margin-left: 0px;
     margin-right: 0px !important;
-    font-family: kanit;
+    /* font-family: kanit; */
     align-content: center !important;
   }
 
@@ -132,7 +132,7 @@
 
   .ribbon-large3{
     margin-top: 100px !important;
-    font-family: kanit;
+    /* font-family: kanit; */
 
   }
  
@@ -159,7 +159,7 @@
 
   .ribbon-large4{
     align-content: center;
-    font-family: kanit;
+    /* font-family: kanit; */
     margin-top: 100px;
     
   } 

@@ -22,11 +22,11 @@
   }
   </script>
   
-  <style>
+  <style scoped>
   .Logonavbar{
     position: absolute;
     width: 40px;
-    height: 70px;
+    height: 50px;
     left: 40px;
     top: 3px;
   }

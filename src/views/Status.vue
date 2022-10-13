@@ -1,13 +1,12 @@
 <template>
   <div class="container">
       <div class="text-center">
-          <h4>สถานะการเข้าทำงาน</h4>
-          
-          <div class="d-flex">
-          <router-link to="/Mainadmin"><img src="/img/ArrowLeft.png" class="nav-icon1"  type="button"></router-link>
-          </div>     
+        <h4>สถานะการเข้าทำงาน</h4>
+        <div class="d-flex">
+          <router-link to="/Main_admin"><img src="/img/ArrowLeft.png" class="nav-icon1"  type="button"></router-link>
+        </div>     
         
-      </div>
+      </div>class="nav-icon1"  
       <div style="margin-top:20px;"  class="text-center">
           <table class="table tabel-striped table-bordered">
             <thead class="thead-dark" style="">  

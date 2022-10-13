@@ -1,5 +1,5 @@
 <template>
- <div>
+ <div class="A3">
     <h4 class="text1" align="center">การแจ้งเตือน</h4>
     <div class="card text-bg-black mb-3 Flexbox container for aligning bg-white " style="width: 600px;height: 100px; ">
 
@@ -60,24 +60,24 @@
 
 .me {
   font-size: 16px;
-  font-family: kanit;
+  /* font-family: kanit; */
   margin-bottom: 0px;
 }
 
 .text-muted {
   padding-left: 450px;
   font-size: 10px;
-  font-family: kanit;
+  /* font-family: kanit; */
 
 }
 
 .card-text2 {
   font-size: 14px;
-  font-family: kanit;
+  /* font-family: kanit; */
 }
 
 .text1 {
-  font-family: kanit;
+  /* font-family: kanit; */
   margin-top: 30px;
   margin-bottom: 30px;
 }
@@ -117,5 +117,8 @@
   padding-bottom: 0px;
   padding-top: 20px;
   margin-left: 0px;
+}
+.A3{
+  font-family: kanit;
 }
 </style>

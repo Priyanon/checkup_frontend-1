@@ -106,7 +106,7 @@ export default {
     text-decoration: none;
     margin-top: 15px !important;
     border: none;
-    font-family: "kanit";
+    /* font-family: "kanit"; */
     background-color: transparent;
     margin-top: 20px !important;
     margin-left: 100px;
@@ -191,7 +191,7 @@ input {
     color: grey(255, 255, 255);
     border-radius: 10px !important;
     text-align: center;
-    font-family: "kanit"!important;
+    /* font-family: "kanit"!important; */
   
 }
 

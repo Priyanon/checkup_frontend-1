@@ -1,5 +1,6 @@
 <script>
 import axios from 'axios';
+import {ref} from "vue"
 export default {
     data(){
         return {
@@ -10,7 +11,7 @@ export default {
               Emp_Birthday:'',
               Emp_Sex:'',
               Emp_IssueDate:'',
-              Emp_Addresshome:'',
+              Emp_Address:'',
               Emp_Phone:'',
               Emp_Mail:'',
               Emp_Age:'',
@@ -37,6 +38,9 @@ export default {
               alert('insert successfully! : ' + response)
             })
         },
+        onChangeFileUpload() {
+          this.post.Emp_Pic = this.$refs.file[0];  
+        },
         // เพิ่ม error
         test(){
           console.log(this.Employee)
@@ -47,7 +51,8 @@ export default {
 <!-- เพิ่มสิทธิตอนสร้าง user -->
 <template>
 <div class="body" style="margin-left:300px !important;">
-  <h4 style="font-family:kanit; margin-left:200px">เพิ่มข้อมูลผู้ใช้งาน</h4>
+  <h4 style="margin-left:200px">เพิ่มข้อมูลผู้ใช้งาน</h4> 
+  <!-- font-family:kanit;  -->
   <div class="col-md-8">
      <label for="exampleFormControlInput1" class="form-label">รหัสพนักงาน</label>
     <input 
@@ -69,7 +74,7 @@ export default {
   
 <br>
 
-  <h5 style="font-family:kanit;">ข้อมูลส่วนตัว</h5>
+  <h5>ข้อมูลส่วนตัว</h5>
 
   <div class="col-md-8">
      <label for="exampleFormControlInput1" class="form-label">ชื่อ-นามสกุล</label>
@@ -177,7 +182,7 @@ export default {
   </div>
 </form>
 <br>
-<h5 style="font-family:kanit;" >ข้อมูลติดต่อ</h5>
+<h5>ข้อมูลติดต่อ</h5>
 <div class="col-md-8">
   <label for="exampleFormControlInput1" class="form-label">เบอร์โทรศัพท์</label>
   <input 
@@ -198,17 +203,17 @@ export default {
 </div>
 
 <br>
-<h5 style="font-family:kanit;" >ที่อยู่ตามทะเบียนบ้าน</h5>
+<h5>ที่อยู่ตามทะเบียนบ้าน</h5>
 <div class="col-md-8">
   <input 
     type="Phone" 
     class="form-control" 
     id="exampleFormControlInput1" 
     placeholder=""
-    v-model="this.Employee.Emp_Addresshome">
+    v-model="this.Employee.Emp_Address">
 </div>
 <br>
-<h5 style="font-family:kanit;" >ที่อยู่ปัจจุบัน</h5>
+<h5>ที่อยู่ปัจจุบัน</h5>
 <div class="col-md-8">
   <input 
     type="email" 
@@ -226,8 +231,9 @@ export default {
                   type="file" 
                   class="form-control" 
                   accept="image/*"
+                  v-on:change="onChangeFileUpload"
                   >
-                  <!-- v-model="this.Employee.Emp_Pic" -->
+                  <!--  -->
               </div>
  </div>             
 <br>
@@ -256,3 +262,8 @@ export default {
 
 </div>
 </template>
+ <style scoped>
+ /* .form-label{
+  font-family:kanit;
+ } */
+ </style>

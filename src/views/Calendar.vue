@@ -1,7 +1,5 @@
 <script>
   import axios from 'axios';
-  // import DataTable from 'datatables.net-vue3';
-  
   export default {
     data() {
       return {
@@ -16,16 +14,25 @@
           console.log(response)
         })
         .catch((error) => console.log(error))
-    }
+    },
+    methods: {
+    //   getNow: function() {
+    //     const today = new Date();
+    //     const date = Leave.Leave_day.getFullYear()+'-'+(Leave.Leave_day.getMonth()+1)+'-'+Leave.Leave_day.getDate();
+    //     const time = Leave.Leave_dayend.getFullYear() + "-" + Leave.Leave_dayend.getMonth()+1 + "-" + Leave.Leave_dayend.getDate();
+    //     const dateTime = 'วันที่ลา : '+ date + ' ถึง ' + time;
+    //     // this.posts = dateTime;
+    //     return dateTime;
+    // const : dateStr = 'Leave.Leave_day'
+    // const : [Leave.Leave_day, Leave.Leave_dayend] = dateStr.split(' ')
+      }
+
   };
   
 </script>
 <template>
   <div class="online-table">
     <div class="d-flex justify-content-between">
-          <router-link to="/Mainadmin"><img src="/img/ArrowLeft.png" 
-            class="nav-icon1"  
-            type="button"></router-link>
     </div>
     <p align="center"></p>
     <h4 class="calendaryearheader">
@@ -436,11 +443,50 @@
               >
                 <font style="vertical-align: inherit">31 </font>
               </td>
-              <!-- <td class="calendarbody" width="" valign="top" height="" align="right">&nbsp;</td>
-         <td class="calendarbody" width="" valign="top" height="" align="right">&nbsp;</td>
-         <td class="calendarbody" width="" valign="top" height="" align="right">&nbsp;</td>
-         <td class="calendarbody" width="" valign="top" height="" align="right">&nbsp;</td>
-         <td class="calendarbody" width="" valign="top" height="" align="right">&nbsp;</td> -->
+              <td
+                class="calendarbody"
+                width=""
+                valign="top"
+                height=""
+                align="right"
+              >
+                <font style="vertical-align: inherit"></font>
+              </td>
+              <td
+                class="calendarbody"
+                width=""
+                valign="top"
+                height=""
+                align="right"
+              >
+                <font style="vertical-align: inherit"></font>
+              </td><td
+                class="calendarbody"
+                width=""
+                valign="top"
+                height=""
+                align="right"
+              >
+                <font style="vertical-align: inherit"></font>
+              </td>
+              <td
+                class="calendarbody"
+                width=""
+                valign="top"
+                height=""
+                align="right"
+              >
+                <font style="vertical-align: inherit"></font>
+              </td>
+              <td
+                class="calendarbody"
+                width=""
+                valign="top"
+                height=""
+                align="right"
+              >
+                <font style="vertical-align: inherit"></font>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -5257,7 +5303,7 @@
         </table>
       </div>
     </div>
-    <div style="margin-top: 20px" >
+    <div style="margin-top: 10px; margin-left:100px; margin-right:100px;" >
       <table class="table tabel-striped table-bordered">
         <thead class="thead-dark" align="center">
           <tr>
@@ -5268,8 +5314,8 @@
           </tr>
 
           <tr v-for="Leave in posts" :key="Leave.id">
-            <td>{{'วันที่ลา : '+Leave.Leave_day+' ถึง '+Leave_dayend}}</td>
-            <td>{{}}</td>
+            <td>{{dateTime}}</td>
+            <td>{{Leave.Emp_Name}}</td>
             <td>{{Leave.Leave_type}}</td>
             <td>{{Leave.Leave_Inform}}</td>
           </tr>
@@ -5358,7 +5404,9 @@ table {
   float: left;
   width: 31.8%;
   padding: 0 0 10px 10px;
+  margin-left: 12px;
 }
+
 .calendarheader {
   font-size: 18px;
   font-weight: bold;
@@ -5387,7 +5435,8 @@ table {
   background: #ebebeb;
 }
 .online-table {
-  font-family: kanit;
+  /* font-family: kanit; */
   text-align: center !important;
 }
+
 </style>

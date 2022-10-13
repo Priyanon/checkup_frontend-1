@@ -7,7 +7,6 @@
         Login: {
           Emp_Mail: '',
           pwd: '',
-          
         }
       }
     },
@@ -46,8 +45,6 @@
               <div>
                   <img src="/img/Logo.png" class="Logo">
                       <h4 class="h4 mb-3 fw-normal">Check Up</h4>
-                      
-                      
                   <div class="frame">   
                       <h5 class="user">สำหรับพนักงาน</h5>
                   </div>
@@ -195,7 +192,7 @@
       color: grey(255, 255, 255);
       border-radius: 10px !important;
       text-align: center;
-      font-family: "kanit"!important;
+      /* font-family: "kanit"!important; */
     
   }
   

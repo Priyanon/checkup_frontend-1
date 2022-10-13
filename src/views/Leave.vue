@@ -9,7 +9,6 @@
           Leave_Inform: "",
           Leave_day: "",
           Leave_dayend: "",
-          Leave_Send:""
         },
       };
     },
@@ -51,16 +50,18 @@
                 <option value="ลาพักร้อน">ลาพักร้อน</option>
               </select>
             </div>
-            <!--ประเภทของเวลา-->
-            <div class="row mt-3" style="font-family: kanit">
-              <label class="col-3">ประเภทของเวลา</label>
-              <div class="col-Lg-6" align="center">
-                <select v-model="this.Leaves.Leave_timetype" style="width:500px;" required>
-                  <option value="ลาเต็มวัน">ลาเต็มวัน</option>
-                  <option value="ลาครึ่งวัน">ลาครึ่งวัน</option>
-                </select>
-              </div>
 
+            <br>
+            <!--ประเภทของเวลา-->
+            <div style="font-family: kanit">
+              <label for="country" class="col-3" >ประเภทของเวลา</label>
+              <select class="form-select" v-model="this.Leaves.Leave_type" required>
+                <option value="ลาเต็มวัน">ลาเต็มวัน</option>
+                <option value="ลาครึ่งวัน">ลาครึ่งวัน</option>
+              </select>
+            </div>
+          
+            <br>
               <div class="row gy-3">
                 <div class="col-sm-6">
                   <label for="firstName" class="form-label">วันที่เริ่มลา</label>
@@ -87,7 +88,7 @@
                   <div class="invalid-feedback">Valid last name is required.</div>
                 </div>
   
-                <div>
+                
                   <h5>หมายเหตุ</h5>
                   <div class="form-group">
                     <div class="col-Lg-2">
@@ -100,7 +101,7 @@
                       </textarea>
                     </div>
                   </div>
-                </div>
+                
                 <div class="row mt-4">
                   <div class="col-md-6">
                     <button
@@ -121,7 +122,7 @@
                   </div>
                 </div>
               </div>
-            </div>
+            
         </div>
       </main>
     </div>
@@ -178,6 +179,9 @@
     text-align: center;
     white-space: nowrap;
     -webkit-overflow-scrolling: touch;
+  }
+  .container{
+    font-family: kanit;
   }
   </style>
   

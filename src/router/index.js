@@ -18,7 +18,7 @@ import Test from "@/views/Test.vue"
 import Status_coo from "@/views/Status_coo.vue"
 import Forgotpassword from "@/views/Forgotpassword.vue"
 import Main_executives from "@/views/Main_executives.vue"
-import Status_csr from "@/views/Status_csr.vue"
+import Main_employee from "@/views/Main_employee.vue"
 import Upscan from "@/views/Upscan.vue"
 import User from "@/views/User.vue"
 import Setting from "@/views/Setting.vue"
@@ -48,7 +48,7 @@ const routes = [
         path: "/leave",
         name:"Leave",
         component: Leave,
-        meta:{requiresAuth: false}
+        meta:{requiresAuth: true}
     },
     {
         path: "/login_executves",
@@ -60,66 +60,66 @@ const routes = [
         path: "/navbar",
         name:"Navbar",
         component: Navbar,
-        meta:{requiresAuth: false}
+        meta:{requiresAuth: true}
     },
     {
         path: "/status",
         name:"Status",
         component: Status,
-        meta:{requiresAuth: false}
+        meta:{requiresAuth: true}
     },
     {
         path: "/alert",
         name:"Alert",
         component: Alert,
-        meta:{requiresAuth: false}
+        meta:{requiresAuth: true}
     },
     {
         path: "/main_admin",
         name:"Main_admin",
         component: Main_admin,
-        meta:{requiresAuth: false}
+        meta:{requiresAuth: true}
     },
     {
         path: "/checkout",
         name:"Checkout",
         component: Checkout,
-        meta:{requiresAuth: false}
+        meta:{requiresAuth: true}
     },
     {
         path: "/checkin",
         name:"Checkin",
         component: Checkin,
-        meta:{requiresAuth: false}
+        meta:{requiresAuth: true}
     },
     {
         path: "/checkinyear",
         name:"Checkinyear",
         component: Checkinyear,
-        meta:{requiresAuth: false}
+        meta:{requiresAuth: true}
     },
     {
         path: "/calendar",
         name:"Calendar",
         component: Calendar,
-        meta:{requiresAuth: false}
+        meta:{requiresAuth: true}
     },
     {
         path: "/edituser",
         name:"Edituser",
         component: Edituser,
-        meta:{requiresAuth: false}
+        meta:{requiresAuth: true}
     },
     {
         path: "/test",
         name:"Test",
         component: Test,
-        meta:{requiresAuth: true}
+        meta:{requiresAuth: false}
     },
     {
-        path: "/status_csr",
-        name:"Status_csr",
-        component: Status_csr,
+        path: "/main_employee",
+        name:"Main_employee",
+        component: Main_employee,
         meta:{requiresAuth: true}
     },
     {
@@ -138,7 +138,7 @@ const routes = [
         path: "/forgotpassword",
         name:"Forgotpassword",
         component: Forgotpassword,
-        meta:{requiresAuth: false}
+        meta:{requiresAuth: true}
     },
     {
         path: "/status_coo",
@@ -150,7 +150,7 @@ const routes = [
         path: "/upscan",
         name:"Upscan",
         component: Upscan,
-        meta:{requiresAuth: false}
+        meta:{requiresAuth: true}
     },
     {
         path: "/user",
@@ -162,13 +162,54 @@ const routes = [
         path: "/setting",
         name:"Setting",
         component: Setting,
-        meta:{requiresAuth: false}
+        meta:{requiresAuth: true}
     },
 ]
 const router = createRouter({
     history: createWebHistory(),
     routes,
 });
+
+router.beforeEach((to, from,next) => {
+    // alert(to.path)
+    // {
+    //     isLogin:true
+    // }
+    if(to.meta.requiresAuth){
+        var obj = {
+            "token" :localStorage.getItem("token"),
+            "path" : to.path
+        }
+        axios.post('http://10.99.178.208:3000/checkauthen',obj)
+        .then(function(response){
+          console.log('response',response)
+          if(response.data.isLogin == true ){
+            // alert('kooooooook')
+            next()
+          } else {
+            // alert('uuuuuuuuuu')
+            next()
+          }
+        }).catch(error => {
+            // do something with error
+            // next({path:"/login"})
+        })
+    }else{
+        // alert('hooooooo')
+        next();
+    }
+    
+   
+})
+
+export default router;
+
+
+
+
+
+
+
 
 // function isLoggedIn(){
 //    var obj = {
@@ -201,38 +242,3 @@ const router = createRouter({
 //       }
 //     })
 // }
-
-router.beforeEach((to, from,next) => {
-    // alert(to.path)
-    // {
-    //     isLogin:true
-    // }
-    if(to.meta.requiresAuth){
-        
-        var obj = {
-            "token" :localStorage.getItem("token"),
-            "path" : to.path
-        }
-        axios.post('http://10.99.178.208:3000/checkauthen',obj)
-        .then(function(response){
-          console.log('response',response)
-          if(response.data.isLogin == true ){
-            // alert('kooooooook')
-            next()
-          } else {
-            // alert('uuuuuuuuuu')
-            next()
-          }
-        }).catch(error => {
-            // do something with error
-            // next({path:"/login"})
-        })
-    }else{
-        // alert('hooooooo')
-        next();
-    }
-    
-   
-})
-
-export default router;

@@ -7,7 +7,7 @@ export default {
     }
   },
   components: {
-    Navbar
+    // Navbar
   },
 }
 </script>
@@ -18,7 +18,7 @@ export default {
   <router-view />
 </div>
 <div v-else>
-  <Navbar/>
+  <!-- <Navbar/> -->
   <router-view />
 </div>
    

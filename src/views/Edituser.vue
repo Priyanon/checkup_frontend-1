@@ -31,6 +31,7 @@
       </thead>
       <tbody>
         <tr v-for="Employee in posts" :key="Employee.id">
+          <!-- v-for="(Employee,key)" of posts :key="Employee.id" -->
           <td>{{Employee.Emp_ID}}</td>
           <td>{{Employee.Emp_Name}}</td>
           <td>{{Employee.Emp_Identity_ID}}</td>
@@ -47,15 +48,17 @@
             <button
               type="button"
               class="btn btn-danger mr-2"
-              v-on:click="deleteStudent(index,student._id)"
+              @click="deleteStudent"
               >ลบ</button>
             <button
               type="button"
               class="btn btn-warning"
-              v-on:click="openEdit(index,student)"
               >แก้ไข</button>
           </td>
-          <!-- <td>{{Employee.Emp_Address}}</td>
+          <!--
+          v-on:click="deleteStudent(index,student._id)" 
+          v-on:click="openEdit(index,student)"
+          <td>{{Employee.Emp_Address}}</td>
           <td>{{Employee.Emp_Addressnow}}</td>
           <td>{{Employee.Emp_IssueDate}}</td> -->
         </tr>
@@ -65,7 +68,7 @@
   </div>
 </template>
   
-<script>
+<script >
 import axios from 'axios';
 // import DataTable from 'datatables.net-vue3';
 
@@ -83,7 +86,17 @@ export default {
         console.log(response)
       })
       .catch((error) => console.log(error.response))
-  }
+  },
+  methods:{
+    async deleteEmployee(){
+      await axios
+      .delete(`http://192.168.1.37:3000/employee/${this.Employee.Emp_ID}`)
+      .then (response => {
+        let i = this.posts.map(data => data.Emp_ID).indexOf();
+        this.posts.splice(i, 1)
+             });
+    }
+  },
 };
 
 </script>

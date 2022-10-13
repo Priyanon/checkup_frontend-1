@@ -3,8 +3,8 @@
     <div align="center">
         <h4>วีรภัทร เอี๊ยบกงไซ</h4>
         <div class="d-flex justify-content-between " style="height: 30px;">
-            <router-link to="/Mainadmin"><img src="/img/ArrowLeft.png" class="nav-icon1"  type="button"></router-link>
-            <router-link to="/Checkin"><img src="/img/ArrowR.png" class="nav-icon1"  type="button"></router-link>
+            <router-link to="/Main_admin"><img src="/img/ArrowLeft.png" class="arrow"  type="button"></router-link>
+            <router-link to="/Checkin"><img src="/img/ArrowR.png" class="arrow"  type="button"></router-link>
         </div>
         <div class="year" align="center" >
             <label for="leave" style="width: 20px; height: 30px;">ปี</label>
@@ -231,30 +231,30 @@
 </template>
     
 <script>
-import axios from 'axios'
-export default {
-    name: 'app',
-    data() {
-        return {
-            ListCheckIn: []
-        }
-    },
-    mounted(){
-        axios.get('http://192.168.1.37:3000/employee',this.Employee)
-        .then(function(response){
-            console.log(response)
-        })
-        console.log(this.Employee)
-    },
-    methods: {
-        showMyText: function (e) {
-            var keyword = e.target.value
-            var result = this.ListCheckIn.filter(obj => obj.fname.includes(keyword));
-            console.log('test', result)
-            this.ListCheckIn = result
-        }
-    }
-}
+// import axios from 'axios'
+// export default {
+//     name: 'app',
+//     data() {
+//         return {
+//             ListCheckIn: []
+//         }
+//     },
+//     mounted(){
+//         axios.get('http://192.168.1.37:3000/employee',this.Employee)
+//         .then(function(response){
+//             console.log(response)
+//         })
+//         console.log(this.Employee)
+//     },
+//     methods: {
+//         showMyText: function (e) {
+//             var keyword = e.target.value
+//             var result = this.ListCheckIn.filter(obj => obj.fname.includes(keyword));
+//             console.log('test', result)
+//             this.ListCheckIn = result
+//         }
+//     }
+// }
 </script>
 
 <style scoped> 
@@ -269,6 +269,10 @@ export default {
     margin-right: 100px;
     font-family:kanit;
 }
-    
+.arrow{
+    width: 40px;
+    height: 30px;
+    padding-right: 10px;
+    margin-top: 10px;
+}   
 </style>
-

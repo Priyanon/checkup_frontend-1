@@ -195,7 +195,7 @@
         color: grey(255, 255, 255);
         border-radius: 10px !important;
         text-align: center;
-        font-family: "kanit"!important;
+        /* font-family: "kanit"!important; */
       
     }
     
