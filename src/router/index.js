@@ -48,7 +48,7 @@ const routes = [
         path: "/leave",
         name:"Leave",
         component: Leave,
-        meta:{requiresAuth: true}
+        meta:{requiresAuth: false}
     },
     {
         path: "/login_executves",
@@ -60,55 +60,55 @@ const routes = [
         path: "/navbar",
         name:"Navbar",
         component: Navbar,
-        meta:{requiresAuth: true}
+        meta:{requiresAuth: false}
     },
     {
         path: "/status",
         name:"Status",
         component: Status,
-        meta:{requiresAuth: true}
+        meta:{requiresAuth: false}
     },
     {
         path: "/alert",
         name:"Alert",
         component: Alert,
-        meta:{requiresAuth: true}
+        meta:{requiresAuth: false}
     },
     {
         path: "/main_admin",
         name:"Main_admin",
         component: Main_admin,
-        meta:{requiresAuth: true}
+        meta:{requiresAuth: false}
     },
     {
         path: "/checkout",
         name:"Checkout",
         component: Checkout,
-        meta:{requiresAuth: true}
+        meta:{requiresAuth: false}
     },
     {
         path: "/checkin",
         name:"Checkin",
         component: Checkin,
-        meta:{requiresAuth: true}
+        meta:{requiresAuth: false}
     },
     {
         path: "/checkinyear",
         name:"Checkinyear",
         component: Checkinyear,
-        meta:{requiresAuth: true}
+        meta:{requiresAuth: false}
     },
     {
         path: "/calendar",
         name:"Calendar",
         component: Calendar,
-        meta:{requiresAuth: true}
+        meta:{requiresAuth: false}
     },
     {
         path: "/edituser",
         name:"Edituser",
         component: Edituser,
-        meta:{requiresAuth: true}
+        meta:{requiresAuth: false}
     },
     {
         path: "/test",
@@ -120,7 +120,7 @@ const routes = [
         path: "/main_employee",
         name:"Main_employee",
         component: Main_employee,
-        meta:{requiresAuth: true}
+        meta:{requiresAuth: false}
     },
     {
         path: "/login_employee",
@@ -132,13 +132,13 @@ const routes = [
         path: "/main_executives",
         name:"Main_executives",
         component: Main_executives,
-        meta:{requiresAuth: true}
+        meta:{requiresAuth: false}
     },
     {
         path: "/forgotpassword",
         name:"Forgotpassword",
         component: Forgotpassword,
-        meta:{requiresAuth: true}
+        meta:{requiresAuth: false}
     },
     {
         path: "/status_coo",
@@ -150,19 +150,19 @@ const routes = [
         path: "/upscan",
         name:"Upscan",
         component: Upscan,
-        meta:{requiresAuth: true}
+        meta:{requiresAuth: false}
     },
     {
         path: "/user",
         name:"User",
         component: User,
-        meta:{requiresAuth: true}
+        meta:{requiresAuth: false}
     },
     {
         path: "/setting",
         name:"Setting",
         component: Setting,
-        meta:{requiresAuth: true}
+        meta:{requiresAuth: false}
     },
 ]
 const router = createRouter({

@@ -2,10 +2,10 @@
     <div class="body">
     <div align="center">
         <h4>วีรภัทร เอี๊ยบกงไซ</h4>
-        <div class="d-flex justify-content-between " style="height: 30px;">
+        <!-- <div class="d-flex justify-content-between " style="height: 30px;">
             <router-link to="/Main_admin"><img src="/img/ArrowLeft.png" class="arrow"  type="button"></router-link>
             <router-link to="/Checkin"><img src="/img/ArrowR.png" class="arrow"  type="button"></router-link>
-        </div>
+        </div> -->
         <div class="year" align="center" >
             <label for="leave" style="width: 20px; height: 30px;">ปี</label>
             <select  name="year" required style="width: 72px; height: 22px;" @change="test()">

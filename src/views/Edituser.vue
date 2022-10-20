@@ -80,7 +80,7 @@ export default {
   },
   mounted() {
     axios
-      .get('http://192.168.1.37:3000/employee')
+      .get('http://192.168.43.120:3000/employee')
       .then((response) => {
         this.posts = response.data
         console.log(response)
@@ -90,7 +90,7 @@ export default {
   methods:{
     async deleteEmployee(){
       await axios
-      .delete(`http://192.168.1.37:3000/employee/${this.Employee.Emp_ID}`)
+      .delete(`http://192.168.43.120:3000/employee/${this.Employee.Emp_ID}`)
       .then (response => {
         let i = this.posts.map(data => data.Emp_ID).indexOf();
         this.posts.splice(i, 1)

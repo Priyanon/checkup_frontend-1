@@ -7,7 +7,7 @@
                 <div class="ribbon-large1">
                   <img src="/img/User.png" class="User">
                   <h5  style="margin-right:0px;" >พนักงาน</h5>
-                  <router-link to="/login_admin" class="btn btn-light button1 ">Employee</router-link>
+                  <router-link to="/login_employee" class="btn btn-light button1 ">Employee</router-link>
                 </div>
             </div> 
             <div class="col-md-6 bg-white border rounded-3">   

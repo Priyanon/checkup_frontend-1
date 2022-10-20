@@ -17,8 +17,8 @@
             //     password: this.pwd
             // })
             // console.log(response);
-          async addLogin() {
-            this.$router.push({name:''})
+          async addLoginexecutives() {
+            this.$router.push({path:'/main_executives'})
         //     await axios.put('http://192.168.1.37:3000/login', this.Employee).then(function (response) {
         //     if(response.data.message == "ok"){
         //         // localStorage.setItem('token', response.data.user_token);
@@ -55,7 +55,7 @@
                     
                         <input  type="password" class="w-100 form-control password"  placeholder="รหัสผ่าน" v-model="this.Login.pwd">
     
-                        <button class="w-100 btn btn-lg btn-signin" @click="addLogin">เข้าสู่ระบบ</button>
+                        <button class="w-100 btn btn-lg btn-signin" @click="addLoginexecutives">เข้าสู่ระบบ</button>
     
                         <button class="text-white forgot">ลืมรหัสผ่านใช่หรือไม่?</button>
                 </div>
