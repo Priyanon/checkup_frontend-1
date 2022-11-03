@@ -67,7 +67,7 @@
       background-color:#FFCC33;
       height: 50px;
       border-radius: 8px;
-      font-family: "kanit";
+      /* font-family: "kanit"; */
       
       
   }
@@ -81,7 +81,7 @@
   }
   
   .mail{
-      font-family: "kanit";
+      /* font-family: "kanit"; */
       margin-top: 55px;
       width: 60px;
       height: 50px;
@@ -89,7 +89,7 @@
   
   .password {
       margin-top: 15px !important;
-      font-family: "kanit";
+      /* font-family: "kanit"; */
       margin-top: 20px !important;
       width: 60px;
       height: 50px;
@@ -100,14 +100,14 @@
       background-color: white !important;
       margin-top: 20px;
       border-radius: 100;
-      font-family:kanit !important;
+      /* font-family:kanit !important; */
   }
   
   .forgot {
       text-decoration: none;
       margin-top: 15px !important;
       border: none;
-      font-family: "kanit";
+      /* font-family: "kanit"; */
       background-color: transparent;
       margin-top: 20px !important;
       margin-left: 100px;

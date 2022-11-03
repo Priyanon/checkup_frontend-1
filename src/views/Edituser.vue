@@ -80,7 +80,7 @@ export default {
   },
   mounted() {
     axios
-      .get('http://192.168.43.120:3000/employee')
+      .get('http://192.168.1.167:3000/employee')
       .then((response) => {
         this.posts = response.data
         console.log(response)

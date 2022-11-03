@@ -194,7 +194,7 @@ export default {
         </div>
 
         <br><br>
-        <div class="col-sm-6">
+        <div class="col-sm-6 save">
           <button class="btn btn-primary" type="submit" @click="addEmployee">บันทึก</button>
         </div>
 
@@ -207,9 +207,9 @@ export default {
   font-family:kanit;
  } */
 .my-border {
-  border: solid green 3px;
+  border: solid rgb(0, 0, 0) 3px;
   border-radius: 12px;
-  background-color: gray;
+  background-color: rgb(197, 197, 197);
   padding: 40px;
   margin: 30px;
   /* margin-left: auto;
@@ -217,6 +217,11 @@ export default {
   max-width: 600px;
 }
 
+.save{
+  margin-left: 220px;
+  margin-right: 220px;
+  margin-top: 15px;
+}
 .M {
   display: flex;
   justify-content: center;

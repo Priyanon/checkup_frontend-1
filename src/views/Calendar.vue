@@ -8,7 +8,7 @@
     },
     mounted() {
       axios
-        .get('http://192.168.1.37:3000/Leaves')
+        .get('http://192.168.1.167:3000/Leaves')
         .then((response) => {
           this.posts = response.data
           console.log(response)
