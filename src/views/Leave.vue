@@ -17,7 +17,7 @@ export default {
   methods: {
     async addLeaves() {
       await axios
-        .post("http://192.168.1.37:3000/leaves", this.Leaves)
+        .post("http://192.168.1.43:3000/leaves", this.Leaves)
         .then(function (response) {
           alert("insert successfully! : " + response);
         });
@@ -58,7 +58,7 @@ export default {
             <!--ประเภทของเวลา-->
             <div style="font-family: kanit">
               <label for="country" class="col-3">ประเภทของเวลา</label>
-              <select class="form-select" v-model="this.Leaves.Leave_type" required>
+              <select class="form-select" v-model="this.Leaves.Leave_timetype" required>
                 <option value="ลาเต็มวัน">ลาเต็มวัน</option>
                 <option value="ลาครึ่งวัน">ลาครึ่งวัน</option>
               </select>

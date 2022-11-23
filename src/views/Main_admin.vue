@@ -71,7 +71,7 @@ export default {
       this.$router.push({path:'/leave'})
     },
     addtoEdituser() {
-      this.$router.push({path:'/edituser'})
+      this.$router.push({name:'Edituser'})
     },
     addtoUpscan() {
       this.$router.push({path:'/upscan'})

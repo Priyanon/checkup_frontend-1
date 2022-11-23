@@ -15,7 +15,7 @@ import Checkinyear from "@/views/Checkinyear.vue"
 import Calendar from "@/views/Calendar.vue"
 import Edituser from "@/views/Edituser.vue"
 import Test from "@/views/Test.vue"
-import Status_coo from "@/views/Status_coo.vue"
+import EdituserNext from "@/views/EdituserNext.vue"
 import Forgotpassword from "@/views/Forgotpassword.vue"
 import Main_executives from "@/views/Main_executives.vue"
 import Main_employee from "@/views/Main_employee.vue"
@@ -30,67 +30,67 @@ const routes = [
         path: "/",
         name:"Home",
         component: Home,
-        meta:{requiresAuth: false}
+        // meta:{requiresAuth: false}
     },
     {
         path: "/login_admin",
         name:"Login_admin",
         component: Login_admin,
-        meta:{requiresAuth: false}
+        // meta:{requiresAuth: false}
     },
     {
         path: "/regist",
         name:"Regist",
         component: Regist,
-        meta:{requiresAuth: false}
+        // meta:{requiresAuth: false}
     },
     {
         path: "/leave",
         name:"Leave",
         component: Leave,
-        meta:{requiresAuth: false}
+        // meta:{requiresAuth: false}
     },
     {
         path: "/login_executves",
         name:"Login_executves",
         component: Login_executves,
-        meta:{requiresAuth: false}
+        // meta:{requiresAuth: false}
     },
     {
         path: "/navbar",
         name:"Navbar",
         component: Navbar,
-        meta:{requiresAuth: false}
+        // meta:{requiresAuth: false}
     },
     {
         path: "/status",
         name:"Status",
         component: Status,
-        meta:{requiresAuth: false}
+        // meta:{requiresAuth: false}
     },
     {
         path: "/alert",
         name:"Alert",
         component: Alert,
-        meta:{requiresAuth: false}
+        // meta:{requiresAuth: false}
     },
     {
         path: "/main_admin",
         name:"Main_admin",
         component: Main_admin,
-        meta:{requiresAuth: false}
+        // meta:{requiresAuth: false}
     },
     {
         path: "/checkout",
         name:"Checkout",
         component: Checkout,
-        meta:{requiresAuth: false}
+        // meta:{requiresAuth: false}
     },
     {
         path: "/checkin",
         name:"Checkin",
         component: Checkin,
-        meta:{requiresAuth: false}
+        // meta:{requiresAuth: false}
     },
     {
         path: "/checkinyear",
@@ -102,67 +102,68 @@ const routes = [
         path: "/calendar",
         name:"Calendar",
         component: Calendar,
-        meta:{requiresAuth: false}
+        // meta:{requiresAuth: false}
     },
     {
         path: "/edituser",
         name:"Edituser",
         component: Edituser,
-        meta:{requiresAuth: false}
+        // meta:{requiresAuth: false}
     },
     {
         path: "/test",
         name:"Test",
         component: Test,
-        meta:{requiresAuth: false}
+        // meta:{requiresAuth: false}
     },
     {
         path: "/main_employee",
         name:"Main_employee",
         component: Main_employee,
-        meta:{requiresAuth: false}
+        // meta:{requiresAuth: false}
     },
     {
         path: "/login_employee",
         name:"Login_employee",
         component: Login_employee,
-        meta:{requiresAuth: false}
+        // meta:{requiresAuth: false}
     },
     {
         path: "/main_executives",
         name:"Main_executives",
         component: Main_executives,
-        meta:{requiresAuth: false}
+        // meta:{requiresAuth: false}
     },
     {
         path: "/forgotpassword",
         name:"Forgotpassword",
         component: Forgotpassword,
-        meta:{requiresAuth: false}
+        // meta:{requiresAuth: false}
     },
     {
-        path: "/status_coo",
-        name:"Status_coo",
-        component: Status_coo,
-        meta:{requiresAuth: true}
+        path: "/edituserNext",
+        name:"EdituserNext",
+        component: EdituserNext,
+        params:true
+        // meta:{requiresAuth: false}
     },
     {
         path: "/upscan",
         name:"Upscan",
         component: Upscan,
-        meta:{requiresAuth: false}
+        // meta:{requiresAuth: false}
     },
     {
         path: "/user",
         name:"User",
         component: User,
-        meta:{requiresAuth: false}
+        // meta:{requiresAuth: false}
     },
     {
         path: "/setting",
         name:"Setting",
         component: Setting,
-        meta:{requiresAuth: false}
+        // meta:{requiresAuth: false}
     },
 ]
 const router = createRouter({
@@ -170,37 +171,37 @@ const router = createRouter({
     routes,
 });
 
-router.beforeEach((to, from,next) => {
-    // alert(to.path)
-    // {
-    //     isLogin:true
-    // }
-    if(to.meta.requiresAuth){
-        var obj = {
-            "token" :localStorage.getItem("token"),
-            "path" : to.path
-        }
-        axios.post('http://10.99.178.208:3000/checkauthen',obj)
-        .then(function(response){
-          console.log('response',response)
-          if(response.data.isLogin == true ){
-            // alert('kooooooook')
-            next()
-          } else {
-            // alert('uuuuuuuuuu')
-            next()
-          }
-        }).catch(error => {
-            // do something with error
-            // next({path:"/login"})
-        })
-    }else{
-        // alert('hooooooo')
-        next();
-    }
+// router.beforeEach((to, from,next) => {
+//     // alert(to.path)
+//     // {
+//     //     isLogin:true
+//     // }
+//     if(to.meta.requiresAuth){
+//         var obj = {
+//             "token" :localStorage.getItem("token"),
+//             "path" : to.path
+//         }
+//         axios.post('http://10.99.178.208:3000/checkauthen',obj)
+//         .then(function(response){
+//           console.log('response',response)
+//           if(response.data.isLogin == true ){
+//             // alert('kooooooook')
+//             next()
+//           } else {
+//             // alert('uuuuuuuuuu')
+//             next()
+//           }
+//         }).catch(error => {
+//             // do something with error
+//             // next({path:"/login"})
+//         })
+//     }else{
+//         // alert('hooooooo')
+//         next();
+//     }
     
    
-})
+// })
 
 export default router;
 

@@ -1,15 +1,15 @@
 <template>
   <div Style="margin-top:30px;" class="container table-responsive text-center">
-    
+
     <h1>ข้อมูลสมาชิก</h1>
     <br>
     <div class="btn-group" role="group" aria-label="Default button group">
       <button type="button" class="btn btn-outline-dark">
-        <router-link to="/Regist">เพิ่ม</router-link>
+        <router-link class="btn" to="/regist">เพิ่ม</router-link>
       </button>
     </div>
     <br><br>
-    <Datatable class="table table-bordered container table-responsive text-center">
+    <table class="table table-bordered container table-responsive text-center">
       <thead>
         <tr class="table-info">
           <th scope="col">รหัสพนักงาน</th>
@@ -30,32 +30,29 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="Employee in posts" :key="Employee.id">
+        <tr v-for="Employee in posts" :key="Employee.Emp_ID">
           <!-- v-for="(Employee,key)" of posts :key="Employee.id" -->
-          <td>{{Employee.Emp_ID}}</td>
-          <td>{{Employee.Emp_Name}}</td>
-          <td>{{Employee.Emp_Identity_ID}}</td>
+        
+          <td>{{ Employee.Emp_ID }}</td>
+          <td>{{ Employee.Emp_Name }}</td>
+          <td>{{ Employee.Emp_Identity_ID }}</td>
           <!-- <td>{{Employee.Emp_Sex}}</td> -->
           <!-- <td>{{Employee.Emp_Birthday}}</td>
           <td>{{Employee.Emp_bloodtype}}</td>
           <td>{{Employee.Emp_nationality}}</td>
           <td>{{Employee.Emp_race}}</td>
           <td>{{Employee.Emp_sick}}</td> -->
-          <td>{{Employee.Emp_Phone}}</td>
-          <td>{{Employee.Emp_Mail}}</td>
+          <td>{{ Employee.Emp_Phone }}</td>
+          <td>{{ Employee.Emp_Mail }}</td>
           <!-- v-if="index !== editIndex" -->
           <td>
-            <button
-              type="button"
-              class="btn btn-danger mr-2"
-              @click="deleteStudent"
-              >ลบ</button>
-            <button
-              type="button"
-              class="btn btn-warning"
-              >แก้ไข</button>
+            <button color="danger" class="btn btn-danger " @click="deleteUser(Employee.Emp_ID)"><i
+                class="bi bi-bucket"></i> ลบ</button> l
+            <router-link :to="{name:'EdituserNext', params: { id:EmployeeInfo.Emp_ID }}" class="btn btn-warning" >แก้ไข 
+            </router-link>
+            <!-- params: { id : posts.Emp_ID } -->
           </td>
-          <!--
+          <!-- 
           v-on:click="deleteStudent(index,student._id)" 
           v-on:click="openEdit(index,student)"
           <td>{{Employee.Emp_Address}}</td>
@@ -63,63 +60,154 @@
           <td>{{Employee.Emp_IssueDate}}</td> -->
         </tr>
       </tbody>
-    </Datatable>
-    <p>Total:{{}}</p>
+    </table>
+    <!-- <p>Total:{{}}</p> -->
   </div>
 </template>
   
 <script >
 import axios from 'axios';
-// import DataTable from 'datatables.net-vue3';
+// import { useRouter, useRoute } from 'vue-router';
+// // import { error } from 'jquery';
+// import { reactive } from 'vue';
+// const router = useRouter()
+// const route = useRoute()
+const API_URL = "http://192.168.1.43:3000/employee";
+// const route = useRoute()
 
 export default {
   data() {
     return {
-      posts: []
+      posts: [],
+      EmployeeInfo: {
+        Emp_ID: '',
+        Emp_Identity_ID: '',
+        Emp_Name: '',
+        Emp_Birthday: '',
+        Emp_Sex: '',
+        Emp_IssueDate: '',
+        Emp_Address: '',
+        Emp_Phone: '',
+        Emp_Mail: '',
+        Emp_bloodtype: '',
+        Emp_sick: '',
+        pwd: '',
+        Emp_nationality: '',
+        Emp_race: '',
+        Emp_Scanpic: '',
+        Emp_religion: '',
+        Emp_Addressnow: '',
+        Emp_Pic: '',
+        Role: ''
+      },
+      // router,
+      // route
     }
   },
+  // setup(){
+  //   const EmployeeInfo = reactive({
+  //     Emp_ID: '',
+  //       Emp_Identity_ID: '',
+  //       Emp_Name: '',
+  //       Emp_Birthday: '',
+  //       Emp_Sex: '',
+  //       Emp_IssueDate: '',
+  //       Emp_Address: '',
+  //       Emp_Phone: '',
+  //       Emp_Mail: '',
+  //       Emp_bloodtype: '',
+  //       Emp_sick: '',
+  //       pwd: '',
+  //       Emp_nationality: '',
+  //       Emp_race: '',
+  //       Emp_Scanpic: '',
+  //       Emp_religion: '',
+  //       Emp_Addressnow: '',
+  //       Emp_Pic: '',
+  //       Role: ''
+  //   })
+  //   const router = useRouter()
+  //   const route = useRoute()
+  // },
   mounted() {
-    axios
-      .get('http://192.168.1.167:3000/employee')
-      .then((response) => {
-        this.posts = response.data
-        console.log(response)
-      })
-      .catch((error) => console.log(error.response))
+    this.getUser();
   },
-  methods:{
-    async deleteEmployee(){
-      await axios
-      .delete(`http://192.168.43.120:3000/employee/${this.Employee.Emp_ID}`)
-      .then (response => {
-        let i = this.posts.map(data => data.Emp_ID).indexOf();
-        this.posts.splice(i, 1)
-             });
+  methods: {
+    getUser() {
+      axios.get(`${API_URL}`)
+        .then((response) => {
+          this.posts = response.data
+          // console.log(response)
+        })
+        .catch((error) => console.log(error.response))
+    },
+    deleteUser(Emp_ID) {
+      axios.delete(`${API_URL}/` + Emp_ID)//+ result.Emp_ID,${this.EmployeeInfo.Emp_ID}
+        .then(() => {
+          this.getUser();
+          // console.log(request);
+        })
+        .catch((error) => {
+          console.log("ERRRR:: ", error.response.data);
+        });
+    },
+    getEmployeeInfo() {
+      axios
+        .get(`${API_URL}/${route.params.Emp_ID}`)
+        .then((response) => {
+          console.log(response)
+          this.EmployeeInfo.Emp_ID = response.data.Emp_ID
+          this.EmployeeInfo.Emp_Name = response.data.Emp_Name
+          this.EmployeeInfo.Emp_Mail = response.data.Emp_Mail
+          this.EmployeeInfo.pwd = response.data.pwd
+          this.EmployeeInfo.Emp_Identity_ID = response.data.Emp_Identity_ID
+          this.EmployeeInfo.Emp_Phone = response.data.Emp_Phone
+          this.EmployeeInfo.Emp_Birthday = response.data.Emp_Birthday
+          this.EmployeeInfo.Emp_Sex = response.data.Emp_Sex
+          this.EmployeeInfo.Emp_Address = response.data.Emp_Address
+          this.EmployeeInfo.Emp_bloodtype = response.data.Emp_bloodtype
+          this.EmployeeInfo.Emp_sick = response.data.Emp_sick
+          this.EmployeeInfo.Emp_nationality = response.data.Emp_nationality
+          this.EmployeeInfo.Emp_race = response.data.Emp_race
+          this.EmployeeInfo.Emp_religion = response.data.Emp_religion
+          this.EmployeeInfo.Emp_Addressnow = response.data.Emp_Addressnow
+          this.EmployeeInfo.Role = response.data.Role
+        })
+        .catch((error) => {
+          console.log("ERRRR:: ", error.response.data);
+        });
+    },
+    updateUser() {
+      axios
+        .put(`${API_URL}/${this.EmployeeInfo.Emp_ID}`, {
+          Emp_ID: this.EmployeeInfo.Emp_ID,
+          Emp_Identity_ID: this.EmployeeInfo.Emp_Identity_ID,
+          Emp_Name: this.EmployeeInfo.Emp_Name,
+          Emp_Birthday: this.EmployeeInfo.Emp_Birthday,
+          Emp_Sex: this.EmployeeInfo.Emp_Sex,
+          Emp_Address: this.EmployeeInfo.Emp_Address,
+          Emp_Phone: this.EmployeeInfo.Emp_Phone,
+          Emp_Mail: this.EmployeeInfo.Emp_Mail,
+          Emp_bloodtype: this.EmployeeInfo.Emp_bloodtype,
+          Emp_sick: this.EmployeeInfo.Emp_sick,
+          pwd: this.EmployeeInfo.pwd,
+          Emp_nationality: this.EmployeeInfo.Emp_nationality,
+          Emp_race: this.EmployeeInfo.Emp_race,
+          Emp_religion: this.EmployeeInfo.Emp_religion,
+          Emp_Addressnow: this.EmployeeInfo.Emp_Addressnow,
+          Role: this.EmployeeInfo.Role
+        })
+        .then((res) => {
+          this.getUser();
+        })
+        .catch((error) => {
+          console.log("ERRRR:: ", error.response.data);
+        });
+    },
+    goNext(){
+      
     }
-  },
+  }
 };
 
 </script>
-    
-    
-  <!-- <th scope="col">รหัสพนักงาน</th>
-  <th scope="col">ชื่อ-สกุล</th>
-  <th scope="col">เลขประจำตัวประชาชน</th>
-  <th scope="col">เพศ</th>
-  <th scope="col">เบอร์โทรศัพท์</th>
-  <th scope="col">E-mail</th>
-  <th scope="col">วัน/เดือน/ปี เกิด</th>
-  <th scope="col">กรุ๊ปเลือด</th>
-  <th scope="col">โรคประจำตัว</th>
-  <th scope="col">เชื้อชาติ</th>
-  <th scope="col">สัญชาติ</th>
-  <th scope="col">ที่อยู่ตามทะเบียนบ้าน</th>
-  <th scope="col">ที่อยู่ปัจจุบัน</th>
-  <th scope="col">วันที่เข้าทำงานวันแรก</th> 
-  
-   <h1 class="text-canter my-text" id="my-h1">LOLOLOLOL</h1>  
-      <div class="my-container bg-white text-back container" id="app" v-cloak>
-          <input type="text" placeholder="search..." v-on:keyup="showMyText"> 
-  
-
-      -->

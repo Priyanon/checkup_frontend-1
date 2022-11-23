@@ -1,9 +1,6 @@
 <script>
 import axios from 'axios';
-import { useRouter } from 'vue-router';
-// import { error } from 'jquery';
-const router = useRouter()
-const route = useRouter()
+import { ref } from "vue"
 export default {
   data() {
     return {
@@ -37,16 +34,12 @@ export default {
   methods: {
     async addEmployee() {
       await axios.post('http://192.168.1.37:3000/employee', this.Employee)
-        .then(function(response){
-          alert('เพิ่มข้อมูลสำเร็จ')
-         })
-        .catch((error) => {
-          console.log("ERRRR:: ", error.response.data);
-        });
-      // this.$router.push("/edituser");
+        .then(function (response) {
+          alert('การเพิ่มข้อมูลผู้ใช้สำเร็จ ' + response)
+        })
     },
     onChangeFileUpload() {
-      this.Employee.Emp_Pic = this.$refs.file[0];
+      this.post.Emp_Pic = this.$refs.file[0];
     },
     // เพิ่ม error
     test() {
@@ -57,7 +50,7 @@ export default {
 </script>
 <!-- เพิ่มสิทธิตอนสร้าง user -->
 <template>
-  <div class="M shadow">
+  <div class="M">
     <div class="my-border">
       <div class="row">
         <h4>เพิ่มข้อมูลผู้ใช้งาน</h4>
@@ -214,7 +207,7 @@ export default {
   font-family:kanit;
  } */
 .my-border {
-  /* border: solid rgb(0, 0, 0) 3px; */
+  border: solid rgb(0, 0, 0) 3px;
   border-radius: 12px;
   background-color: rgb(197, 197, 197);
   padding: 40px;
@@ -224,12 +217,11 @@ export default {
   max-width: 600px;
 }
 
-.save {
+.save{
   margin-left: 220px;
   margin-right: 220px;
   margin-top: 15px;
 }
-
 .M {
   display: flex;
   justify-content: center;
