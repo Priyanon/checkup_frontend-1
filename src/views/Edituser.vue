@@ -32,7 +32,6 @@
       <tbody>
         <tr v-for="Employee in posts" :key="Employee.Emp_ID">
           <!-- v-for="(Employee,key)" of posts :key="Employee.id" -->
-        
           <td>{{ Employee.Emp_ID }}</td>
           <td>{{ Employee.Emp_Name }}</td>
           <td>{{ Employee.Emp_Identity_ID }}</td>
@@ -46,22 +45,39 @@
           <td>{{ Employee.Emp_Mail }}</td>
           <!-- v-if="index !== editIndex" -->
           <td>
-            <button color="danger" class="btn btn-danger " @click="deleteUser(Employee.Emp_ID)"><i
-                class="bi bi-bucket"></i> ลบ</button> l
-            <router-link :to="{name:'EdituserNext', params: { id:EmployeeInfo.Emp_ID }}" class="btn btn-warning" >แก้ไข 
+            <button color="danger" class="btn btn-danger " @click="deleteUser(Employee.Emp_ID)" > ลบ</button> l
+            <router-link :to="{ name: 'EdituserNext', params: { id: EmployeeInfo.Emp_ID } }" class="btn btn-warning">
+              แก้ไข
             </router-link>
-            <!-- params: { id : posts.Emp_ID } -->
+            <!-- params: { id : posts.Emp_ID } , showDeleteModal = true, deleteUser(Employee.Emp_ID) , getEmployeeInfo(Employee.Emp_ID)"-->
           </td>
-          <!-- 
-          v-on:click="deleteStudent(index,student._id)" 
-          v-on:click="openEdit(index,student)"
-          <td>{{Employee.Emp_Address}}</td>
-          <td>{{Employee.Emp_Addressnow}}</td>
-          <td>{{Employee.Emp_IssueDate}}</td> -->
         </tr>
       </tbody>
     </table>
-    <!-- <p>Total:{{}}</p> -->
+
+    <!--delete Modal -->
+    <div class="myModal" v-if="showDeleteModal">
+      <div class="modalContainer">
+        <div class="deleteHeader">
+          <span class="headerTitle">Delete Member</span>
+          <button class="closeDelBtn pull-right" @click="showDeleteModal = false">×</button>
+        </div>
+        <div class="modalBody">
+          <h5 class="text-center">Are you sure you want to Delete</h5>
+          <h2 class="text-center">{{ Employee.Emp_Name }} // {{ Employee.Emp_ID }}</h2>
+        </div>
+        <hr>
+        <div class="modalFooter">
+          <div class="footerBtn pull-right">
+            <button class="btn btn-default" ><span
+                class="glyphicon glyphicon-remove"></span> Cancel</button> <button class="btn btn-danger"
+              @click="showDeleteModal = false, deleteUser(Emp_ID)">
+              Yes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END  -->
   </div>
 </template>
   
@@ -72,7 +88,7 @@ import axios from 'axios';
 // import { reactive } from 'vue';
 // const router = useRouter()
 // const route = useRoute()
-const API_URL = "http://192.168.1.43:3000/employee";
+const API_URL = "http://192.168.1.167:3000/employee"
 // const route = useRoute()
 
 export default {
@@ -100,8 +116,9 @@ export default {
         Emp_Pic: '',
         Role: ''
       },
-      // router,
-      // route
+      showEditModal: false,
+      showDeleteModal: false,
+      clickUser: {}
     }
   },
   // setup(){
@@ -146,16 +163,17 @@ export default {
         .then(() => {
           this.getUser();
           // console.log(request);
+          alert('ลบผู้ใช้สำเร็จ')
         })
         .catch((error) => {
           console.log("ERRRR:: ", error.response.data);
         });
     },
-    getEmployeeInfo() {
+    getEmployeeInfo(Emp_ID) {
       axios
-        .get(`${API_URL}/${route.params.Emp_ID}`)
+        .get(`${API_URL}/`+Emp_ID)
         .then((response) => {
-          console.log(response)
+          console.log('id: ',response)
           this.EmployeeInfo.Emp_ID = response.data.Emp_ID
           this.EmployeeInfo.Emp_Name = response.data.Emp_Name
           this.EmployeeInfo.Emp_Mail = response.data.Emp_Mail
@@ -204,8 +222,8 @@ export default {
           console.log("ERRRR:: ", error.response.data);
         });
     },
-    goNext(){
-      
+    selectMember(posts) {
+      this.clickUser = posts;
     }
   }
 };

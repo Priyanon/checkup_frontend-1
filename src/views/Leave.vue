@@ -9,6 +9,8 @@ export default {
         Leave_Inform: "",
         Leave_day: "",
         Leave_dayend: "",
+        Emp_ID,
+        Emp_Name
       },
     };
   },
@@ -17,7 +19,7 @@ export default {
   methods: {
     async addLeaves() {
       await axios
-        .post("http://192.168.1.43:3000/leaves", this.Leaves)
+        .post("http://192.168.1.37:3000/leaves", this.Leaves)
         .then(function (response) {
           alert("insert successfully! : " + response);
         });
@@ -41,16 +43,46 @@ export default {
 
           <div class="py-3">
             <h4 class="text-center" style="font-family: kanit">ใบลาอิเล็กทรอนิกส์</h4>
-            <!--ประเภทการลา-->
+
+          <div class="col-sm-12">
+                <label for="lastName" class="form-label">วันที่</label>
+                <input v-model="this.Leaves.Leave_dayend" type="date" class="form-control" placeholder="" required />
+                <div class="invalid-feedback">Valid last name is required.</div>
+          </div>
+            
+            <div class="col-sm-12">
+          <label for="exampleFormControlInput1" class="form-label">รหัสพนักงาน</label>
+          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="">
+        </div>
+        <div class="col-sm-12">
+          <label for="exampleFormControlInput1" class="form-label">ตำแหน่ง</label>
+          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="">
+        </div>
+        <div class="col-sm-12">
+          <label for="exampleFormControlInput1" class="form-label">แผนก</label>
+          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="">
+        </div>
+        <div class="col-sm-12">
+          <label for="exampleFormControlInput1" class="form-label">ชื่อ-นามสกุล</label>
+          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="">
+        </div>
+           
+
             <div style="font-family: kanit">
               <label for="country" class="col-3">ประเภทการลา</label>
               <select class="form-select" v-model="this.Leaves.Leave_type" required>
-                <option value="ลากิจ">ลากิจ</option>
                 <option value="ลาป่วย">ลาป่วย</option>
-                <option value="ลาบวช">ลาบวช</option>
-                <option value="ลาคลอดบุตร">ลาคลอดบุตร</option>
-                <option value="ลาอบรม">ลาอบรม</option>
+                <option value="ลากิจ">ลากิจ</option>
+                <option value="ลากิจพิเศษเพื่อสมรส">ลากิจพิเศษเพื่อสมรส</option>
+                <option value="ลากิจเพื่อจัดงานศพ">ลากิจเพื่อจัดงานศพ</option>
+                <option value="ลาเพื่อฝึกอบรม">ลาเพื่อฝึกอบรม</option>
                 <option value="ลาพักร้อน">ลาพักร้อน</option>
+                <option value="ลาชดเชยการทำงานในวันหยุด">ลาชดเชยการทำงานในวันหยุด</option>
+                <option value="ลาคลอด">ลาคลอด</option>
+                <option value="ลาเพื่อทำมัน">ลาเพื่อทำมัน</option>
+                <option value="ลารับราชการทหาร">ลารับราชการทหาร</option>
+                <option value="ลาอุปสมบท">ลาอุปสมบท</option>
+                <option value="ลาเพื่อประกบพิธีการทางศาสนา">ลาเพื่อประกบพิธีการทางศาสนา</option>
               </select>
             </div>
 
@@ -58,7 +90,7 @@ export default {
             <!--ประเภทของเวลา-->
             <div style="font-family: kanit">
               <label for="country" class="col-3">ประเภทของเวลา</label>
-              <select class="form-select" v-model="this.Leaves.Leave_timetype" required>
+              <select class="form-select" v-model="this.Leaves.Leave_time" required>
                 <option value="ลาเต็มวัน">ลาเต็มวัน</option>
                 <option value="ลาครึ่งวัน">ลาครึ่งวัน</option>
               </select>

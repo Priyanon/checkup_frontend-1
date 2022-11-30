@@ -36,7 +36,7 @@ export default {
   },
   methods: {
     async addEmployee() {
-      await axios.post('http://192.168.1.37:3000/employee', this.Employee)
+      await axios.post('http://192.168.1.167:3000/employee', this.Employee)
         .then(function(response){
           alert('เพิ่มข้อมูลสำเร็จ')
          })

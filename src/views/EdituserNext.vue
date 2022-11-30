@@ -1,7 +1,9 @@
 <script>
 import axios from 'axios';
 import { ref } from "vue"
+import {useRoute} from "vue-router";
 export default {
+  
   data() {
     return {
       Employee: {
@@ -29,7 +31,7 @@ export default {
     }
   },
   mounted() {
-
+    console.log('id:',$route.params.id)
   },
   methods: {
     async addEmployee() {
@@ -44,7 +46,8 @@ export default {
     // เพิ่ม error
     test() {
       console.log(this.Employee)
-    }
+    },
+
   }
 }
 </script>

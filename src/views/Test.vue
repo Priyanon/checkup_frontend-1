@@ -1,407 +1,314 @@
 <template>
-  <div class="col-md-12">
-    <div class="card">
-      <div class="card-header d-flex flex-row">
-        <h4 class="card-title align-self-center">Users Manager</h4>
-      </div>
-      <div class="card-body">
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Username</th>
-              <th class="text-right">Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="Empyloyee in posts" :key="Empyloyee.Emp_ID">
-              <td>{{ Empyloyee.Emp_ID }}</td>
-              <td>{{ Empyloyee.Emp_Name }}</td>
-              <td>{{ Empyloyee.Emp_Mail }}</td>
-              <td>{{ Empyloyee.Emp_Phone }}</td>
-              <td class="text-right">
-
-                <!--- BUTTON COMPONENT HERE --->
-                <!-- <button class="btn btn-link btn-info btn-icon btn-sm" data-toggle="modal" data-target="#userInfoModal"
-                  @click="getEmployeeInfo(Empyloyee.Emp_ID)">
-                  <i class="icon-alert-circle-exc">เพิ่ม</i>
-                </button> -->
-
-                <button class="btn btn-link btn-warning btn-icon btn-sm" data-toggle="modal"
-                  data-target="#userEditModal" aria-expanded="false" aria-controls="userEditModal"
-                  @click="getEmployeeInfo(Empyloyee.Emp_ID)">
-                  <i class="icon-pencil">แก้ไข</i>
-                </button>
-
-                <button class="btn btn-link btn-danger btn-icon btn-sm" data-bs-toggle="modal"
-                  data-bs-target="#userRemoveModal" aria-expanded="false" aria-controls="userRemoveModal"
-                  @click="getEmployeeInfo(Empyloyee.Emp_ID)">
-                  <!-- @click="getUserInfo(user)" -->
-                  <i class="bi bi-bucket"></i>ลบออก
-                </button>
-
-                <!-- <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
-                  data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                  Button with data-bs-target
-                </button> -->
-                <!--- END BUTTON COMPONENT --->
-
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-  <div class="collapse" id="collapseExample">
-    <div class="card card-body">
-      Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user
-      activates the relevant trigger.
-    </div>
-  </div>
-
-  <!-- MODALS -->
-  <!-- ADD USER MODAL -->
-  <!-- <div class="modal modal-black fade" id="addUserModal" tabindex="-1" role="dialog" aria-labelledby="addUserModal"
-    aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title" id="addUserModal">Add new user</h4>
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-            <i class="tim-icons icon-simple-remove"></i>
-          </button>
-        </div>
-        <form class="form-horizontal">
-          <div class="modal-body">
-            <div class="d-flex flex-row">
-              <label class="col-md-4 col-form-label">Name</label>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <input type="name" name="name" class="form-control" v-model="newUser.name" />
-                </div>
-              </div>
-            </div>
-            <div class="d-flex flex-row">
-              <label class="col-md-4 col-form-label">Username</label>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <input type="username" name="username" class="form-control" v-model="newUser.username" />
-                </div>
-              </div>
-            </div>
-            <div class="d-flex flex-row">
-              <label class="col-md-4 col-form-label">Email</label>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <input type="email" name="email" class="form-control" v-model="newUser.email" />
-                </div>
-              </div>
-            </div>
-            <div class="d-flex flex-row">
-              <label class="col-md-4 col-form-label">Password</label>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <input type="password" name="password" class="form-control" v-model="newUser.password" />
-                </div>
-              </div>
-            </div>
-            <div class="d-flex flex-row">
-              <label class="col-md-4 col-form-label">Confirm Password</label>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <input type="password" name="confirmPassword" class="form-control"
-                    v-model="newUser.confirmPassword" />
-                </div>
-              </div>
-            </div>
-            <div class="d-flex flex-row">
-              <label class="col-md-4 col-form-label">Roles</label>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <input type="roles" name="roles" class="form-control" v-model="newUser.roles" />
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">
-              Cancel
-            </button>
-            <button type="submit" class="btn btn-primary" @click.stop.prevent="addUser()">
-              Create user
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div> -->
-  <!-- END ADD USER MODAL -->
-
-  <!-- USER's INFO MODAL -->
-  <div class="modal modal-black fade" id="userInfoModal" tabindex="-1" role="dialog" aria-labelledby="userInfoModal"
-    aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title" id="userInfoModal">
-            <strong class="text-primary">
-              {{ EmployeeInfo.Emp_Name }}
-            </strong>'s Basic Information
-          </h4>
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-            <i class="tim-icons icon-simple-remove"></i>
-          </button>
-        </div>
-        <div class="modal-body" id="userInfo">
+  <div>
+    <div class="container">
+      <h1 class="page-header text-center">Vue.js Axios CRUD (Create, Read, Update and Delete) using PHP MySQLi</h1>
+      <div id="vuejscrudmembers">
+        <div class="col-md-8 col-md-offset-2">
           <div class="row">
-            <div class="col-6">
-              <p>ID: {{ EmployeeInfo.Emp_ID }}</p>
-              <p>Phone: {{ EmployeeInfo.Emp_Phone }}</p>
-              <p>Username: {{ EmployeeInfo.Emp_Identity_ID }}</p>
-            </div>
-            <div class="col-6">
-              <p>Name: {{ EmployeeInfo.Emp_Name }}</p>
-              <p>Email: {{ EmployeeInfo.Emp_Mail }}</p>
+            <div class="col-md-12">
+              <h2>Member List
+                <button class="btn btn-primary pull-right" @click="showAddModal = true"><span
+                    class="glyphicon glyphicon-plus"></span> Member</button>
+              </h2>
             </div>
           </div>
-        </div>
-        <div class="modal-footer d-flex flex-row-reverse">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">
-            Close
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- END USER's INFO MODAL -->
 
-  <!-- EDIT USER MODAL -->
-  <div class="modal modal-black fade" id="userEditModal" tabindex="-1" role="dialog" aria-labelledby="userEditModal"
-    aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title" id="userEditModal">
-            Edit user
-            <strong class="text-primary">
-              {{ EmployeeInfo.Emp_Name }}
-            </strong>
-          </h4>
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-            <i class="tim-icons icon-simple-remove"></i>
-          </button>
-        </div>
-        <form class="form-horizontal" method="PUT">
-          <div class="modal-body">
-            <div class="d-flex flex-row">
-              <label class="col-md-3 col-form-label">ID</label>
-              <div class="col-md-9">
-                <div class="form-group">
-                  <input type="text" class="form-control" name="username" v-model="EmployeeInfo.Emp_ID" />
-                </div>
-              </div>
-            </div>
-            <div class="d-flex flex-row">
-              <label class="col-md-3 col-form-label">Name</label>
-              <div class="col-md-9">
-                <div class="form-group">
-                  <input type="text" class="form-control" name="username" v-model="EmployeeInfo.Emp_Name" />
-                </div>
-              </div>
-            </div>
-            <div class="d-flex flex-row">
-              <label class="col-md-3 col-form-label">Email</label>
-              <div class="col-md-9">
-                <div class="form-group">
-                  <input type="email" name="email" class="form-control" v-model="EmployeeInfo.Emp_Mail" />
-                </div>
-              </div>
-            </div>
-            <div class="d-flex flex-row">
-              <label for="input gender1" class="form-label">สิทธ์การเข้าถึง</label>
-              <select id="input gender" class="form-select" v-model="this.EmployeeInfo.Role">
-                <option value="Employee">Employee</option>
-                <option value="Admin">Admin</option>
-                <option value="Executive">Executive</option>
-              </select>
-            </div>
+          <div class="alert alert-danger text-center" v-if="errorMessage">
+            <button type="button" class="close" @click="clearMessage();"><span aria-hidden="true">0000×</span></button>
+            <span class="glyphicon glyphicon-alert"></span> {{ errorMessage }}
           </div>
-          <div class="modal-footer d-flex flex-row">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">
-              Close
-            </button>
-            <button type="submit" class="btn btn-primary" data-dismiss="modal" @click="updateUser()">
-              Save Changes
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-  <!-- END EDIT USER MODAL -->
 
-  <!-- REMOVE USER MODAL -->
-  <div class="modal modal-black fade" id="userRemoveModal" tabindex="-1" role="dialog" aria-labelledby="userRemoveModal"
-    aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title" id="userRemoveModal">
-            Confirm delete user
-            <!-- <strong class="text-primary">
-              {{ userInfo.Emp_ID }} - {{ userInfo.Emp_Name }}
-            </strong> -->
-          </h4>
-          <button type="button" class="close" data-dismiss="modal">
-            <i class="tim-icons icon-simple-remove"></i>
-          </button>
-        </div>
-        <div class="modal-body h4 text-center mt-4">
-          Delete user
-          <strong class="text-danger">
-            {{ EmployeeInfo.Emp_ID }} - {{ EmployeeInfo.Emp_Name }}
-          </strong>
-        </div>
-        <div class="modal-footer d-flex flex-row">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">
-            Cancel
-          </button>
-          <button type="button" class="btn btn-danger" data-dismiss="modal" @click="deleteUser()">
-            Delete User
-          </button>
+          <div class="alert alert-success text-center" v-if="successMessage">
+            <button type="button" class="close" @click="clearMessage();"><span aria-hidden="true">5555×</span></button>
+            <span class="glyphicon glyphicon-ok"></span> {{ successMessage }}
+          </div>
+
+          <table class="table table-bordered table-striped">
+            <thead>
+              <th>Firstname</th>
+              <th>Lastname</th>
+              <th>Action</th>
+            </thead>
+            <tbody>
+              <tr v-for="Employee in posts" :key="Employee.Emp_ID">
+                <td>{{ Employee.Emp_ID }}</td>
+                <td>{{ Employee.Emp_Name }}</td>
+                <td>
+                  <button class="btn btn-success" @click="showEditModal = true; selectMember(posts);"><span
+                      class="glyphicon glyphicon-edit"></span> Edit</button>
+                  <button class="btn btn-danger" @click="showDeleteModal = true; selectMember(posts);"><span
+                      class="glyphicon glyphicon-trash"></span> Delete</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
+
+    <!-- MODALS -->
+    <!-- Add Modal -->
+    <div class="myModal" v-if="showAddModal">
+      <div class="modalContainer">
+        <div class="modalHeader">
+          <span class="headerTitle">Add New Member</span>
+          <button class="closeBtn pull-right" @click="showAddModal = false">×</button>
+        </div>
+        <div class="modalBody">
+          <div class="form-group">
+            <label>Firstname:</label>
+            <input type="text" class="form-control" v-model="newMember.firstname">
+          </div>
+          <div class="form-group">
+            <label>Lastname:</label>
+            <input type="text" class="form-control" v-model="newMember.lastname">
+          </div>
+        </div>
+        <hr>
+        <div class="modalFooter">
+          <div class="footerBtn pull-right">
+            <button class="btn btn-default" @click="showAddModal = false"><span
+                class="glyphicon glyphicon-remove"></span> Cancel</button> <button class="btn btn-primary"
+              @click="showAddModal = false; saveMember();"><span class="glyphicon glyphicon-floppy-disk"></span>
+              Save</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Edit Modal -->
+    <div class="myModal" v-if="showEditModal">
+      <div class="modalContainer">
+        <div class="editHeader">
+          <span class="headerTitle">Edit Member</span>
+          <button class="closeEditBtn pull-right" @click="showEditModal = false">×</button>
+        </div>
+        <div class="modalBody">
+          <div class="form-group">
+            <label>ID:</label>
+            <input type="text" class="form-control" v-model="clickMember.Emp_ID">
+          </div>
+          <div class="form-group">
+            <label>Name:</label>
+            <input type="text" class="form-control" v-model="clickMember.Emp_Name">
+          </div>
+        </div>
+        <hr>
+        <div class="modalFooter">
+          <div class="footerBtn pull-right">
+            <button class="btn btn-default" @click="showEditModal = false"><span
+                class="glyphicon glyphicon-remove"></span> Cancel</button> <button class="btn btn-success"
+              @click="showEditModal = false; updateMember();"><span class="glyphicon glyphicon-check"></span>
+              Save</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Delete Modal -->
+    <div class="myModal" v-if="showDeleteModal">
+      <div class="modalContainer">
+        <div class="deleteHeader">
+          <span class="headerTitle">Delete Member</span>
+          <button class="closeDelBtn pull-right" @click="showDeleteModal = false">×</button>
+        </div>
+        <div class="modalBody">
+          <h5 class="text-center">Are you sure you want to Delete</h5>
+          <h2 class="text-center">{{ clickMember.Emp_ID }} {{ clickMember.Emp_Name }}</h2>
+        </div>
+        <hr>
+        <div class="modalFooter">
+          <div class="footerBtn pull-right">
+            <button class="btn btn-default" @click="showDeleteModal = false"><span
+                class="glyphicon glyphicon-remove"></span> Cancel</button> <button class="btn btn-danger"
+              @click="showDeleteModal = false; deleteMember();"><span class="glyphicon glyphicon-trash"></span>
+              Yes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END REMOVE USER MODAL -->
+    <!-- END MODALS -->
   </div>
-  <!-- END REMOVE USER MODAL -->
-  <!-- END MODALS -->
 </template>
 
 <script >
-import * as Vue from 'vue'
+
 import axios from 'axios';
 import VueAxios from 'vue-axios'
 // const app = createApp()
 // app.use(VueAxios, axios)
 // import DataTable from 'datatables.net-vue3';
-const API_URL = "http://192.168.1.43:3000/employee";
+const API_URL = "http://192.168.43.120:3000/employee";
 export default {
   data() {
     return {
+      showAddModal: false,
+      showEditModal: false,
+      showDeleteModal: false,
+      errorMessage: "",
+      successMessage: "",
       posts: [],
-      EmployeeInfo: {
-        Emp_ID: '',
-        Emp_Identity_ID: '',
-        Emp_Name: '',
-        Emp_Birthday: '',
-        Emp_Sex: '',
-        Emp_IssueDate: '',
-        Emp_Address: '',
-        Emp_Phone: '',
-        Emp_Mail: '',
-        Emp_bloodtype: '',
-        Emp_sick: '',
-        pwd: '',
-        Emp_nationality: '',
-        Emp_race: '',
-        Emp_Scanpic: '',
-        Emp_religion: '',
-        Emp_Addressnow: '',
-        Emp_Pic: '',
-        Role: ''
-      }
+      newMember: { firstname: '', lastname: '' },
+      clickMember: {}
     }
   },
-  mounted() {
-    this.getUser();
+
+  mounted () {
+    this.getAllMembers();
   },
+
   methods: {
-    getUser() {
-      axios.get(`http://192.168.1.43:3000/employee`)
+    getAllMembers() {
+      axios.get(`${API_URL}`)
         .then((response) => {
           this.posts = response.data
           console.log(response)
         })
         .catch((error) => console.log(error.response))
     },
-    deleteUser(Emp_ID) {
-      axios.delete(`${API_URL}/` + Emp_ID)//+ result.Emp_ID,${this.EmployeeInfo.Emp_ID}
-        .then(() => {
-          this.getUser();
-          // console.log(request);
-        })
-        .catch((error) => {
-          console.log("ERRRR:: ", error.response.data);
-        });
-    },
-    async getEmployeeInfo(Emp_ID) {
-      await axios
-        .get(`${API_URL}/${Emp_ID}`)
-        .then((res) => {
-          this.EmployeeInfo.Emp_ID = res.data.Emp_ID;
-          this.EmployeeInfo.Emp_Name = res.data.Emp_Name;
-          this.EmployeeInfo.Emp_Mail = res.data.Emp_Mail;
-          this.EmployeeInfo.pwd = res.data.pwd;
-          this.EmployeeInfo.Emp_Identity_ID = res.data.Emp_Identity_ID;
-          this.EmployeeInfo.Emp_Phone = res.data.Emp_Phone;
-          this.EmployeeInfo.Emp_Birthday = res.data.Emp_Birthday;
-          this.EmployeeInfo.Emp_Sex = res.data.Emp_Sex;
-          this.EmployeeInfo.Emp_Address = res.data.Emp_Address;
-          this.EmployeeInfo.Emp_bloodtype = res.data.Emp_bloodtype;
-          this.EmployeeInfo.Emp_sick = res.data.Emp_sick;
-          this.EmployeeInfo.Emp_nationality = res.data.Emp_nationality;
-          this.EmployeeInfo.Emp_race = res.data.Emp_race;
-          this.EmployeeInfo.Emp_religion = res.data.Emp_religion;
-          this.EmployeeInfo.Emp_Addressnow = res.data.Emp_Addressnow;
-          this.EmployeeInfo.Role = res.data.Role;
-        },
-        // console.log(res)
-        )
-        .catch((error) => {
-          console.log("ERRRR:: ", error.response.data);
-        })
-        // console.log(res);
-    },
-    updateUser() {
-      axios
-        .put(`${API_URL}/${this.EmployeeInfo.Emp_ID}`, {
-          Emp_ID: this.EmployeeInfo.Emp_ID,
-          Emp_Identity_ID: this.EmployeeInfo.Emp_Identity_ID,
-          Emp_Name: this.EmployeeInfo.Emp_Name,
-          Emp_Birthday: this.EmployeeInfo.Emp_Birthday,
-          Emp_Sex: this.EmployeeInfo.Emp_Sex,
-          Emp_Address: this.EmployeeInfo.Emp_Address,
-          Emp_Phone: this.EmployeeInfo.Emp_Phone,
-          Emp_Mail: this.EmployeeInfo.Emp_Mail,
-          Emp_bloodtype: this.EmployeeInfo.Emp_bloodtype,
-          Emp_sick: this.EmployeeInfo.Emp_sick,
-          pwd: this.EmployeeInfo.pwd,
-          Emp_nationality: this.EmployeeInfo.Emp_nationality,
-          Emp_race: this.EmployeeInfo.Emp_race,
-          Emp_religion: this.EmployeeInfo.Emp_religion,
-          Emp_Addressnow: this.EmployeeInfo.Emp_Addressnow,
-          Role: this.EmployeeInfo.Role
-        })
-        .then((res) => {
-          this.getUser();
-        })
-        .catch((error) => {
-          console.log("ERRRR:: ", error.response.data);
-        });
-    },
-    // async addEmployee() {
-    //   await axios.post(`${API_URL}/`, this.EmployeeInfo)
+
+    // saveMember() {
+    //   //console.log(app.newMember);
+    //   var memForm = this.toFormData(this.newMember);
+    //   axios.post('${API_URL}', memForm)
     //     .then(function (response) {
-    //       alert('การเพิ่มข้อมูลผู้ใช้สำเร็จ ' + response)
-    //     })
+    //       //console.log(response);
+    //       this.newMember = { firstname: '', lastname: '' };
+    //       if (response.data.error) {
+    //         this.errorMessage = response.data.message;
+    //       }
+    //       else {
+    //         this.successMessage = response.data.message
+    //         this.getAllMembers();
+    //       }
+    //     });
     // },
-    // onChangeFileUpload() {
-    //   this.post.Emp_Pic = this.$refs.file[0];
-    // },
+
+    updateMember() {
+      var memForm = this.toFormData(this.clickMember);
+      axios.post('${API_URL}', memForm)
+        .then(function (response) {
+          //console.log(response);
+          this.clickMember = {};
+          if (response.data.error) {
+            this.errorMessage = response.data.message;
+          }
+          else {
+            this.successMessage = response.data.message
+            this.getAllMembers();
+          }
+        });
+    },
+
+    deleteMember() {
+      var memForm = this.clickMember;
+      axios.post('${API_URL}', memForm)
+        .then(function (response) {
+          //console.log(response);
+          this.clickMember = {};
+          if (response.data.error) {
+            this.errorMessage = response.data.message;
+          }
+          else {
+            this.successMessage = response.data.message
+            this.getAllMembers();
+          }
+        });
+    },
+
+    selectMember(posts) {
+      this.clickMember = posts;
+    },
+
+    toFormData(obj) {
+      var form_data = FormData();
+      for (var key in obj) {
+        form_data.append(key, obj[key]);
+      }
+      return form_data;
+    },
+
+    // clearMessage() {
+    //   this.errorMessage = '';
+    //   this.successMessage = '';
+    // }
+
   }
 };
-
 </script>
+<style scoped>
+.myModal{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background: rgba(0, 0, 0, 0.4);
+}
+ 
+.modalContainer{
+    width: 555px;
+    background: #FFFFFF;
+    margin:auto;
+    margin-top:50px;
+}
+ 
+.modalHeader{
+    padding:10px;
+    background: #008CBA;
+    color: #FFFFFF;
+    height:50px;
+    font-size:20px;
+    padding-left:15px;
+}
+ 
+.editHeader{
+    padding:10px;
+    background: #4CAF50;
+    color: #FFFFFF;
+    height:50px;
+    font-size:20px;
+    padding-left:15px;
+}
+ 
+.deleteHeader{
+    padding:10px;
+    background: #f44336;
+    color: #FFFFFF;
+    height:50px;
+    font-size:20px;
+    padding-left:15px;
+}
+ 
+.modalBody{
+    padding:40px;
+}
+ 
+.modalFooter{
+    height:36px;
+}
+ 
+.footerBtn{
+    margin-right:10px;
+    margin-top:-9px;
+}
+ 
+.closeBtn{
+    background: #008CBA;
+    color: #FFFFFF;
+    border:none;
+}
+ 
+.closeEditBtn{
+    background: #4CAF50;
+    color: #FFFFFF;
+    border:none;
+}
+ 
+.closeDelBtn{
+    background: #f44336;
+    color: #FFFFFF;
+    border:none;
+}
+</style>

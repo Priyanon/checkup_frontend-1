@@ -5,49 +5,38 @@
         <img src="/img/Profile.png" class="Profile justify-content-center">
         <div class="row">
           <div col-6>
-            <button style="font-family:kanit; margin-left: 30px !important;"
-              class="w-40 btn btn-outline-dark btn1 col-3"
-              @click="addtoCheckiny">
-              <img src="/img/save.png" width="20" height="20" style="margin-right:30px;">
+            
+            <!-- <button  class="w-40 btn btn-outline-dark btn1 col-3" @click="addtoCheckiny">
+              <i  class="bi bi-calendar2-check"></i> 
               <span>บันทึกการเข้า-ออก</span>
+            </button> -->
 
-            </button>
-
-            <button style="font-family:kanit; margin-left: 30px !important;" 
-                    class="w-40 btn btn-outline-dark btn2 col-3"
-                    @click="addtoStatus">
-              <img src="/img/user-time.png" width="20" height="20" style="margin-right:30px;">
+            <button class="w-40 btn btn-outline-dark btn2 col-3" @click="addtoStatus">
+              <i class="bi bi-clock"></i>
               <span>สถานะการเข้างาน</span>
             </button>
           </div>
+          
           <div>
-            <button style="font-family:kanit;" 
-                    class="w-40 btn btn-outline-dark btn2 col-3"
-                    @click="addtoLeave">
-              <img src="/img/Leave.png" width="20" height="20" style="margin-right:30px;">
+            <button class="w-40 btn btn-outline-dark btn3 col-3" @click="addtoLeave">
+              <i class="bi bi-envelope"></i>
               <span>ใบลาอิเล็กทรอนิกส์</span>
             </button>
 
-            <button style="font-family:kanit;" 
-                    class="w-40 btn btn-outline-dark btn2 col-3"
-                    @click="addtoCalendar">
-              <img src="/img/Calendar.png" width="20" height="20" style="margin-right:30px;">
-              <span>ปฏิทินการทำงาน</span>
+            <button class="w-40 btn btn-outline-dark btn4 col-3" @click="addtoCalendar">
+              <i class="bi bi-calendar-day"></i>
+              <span>ปฏิทิน</span>
             </button>
 
           </div>
           <div>
-            <button style="font-family:kanit;" 
-                    class="w-40 btn btn-outline-dark btn2 col-3"
-                    @click="addtoEdituser">
-              <img src="/img/User.png" width="20" height="20" style="margin-right:30px;">
+            <button class="w-40 btn btn-outline-dark btn5 col-3" @click="addtoEdituser">
+              <i class="bi bi-person-plus"></i>
               <span>เพิ่มข้อมูลผู้ใช้งาน</span>
             </button>
 
-            <button style="font-family:kanit;" 
-                    class="w-40 btn btn-outline-dark btn2 col-3"
-                    @click="addtoUpscan">
-              <img src="/img/scan.png" width="20" height="20" style="margin-right:30px;">
+            <button class="w-40 btn btn-outline-dark btn6 col-3" @click="addtoUpscan">
+              <i class="bi bi-fullscreen"></i>
               <span>เพิ่มข้อมูลใบหน้า</span>
             </button>
 
@@ -84,6 +73,27 @@ export default {
 </script>
 
 <style scoped>
+.container{
+  font-family:kanit;
+}
+.bi-calendar2-check{
+  padding-right: 10px;
+}
+.bi-clock{
+  padding-right: 10px;
+}
+.bi-envelope{
+  padding-right: 10px;
+}
+.bi-calendar-day{
+  padding-right: 10px;
+}
+.bi-person-plus{
+  padding-right: 10px;
+}
+.bi-fullscreen{
+  padding-right: 10px;
+}
 .btn1 {
 
   height: 50px;

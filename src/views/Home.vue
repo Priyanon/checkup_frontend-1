@@ -1,5 +1,6 @@
 <template>
-  <div class="container">
+
+  <div class="G container" style="font-family: kanit">
     <main class="justify-content-center">
       <div class="text-center">
         <div class="row" style=" margin-top: 10px; margin-bottom: 10px !important;">  
@@ -18,7 +19,7 @@
               </div> 
             </div>
 
-            <div class="col-md-6 bg-white border rounded-3">
+            <!-- <div class="col-md-6 bg-white border rounded-3">
               <div class="ribbon-large3">
                   <img src="/img/chart.png"  class="chart">
                   <h5 style="margin-left:0px; margin-bottom:10px; margin-top:10px;">ผู้บริหาร</h5>
@@ -33,11 +34,12 @@
                   <h5 style="margin-right:0px ; margin-bottom:10px;">จดจำใบหน้า</h5>
                   <router-link to="/upscan" class="btn btn-light button4">Face ID</router-link>
               </div>   
-            </div>     
+            </div>      -->
         </div>  
       </div>
     </main>
   </div>
+
 </template>
 
 <style scoped>
@@ -48,6 +50,10 @@
   } */
   
   /* ปุ่มที่ 1 */
+  .G{
+    margin-top: 60px;
+    margin-bottom: 50px;
+  }
   .User {
     width: 90px;
     height: 90px;
