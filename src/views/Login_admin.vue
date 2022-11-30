@@ -1,86 +1,128 @@
 <script>
 import axios from 'axios';
 export default {
-  data() {
-    return {
-      Login: {
-        Emp_Mail: 'admin@test.com',
-        pwd: '123456'
-      }
-    }
-  },
-  methods: {
-      async addLogin(){
-        // console.log(this.Login)
-        // let response = await axios.post(
-        //     'http://10.99.178.208:3000/checklogin',
-        //     this.Login)
+    data() {
+        return {
+            Login: {
+                Emp_Mail: 'admin@test.com',
+                pwd: '123456'
+            }
+        }
+    },
+    mounted: {
+        beforeRouteEnter(to, from, next) {
+            //  ถ้าพาทที่กำลังไปไม่อยู่ใน  listauthenPath ให้กลับไปหน้าล็อคอิน
+            //     ลูปพาทมาก่อน
+            let toPath = to.path
+            let arr = []
+            for (let toPath of listauthenPath) {
+                let _toPath = { ...toPath }
+                arr[i] = _toPath.path
+                i++
+            }
+            console.log(arr)
+            this.authenPath = [...arr]
+            this.$router.push({ path: _path })
 
-        // if (response.data.message == 'ok'){
-        //     console.log(response.data)
-        //     localStorage.setItem('token',response.data.token)
-        //     this.$router.push({path:'/main_admin'})
-        // } else {
-        //     console.log("555")
-        this.$router.push({path:'/main_admin'})
+            // ถ้าพาทที่กำลังไปไม่อยู่ใน  listauthenPath ให้กลับไปหน้าล็อคอิน
+            if (to.path !== listauthenPath) {
+                // กลับไปหน้าล็อคอิน
+                this.$router.replace({ path: '/login_admin' })
+                alert('รหัสผ่านหรืออีเมล์ผิดพลาด')
+            } else {
+                // ถ้าเท่าไปหน้าต่อไป
 
-        // .then(function(response){
-        //     console.log(response)
+            }
+        }
+    },
+    props: [
+        'loginFunction',
+        'listauthenPath',
+    ]
+        // loginFunction : {
+        //     type: Function
+        // },
+    ,
+    methods: {
+        Forgotpassword() {
+            this.$router.replace({ path: '/forgotpassword' })
+        }
+        // addLogin(){
+        //     console.log('addLogin()')
+        //     console.log(this.Login)
+        //     let response = await axios.post(
+        //         'http://192.168.43.120:3000/checklogin',
+        //         this.Login)
+
         //     if (response.data.message == 'ok'){
-        //         this.$router.push({name:'Mainadmin'})
+        //         console.log(response.data)
+        //         localStorage.setItem('token',response.data.token)
+        //         this.$router.push({path:'/main_admin'})
         //     } else {
-                
-        //     }
-        // })
-    
-      }
-  }
-}
+        //         console.log("555")
+        // this.$router.push({path:'/main_admin'})
 
+        //     // .then(function(response){
+        //     //     console.log(response)
+        //     //     if (response.data.message == 'ok'){
+        //     //         this.$router.push({name:'Mainadmin'})
+        //     //     } else {
+
+        //     //     }
+        //     // })
+
+        //   }
+
+        // }
+    }
+}
 </script>
 
 
 <template>
-    <div  id="Login_body">
+    <div id="Login_body">
         <main class="form-signin d-flex justify-content-center">
             <div>
                 <img src="/img/Logo.png" class="Logo">
-                    <h4 class="h4 mb-3 fw-normal">Check Up</h4>
-                    
-                    
-                <div class="frame">   
+                <h4 class="h4 mb-3 fw-normal">Check Up</h4>
+
+                <!-- <div>{{ $router.push }}</div> -->
+                <div class="frame">
                     <h5 class="admin">สำหรับเจ้าหน้าที่</h5>
                 </div>
-                    
-                    <input  type="email" class="w-100 form-control mail" placeholder="อีเมล์" v-model="this.Login.Emp_Mail">
-                
-                    <input  type="password" class="w-100 form-control password"  placeholder="รหัสผ่าน" v-model="this.Login.pwd">
 
-                    <button class="w-100 btn btn-lg btn-signin" @click="addLogin">เข้าสู่ระบบ</button>
+                <input type="email" class="w-100 form-control mail" placeholder="อีเมล์" v-model="this.Login.Emp_Mail">
 
-                    <button class="text-white forgot">ลืมรหัสผ่านใช่หรือไม่?</button>
+                <input type="password" class="w-100 form-control password" placeholder="รหัสผ่าน"
+                    v-model="this.Login.pwd">
+
+                <button class="w-100 btn btn-lg btn-signin"
+                    @click="this.loginFunction(this.Login.Emp_Mail, this.Login.pwd, '/main_admin')">เข้าสู่ระบบ</button>
+                <!-- @click="this.loginFunction(this.Login.Emp_Mail, this.Login.pwd, '/main_admin')" -->
+                <button class="text-white forgot" @click="Forgotpassword">ลืมรหัสผ่านใช่หรือไม่?</button>
             </div>
         </main>
-    </div> 
+    </div>
 </template>
 
 
 
 <style scoped>
-.frame{
-    background-color:#14be66;
+.frame {
+    background-color: #14be66;
     height: 50px;
     border-radius: 8px;
-    font-family: "kanit";
+    /* font-family: "kanit"; */
 }
-.admin{
+
+.admin {
     margin-left: 100px;
     color: white;
     padding: 10px;
 }
 
-.mail{
-    font-family: "kanit";
+.mail {
+    /* font-family: "kanit"; */
     margin-top: 55px;
     width: 60px;
     height: 50px;
@@ -88,18 +130,18 @@ export default {
 
 .password {
     margin-top: 15px !important;
-    font-family: "kanit";
+    /* font-family: "kanit"; */
     margin-top: 20px !important;
     width: 60px;
     height: 50px;
 }
 
 .btn-signin {
-    color: #4fc3f7!important;
+    color: #4fc3f7 !important;
     background-color: white !important;
     margin-top: 20px;
     border-radius: 100;
-    font-family:kanit !important;
+    /* font-family:kanit !important; */
 }
 
 .forgot {
@@ -180,10 +222,10 @@ form {
     justify-content: center;
     margin-top: 40px;
     margin-left: 100px;
-    
+
 }
 
-.fw-normal{
+.fw-normal {
     margin-left: 100px;
 }
 
@@ -192,11 +234,10 @@ input {
     border-radius: 10px !important;
     text-align: center;
     /* font-family: "kanit"!important; */
-  
+
 }
 
 .forgot:hover {
     color: blue !important;
 }
-
 </style>

@@ -128,7 +128,6 @@ export default {
         </form>
         <br>
         <form class="row g-3">
-
           <div class="col-sm-4">
             <label for="input gender1" class="form-label">ศาสนา</label>
             <select id="input gender" class="form-select" v-model="this.Employee.Emp_religion">

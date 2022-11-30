@@ -5312,15 +5312,12 @@
             <th>ประเภทการลา</th>
             <th>หมายเหตุ</th>
           </tr>
-
           <tr v-for="Leave in posts" :key="Leave.id">
             <td>{{dateTime}}</td>
             <td>{{Leave.Emp_Name}}</td>
             <td>{{Leave.Leave_type}}</td>
             <td>{{Leave.Leave_Inform}}</td>
           </tr>
-
-          
         </thead>
       </table>
     </div>
