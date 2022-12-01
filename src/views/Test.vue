@@ -1,6 +1,5 @@
-<!-- <template>
+<template>
   <div>
-<<<<<<< Updated upstream
     <div class="container">
       <h1 class="page-header text-center">Vue.js Axios CRUD (Create, Read, Update and Delete) using PHP MySQLi</h1>
       <div id="vuejscrudmembers">
@@ -12,90 +11,6 @@
                     class="glyphicon glyphicon-plus"></span> Member</button>
               </h2>
             </div>
-=======
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container-fluid">
-        <a class="navbar-brand">
-          <img src="/img/Logonavbar.png" class="Logonavbar">
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link">
-                <router-link to="/Main_admin">
-                  <img src="/img/Home.png" class="nav-icon1" type="button">
-                </router-link>
-                <span class="Home-icon">Home</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link">
-                <router-link to="/User">
-                  <img src="/img/User.png" class="nav-icon2">
-                </router-link>
-                <span class="Home-icon">Personal information</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link">
-                <router-link to="/Alert">
-                  <img src="/img/Alert.png" class="nav-icon3">
-                </router-link>
-                <span class="Home-icon">Notify</span>
-              </a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
-                <router-link to="/Setting">
-                  <img src="/img/Setting.png" class="nav-icon4">
-                </router-link>
-                <span class="Home-icon">Setting</span>
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                <li>
-                  <a class="dropdown-item" href="#">
-                    <router-link to="/">
-                      <span>ออกจากระบบ</span>
-                    </router-link>
-                  </a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <div class="M">
-      <div class="my-border">
-        <div class="row">
-        <div class="row"> -->
-
-
-          <!-- <div class="col-sm-4 col-6">
-        <label for="exampleInputEmail1" class="form-label">User Name</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-      </div>
-      
-      <div class="col-sm-4 col-6">
-        <label for="exampleInputEmail1" class="form-label">Password</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-      </div>
-
-      <div class="col-sm-4">
-        <label for="exampleInputEmail1" class="form-label">Full Name</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-      </div> -->
-
-
-
-          <!-- <div class="col-sm-4 ">
-            <img src="/img/Profile.png">
->>>>>>> Stashed changes
           </div>
 
           <div class="alert alert-danger text-center" v-if="errorMessage">
@@ -107,7 +22,6 @@
             <button type="button" class="close" @click="clearMessage();"><span aria-hidden="true">5555×</span></button>
             <span class="glyphicon glyphicon-ok"></span> {{ successMessage }}
           </div>
-<<<<<<< Updated upstream
 
           <table class="table table-bordered table-striped">
             <thead>
@@ -148,13 +62,6 @@
           <div class="form-group">
             <label>Lastname:</label>
             <input type="text" class="form-control" v-model="newMember.lastname">
-=======
-        </div> -->
-
-        <!-- <div class="row">
-          <div class="col-6 bttn2">
-            <button class="btn btn-primary" @click="addtoLeave()">ใบลาอิเล็กทรอนิกส์</button>
->>>>>>> Stashed changes
           </div>
         </div>
         <hr>
@@ -223,19 +130,9 @@
     <!-- END REMOVE USER MODAL -->
     <!-- END MODALS -->
   </div>
-</template> -->
+</template>
 
-<<<<<<< Updated upstream
 <script >
-=======
-<!-- <style scoped>
-.Logonavbar {
-  width: 40px;
-  height: 50px;
-  left: 40px;
-  top: 3px;
-}
->>>>>>> Stashed changes
 
 import axios from 'axios';
 import VueAxios from 'vue-axios'
@@ -414,54 +311,4 @@ export default {
     color: #FFFFFF;
     border:none;
 }
-<<<<<<< Updated upstream
 </style>
-=======
-
-/* // XX-Large devices (larger desktops, 1400px and up) */
-@media (min-width: 1400px) {}
-</style> -->
-
-<template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/posts">Posts</router-link> |
-    <span v-if="isLoggedIn">
-      <a @click="logout">Logout</a>
-    </span>
-    <span v-else>
-      <router-link to="/register">Register</router-link> |
-      <router-link to="/login">Login</router-link>
-    </span>
-  </div>
-</template>
-<script>
-export default {
-  name: 'NavBar',
-  // computed : {
-  //     isLoggedIn : function(){ return this.$store.getters.isAuthenticated}
-  //   },
-    methods: {
-      async logout (){
-        await this.$store.dispatch('LogOut')
-        this.$router.push('/login')
-      }
-    },
-}
-</script>
-<style>
-#nav {
-  padding: 30px;
-}
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-a:hover {
-  cursor: pointer;
-}
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
->>>>>>> Stashed changes

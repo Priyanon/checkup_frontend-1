@@ -9,8 +9,8 @@ export default {
         Leave_Inform: "",
         Leave_day: "",
         Leave_dayend: "",
-        Emp_ID,
-        Emp_Name
+        Emp_ID: "",
+        Emp_Name: ""
       },
     };
   },
@@ -19,7 +19,7 @@ export default {
   methods: {
     async addLeaves() {
       await axios
-        .post("http://192.168.1.37:3000/leaves", this.Leaves)
+        .post("http://192.168.43.240:3000/add/leaves", this.Leaves)
         .then(function (response) {
           alert("insert successfully! : " + response);
         });
@@ -36,111 +36,100 @@ export default {
 </script>
     
 <template>
-  <div class="M_Leave">
+  <!-- <div class="M_Leave">
     <div class="Leave-border">
-      <div class="row">
+      <div class="row"> -->
         <div class="container">
-
-          <div class="py-3">
-            <h4 class="text-center" style="font-family: kanit">ใบลาอิเล็กทรอนิกส์</h4>
-
-          <div class="col-sm-12">
-                <label for="lastName" class="form-label">วันที่</label>
-                <input v-model="this.Leaves.Leave_dayend" type="date" class="form-control" placeholder="" required />
-                <div class="invalid-feedback">Valid last name is required.</div>
-          </div>
-            
-            <div class="col-sm-12">
-          <label for="exampleFormControlInput1" class="form-label">รหัสพนักงาน</label>
-          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="">
-        </div>
-        <div class="col-sm-12">
-          <label for="exampleFormControlInput1" class="form-label">ตำแหน่ง</label>
-          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="">
-        </div>
-        <div class="col-sm-12">
-          <label for="exampleFormControlInput1" class="form-label">แผนก</label>
-          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="">
-        </div>
-        <div class="col-sm-12">
-          <label for="exampleFormControlInput1" class="form-label">ชื่อ-นามสกุล</label>
-          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="">
-        </div>
-           
-
-            <div style="font-family: kanit">
-              <label for="country" class="col-3">ประเภทการลา</label>
-              <select class="form-select" v-model="this.Leaves.Leave_type" required>
-                <option value="ลาป่วย">ลาป่วย</option>
-                <option value="ลากิจ">ลากิจ</option>
-                <option value="ลากิจพิเศษเพื่อสมรส">ลากิจพิเศษเพื่อสมรส</option>
-                <option value="ลากิจเพื่อจัดงานศพ">ลากิจเพื่อจัดงานศพ</option>
-                <option value="ลาเพื่อฝึกอบรม">ลาเพื่อฝึกอบรม</option>
-                <option value="ลาพักร้อน">ลาพักร้อน</option>
-                <option value="ลาชดเชยการทำงานในวันหยุด">ลาชดเชยการทำงานในวันหยุด</option>
-                <option value="ลาคลอด">ลาคลอด</option>
-                <option value="ลาเพื่อทำมัน">ลาเพื่อทำมัน</option>
-                <option value="ลารับราชการทหาร">ลารับราชการทหาร</option>
-                <option value="ลาอุปสมบท">ลาอุปสมบท</option>
-                <option value="ลาเพื่อประกบพิธีการทางศาสนา">ลาเพื่อประกบพิธีการทางศาสนา</option>
-              </select>
-            </div>
-
-            <br>
-            <!--ประเภทของเวลา-->
-            <div style="font-family: kanit">
-              <label for="country" class="col-3">ประเภทของเวลา</label>
-              <select class="form-select" v-model="this.Leaves.Leave_time" required>
-                <option value="ลาเต็มวัน">ลาเต็มวัน</option>
-                <option value="ลาครึ่งวัน">ลาครึ่งวัน</option>
-              </select>
-            </div>
-
-            <br>
-            <div class="row gy-3">
-              <div class="col-sm-6">
-                <label for="firstName" class="form-label">วันที่เริ่มลา</label>
-                <input v-model="this.Leaves.Leave_day" type="date" class="form-control" placeholder="" required />
-                <div class="invalid-feedback">
-                  Valid first name is required.
-                </div>
-              </div>
-              <div class="col-sm-6">
-                <label for="lastName" class="form-label">วันที่สิ้นสุดการลา</label>
-                <input v-model="this.Leaves.Leave_dayend" type="date" class="form-control" placeholder="" required />
-                <div class="invalid-feedback">Valid last name is required.</div>
-              </div>
-
-
-              <h5>หมายเหตุ</h5>
+          <from @submit.prevent="addLeaves" :validation-schema="schema">
+              <h4 class="text-center" style="font-family: kanit">ใบลาอิเล็กทรอนิกส์</h4>
+              
               <div class="form-group">
-                <div class="col-Lg-2">
-                  <textarea v-model="this.Leaves.Leave_Inform" style="width: 100%" class="form-control"
-                    @change="test()">
-                      </textarea>
-                </div>
+                <label for="exampleFormControlInput1" class="form-label">รหัสพนักงาน</label>
+                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="รหัสพนักงาน" v-model="Leaves.Emp_ID">
               </div>
 
-              <div class="row mt-4">
-                <div class="col-md-6">
-                  <button style="width: 100%; font-family: kanit !important" class="btn btn-primary"
-                    @click="this.addLeaves()">
-                    ยืนยัน
-                  </button>
-                </div>
-                <div class="col-md-6">
-                  <button style="width: 100%; font-family: kanit !important" class="btn btn-secondary" type="reset">
-                    ยกเลิก
-                  </button>
-                </div>
+              <div class="form-group col-sm-12">
+                <label for="exampleFormControlInput1" class="form-label">ชื่อ-นามสกุล</label>
+                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="ชื่อ-นามสกุล"
+                  v-model="Leaves.Emp_Name" required>
               </div>
+
+
+              <div form-group style="font-family: kanit">
+                <label for="country" class="col-3">ประเภทการลา</label>
+                <select class="form-select" v-model="this.Leaves.Leave_type" required>
+                  <option value="ลาป่วย">ลาป่วย</option>
+                  <option value="ลากิจ">ลากิจ</option>
+                  <option value="ลากิจพิเศษเพื่อสมรส">ลากิจพิเศษเพื่อสมรส</option>
+                  <option value="ลากิจเพื่อจัดงานศพ">ลากิจเพื่อจัดงานศพ</option>
+                  <option value="ลาเพื่อฝึกอบรม">ลาเพื่อฝึกอบรม</option>
+                  <option value="ลาพักร้อน">ลาพักร้อน</option>
+                  <option value="ลาชดเชยการทำงานในวันหยุด">ลาชดเชยการทำงานในวันหยุด</option>
+                  <option value="ลาคลอด">ลาคลอด</option>
+                  <option value="ลาเพื่อทำมัน">ลาเพื่อทำมัน</option>
+                  <option value="ลารับราชการทหาร">ลารับราชการทหาร</option>
+                  <option value="ลาอุปสมบท">ลาอุปสมบท</option>
+                  <option value="ลาเพื่อประกบพิธีการทางศาสนา">ลาเพื่อประกบพิธีการทางศาสนา</option>
+                </select>
+              </div>
+
+              <br>
+              <!--ประเภทของเวลา-->
+              <div form-group style="font-family: kanit">
+                <label for="country" class="col-3">ประเภทของเวลา</label>
+                <select class="form-select" v-model="this.Leaves.Leave_timetype" required>
+                  <option value="ลาเต็มวัน">ลาเต็มวัน</option>
+                  <option value="ลาครึ่งวัน">ลาครึ่งวัน</option>
+                </select>
+              </div>
+
+              <br>
+              <div class="row gy-3">
+                
+                <div class="form-group col-sm-6">
+                  <label for="firstName" class="form-label">วันที่เริ่มลา</label>
+                  <input v-model="this.Leaves.Leave_day" type="date" class="form-control" placeholder="" required />
+                  <div class="invalid-feedback">
+                    Valid first name is required.
+                  </div>
+                </div>
+                
+                <div class="form-group col-sm-6">
+                  <label for="lastName" class="form-label">วันที่สิ้นสุดการลา</label>
+                  <input v-model="this.Leaves.Leave_dayend" type="date" class="form-control" placeholder="" required />
+                  <div class="invalid-feedback">Valid last name is required.</div>
+                </div>
+
+
+                <h5>หมายเหตุ</h5>
+                <div class="form-group">
+                  <div class="col-Lg-2">
+                    <textarea v-model="this.Leaves.Leave_Inform" style="width: 100%" class="form-control"
+                      @change="test()">
+                    </textarea>
+                  </div>
+                </div>
+
+                <div class="row mt-4">
+                  <div class="form-group col-md-6">
+                    <button style="width: 100%; font-family: kanit !important" class="btn btn-primary"
+                      @click="this.addLeaves()">
+                      ยืนยัน
+                    </button>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <button style="width: 100%; font-family: kanit !important" class="btn btn-secondary" type="reset">
+                      ยกเลิก
+                    </button>
+                  </div>
+
+                </div>
             </div>
-
-          </div>
+          </from>
         </div>
-      </div>
+      <!-- </div>
     </div>
-  </div>
+  </div> -->
 </template>
     
 <style scoped>
