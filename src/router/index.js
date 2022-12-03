@@ -141,7 +141,7 @@ const routes = [
         // meta:{requiresAuth: false}
     },
     {
-        path: "/edituserNext",
+        path: "/edituserNext/:id?",
         name:"EdituserNext",
         component: EdituserNext,
         // params:true

@@ -15,129 +15,17 @@
                 <th>ชื่อ-นามสกุล </th>
                 <th>แผนก</th>
                 <th>สถานะ</th>
-                <th>เวลา</th>
+                <th>เวลาเข้าทำงาน</th>
               </tr>
 
-              <tr>
-                <td>1</td>
-                <td>Thanawat Temchitaree</td>
-                <td>Founder & Managing Director</td>
-                <td></td>
-                <td></td>
-              </tr>
-
-              <tr>
-                <td>2</td>
-                <td>Wichai Shinnarong</td>
-                <td>Founder & Chief Operating Officer</td>
+              <tr v-for="(Employee,index) in Employee" v-bind:key="Employee.Emp_ID">
+                <td>{{(index+1)}}</td>
+                <td>{{Employee.Emp_Name}}</td>
+                <td>{{Employee.Emp_Address}}</td>
                 <td></td>
                 <td></td>
               </tr>
 
-              <tr>
-                <td>3</td>
-                <td>Pongsakorn Phophool</td>
-                <td>Software Developer</td>
-                <td></td>
-                <td></td>
-              </tr>
-
-              <tr>
-                <td>4</td>
-                <td>Chachai Netso</td>
-                <td>Software Developer</td>
-                <td></td>
-                <td></td>
-              </tr>
-
-              <tr>
-                <td>5</td>
-                <td>Suppanath Sattayarath</td>
-                <td>Software Developer</td>
-                <td></td>
-                <td></td>
-              </tr>
-
-              <tr>
-                <td>6</td>
-                <td>Wiruyut Purathaka</td>
-                <td>Software Developer</td>
-                <td></td>
-                <td></td>
-
-              </tr>
-
-              <tr>
-                <td>7</td>
-                <td>Theerasak Putklang</td>
-                <td>Software Developer</td>
-                <td></td>
-                <td></td>
-              </tr>
-
-              <tr>
-                <td>8</td>
-                <td>Jirarat Kaenamkaew</td>
-                <td>Markting</td>
-                <td></td>
-                <td></td>
-              </tr>
-
-              <tr>
-                <td>9</td>
-                <td>Anucha Thonglor</td>
-                <td>Markting</td>
-                <td></td>
-                <td></td>
-              </tr>
-
-              <tr>
-                <td>10</td>
-                <td>Sirikarnjana Sukkasem</td>
-                <td>Markting</td>
-                <td></td>
-                <td></td>
-              </tr>
-
-              <tr>
-                <td>11</td>
-                <td>Sitar Na Talang</td>
-                <td>Markting</td>
-                <td></td>
-                <td></td>
-              </tr>
-
-              <tr>
-                <td>12</td>
-                <td>Sukanya Wongtho</td>
-                <td>Customer Service</td>
-                <td></td>
-                <td></td>
-              </tr>
-
-              <tr>
-                <td>13</td>
-                <td>Natthanicha Piansmer</td>
-                <td>Customer Service</td>
-                <td></td>
-                <td></td>
-              </tr>
-
-              <tr>
-                <td>14</td>
-                <td>Ratchadaporn Seehawat</td>
-                <td>Customer Service</td>
-                <td></td>
-                <td></td>
-              </tr>
-
-              <tr>
-                <td>15</td>
-                <td>Phatcharee Puadchoo</td>
-                <td>Customer Service</td>
-                <td></td>
-                <td></td>
-              </tr>
             
             </thead>
           </table>
@@ -149,19 +37,48 @@
 <script>
 import axios from 'axios'
 export default {
+  name:'EdituserNext',
 data(){
   return{
-    User: []
+    Employee: [],
+        Emp_ID: '',
+        Emp_Identity_ID: '',
+        Emp_Name: '',
+        Emp_Birthday: '',
+        Emp_Sex: '',
+        Emp_IssueDate: '',
+        Emp_Address: '',
+        Emp_Phone: '',
+        Emp_Mail: '',
+        Emp_bloodtype: '',
+        Emp_sick: '',
+        pwd: '',
+        Emp_nationality: '',
+        Emp_race: '',
+        Emp_Scanpic: '',
+        Emp_religion: '',
+        Emp_Addressnow: '',
+        Emp_Pic: '',
+        Role: '',
+      showEditModal: false,
+      showDeleteModal: false,
+      clickUser: {}
+    }
+  },
+  mounted() {
+    this.getUser();
+  },
+  methods: {
+    getUser() {
+      let API_URL = 'http://192.168.1.43:3000/employee'
+      axios.get(`${API_URL}`)
+        .then((response) => {
+          this.Employee = response.data
+          // console.log(response)
+        })
+        .catch((error) => console.log(error.response))
+    },
   }
-},
-//   created(){
-//     let PPP = '';
-//     axios.get{apiURL}.then(res =>{
-//       this.User = res.data
-//     }).catch(error => {
-//         console.log(error)
-//     })
-//   }
 }
 </script>
 

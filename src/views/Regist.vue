@@ -106,7 +106,7 @@ export default {
   },
   methods: {
     async addEmployee() {
-      await axios.post('http://192.168.43.240:3000/employee', this.Employee)
+      await axios.post('http://192.168.1.43:3000/employee', this.Employee)
         .then(function (response) {
           alert('เพิ่มข้อมูลสำเร็จ')
           // this.$router.push('/edituser');
@@ -346,11 +346,15 @@ export default {
       </div>
 
       <div class="form-group">
-        <label for="exampleFormControlInput1">ที่อยู่ตามทะเบียนบ้าน</label>
-        <input name="Home" type="text" placeholder="" required v-model="this.Employee.Emp_Address">
+        <label for="exampleFormControlInput1">แผนก</label>
+        <select id="department" name="department" class="form-select" placeholder="" required v-model="this.Employee.Emp_Address">
+          <option value="Reherch and Development">Reherch and Development </option>
+          <option value="Customer care">Customer care</option>
+          <option value="Marketing">Marketing</option>
+        </select>
         <ErrorMessage name="Home" class="error-feedback" />
       </div>
-
+      
       <div class="form-group">
         <label for="exampleFormControlInput1">ที่อยู่ปัจจุบัน</label>
         <input name="Address" type="text" id="Address" placeholder="" required v-model="this.Employee.Emp_Addressnow">

@@ -46,7 +46,7 @@
           <!-- v-if="index !== editIndex" -->
           <td>
             <button color="danger" class="btn btn-danger " @click="deleteUser(Employee.Emp_ID)" > ลบ</button> l
-            <router-link :to="{ name: 'EdituserNext', params: { id: EmployeeInfo.Emp_ID } }" class="btn btn-warning">
+            <router-link :to="{ name: 'EdituserNext', params: { id: Employee.Emp_ID } }" class="btn btn-warning">
               แก้ไข
             </router-link>
             <!-- params: { id : posts.Emp_ID } , showDeleteModal = true, deleteUser(Employee.Emp_ID) , getEmployeeInfo(Employee.Emp_ID)"-->
@@ -88,14 +88,14 @@ import axios from 'axios';
 // import { reactive } from 'vue';
 // const router = useRouter()
 // const route = useRoute()
-const API_URL = "http://192.168.1.167:3000/employee"
+const API_URL = "http://192.168.1.43:3000/employee"
 // const route = useRoute()
 
 export default {
   data() {
     return {
       posts: [],
-      EmployeeInfo: {
+      Employee: {
         Emp_ID: '',
         Emp_Identity_ID: '',
         Emp_Name: '',
@@ -121,31 +121,6 @@ export default {
       clickUser: {}
     }
   },
-  // setup(){
-  //   const EmployeeInfo = reactive({
-  //     Emp_ID: '',
-  //       Emp_Identity_ID: '',
-  //       Emp_Name: '',
-  //       Emp_Birthday: '',
-  //       Emp_Sex: '',
-  //       Emp_IssueDate: '',
-  //       Emp_Address: '',
-  //       Emp_Phone: '',
-  //       Emp_Mail: '',
-  //       Emp_bloodtype: '',
-  //       Emp_sick: '',
-  //       pwd: '',
-  //       Emp_nationality: '',
-  //       Emp_race: '',
-  //       Emp_Scanpic: '',
-  //       Emp_religion: '',
-  //       Emp_Addressnow: '',
-  //       Emp_Pic: '',
-  //       Role: ''
-  //   })
-  //   const router = useRouter()
-  //   const route = useRoute()
-  // },
   mounted() {
     this.getUser();
   },
@@ -163,68 +138,12 @@ export default {
         .then(() => {
           this.getUser();
           // console.log(request);
-          alert('ลบผู้ใช้สำเร็จ')
+          alert('ลบผู้ใช้สำเร็จ ID : ' + Emp_ID)
         })
         .catch((error) => {
           console.log("ERRRR:: ", error.response.data);
         });
     },
-    getEmployeeInfo(Emp_ID) {
-      axios
-        .get(`${API_URL}/`+Emp_ID)
-        .then((response) => {
-          console.log('id: ',response)
-          this.EmployeeInfo.Emp_ID = response.data.Emp_ID
-          this.EmployeeInfo.Emp_Name = response.data.Emp_Name
-          this.EmployeeInfo.Emp_Mail = response.data.Emp_Mail
-          this.EmployeeInfo.pwd = response.data.pwd
-          this.EmployeeInfo.Emp_Identity_ID = response.data.Emp_Identity_ID
-          this.EmployeeInfo.Emp_Phone = response.data.Emp_Phone
-          this.EmployeeInfo.Emp_Birthday = response.data.Emp_Birthday
-          this.EmployeeInfo.Emp_Sex = response.data.Emp_Sex
-          this.EmployeeInfo.Emp_Address = response.data.Emp_Address
-          this.EmployeeInfo.Emp_bloodtype = response.data.Emp_bloodtype
-          this.EmployeeInfo.Emp_sick = response.data.Emp_sick
-          this.EmployeeInfo.Emp_nationality = response.data.Emp_nationality
-          this.EmployeeInfo.Emp_race = response.data.Emp_race
-          this.EmployeeInfo.Emp_religion = response.data.Emp_religion
-          this.EmployeeInfo.Emp_Addressnow = response.data.Emp_Addressnow
-          this.EmployeeInfo.Role = response.data.Role
-        })
-        .catch((error) => {
-          console.log("ERRRR:: ", error.response.data);
-        });
-    },
-    updateUser() {
-      axios
-        .put(`${API_URL}/${this.EmployeeInfo.Emp_ID}`, {
-          Emp_ID: this.EmployeeInfo.Emp_ID,
-          Emp_Identity_ID: this.EmployeeInfo.Emp_Identity_ID,
-          Emp_Name: this.EmployeeInfo.Emp_Name,
-          Emp_Birthday: this.EmployeeInfo.Emp_Birthday,
-          Emp_Sex: this.EmployeeInfo.Emp_Sex,
-          Emp_Address: this.EmployeeInfo.Emp_Address,
-          Emp_Phone: this.EmployeeInfo.Emp_Phone,
-          Emp_Mail: this.EmployeeInfo.Emp_Mail,
-          Emp_bloodtype: this.EmployeeInfo.Emp_bloodtype,
-          Emp_sick: this.EmployeeInfo.Emp_sick,
-          pwd: this.EmployeeInfo.pwd,
-          Emp_nationality: this.EmployeeInfo.Emp_nationality,
-          Emp_race: this.EmployeeInfo.Emp_race,
-          Emp_religion: this.EmployeeInfo.Emp_religion,
-          Emp_Addressnow: this.EmployeeInfo.Emp_Addressnow,
-          Role: this.EmployeeInfo.Role
-        })
-        .then((res) => {
-          this.getUser();
-        })
-        .catch((error) => {
-          console.log("ERRRR:: ", error.response.data);
-        });
-    },
-    selectMember(posts) {
-      this.clickUser = posts;
-    }
   }
 };
 

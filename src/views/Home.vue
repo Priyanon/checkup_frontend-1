@@ -19,7 +19,7 @@
               </div> 
             </div>
 
-            <!-- <div class="col-md-6 bg-white border rounded-3">
+          <div class="col-md-6 bg-white border rounded-3">
               <div class="ribbon-large3">
                   <img src="/img/chart.png"  class="chart">
                   <h5 style="margin-left:0px; margin-bottom:10px; margin-top:10px;">ผู้บริหาร</h5>
@@ -28,7 +28,7 @@
             </div>
 
 
-            <div class="col-md-6 bg-white border rounded-3">   
+            <!-- <div class="col-md-6 bg-white border rounded-3">    
               <div class="ribbon-large4">
                   <img src="/img/face-id.png" class="faceid">
                   <h5 style="margin-right:0px ; margin-bottom:10px;">จดจำใบหน้า</h5>

@@ -9,45 +9,47 @@ export default {
             }
         }
     },
-    mounted: {
-        beforeRouteEnter(to, from, next) {
-            //  ถ้าพาทที่กำลังไปไม่อยู่ใน  listauthenPath ให้กลับไปหน้าล็อคอิน
-            //     ลูปพาทมาก่อน
-            let toPath = to.path
-            let arr = []
-            for (let toPath of listauthenPath) {
-                let _toPath = { ...toPath }
-                arr[i] = _toPath.path
-                i++
-            }
-            console.log(arr)
-            this.authenPath = [...arr]
-            this.$router.push({ path: _path })
+    // mounted: {
+    //     beforeRouteEnter(to, from, next) {
+    //         //  ถ้าพาทที่กำลังไปไม่อยู่ใน  listauthenPath ให้กลับไปหน้าล็อคอิน
+    //         //     ลูปพาทมาก่อน
+    //         let toPath = to.path
+    //         let arr = []
+    //         for (let toPath of listauthenPath) {
+    //             let _toPath = { ...toPath }
+    //             arr[i] = _toPath.path
+    //             i++
+    //         }
+    //         console.log(arr)
+    //         this.authenPath = [...arr]
+    //         this.$router.push({ path: _path })
 
-            // ถ้าพาทที่กำลังไปไม่อยู่ใน  listauthenPath ให้กลับไปหน้าล็อคอิน
-            if (to.path !== listauthenPath) {
-                // กลับไปหน้าล็อคอิน
-                this.$router.replace({ path: '/login_admin' })
-                alert('รหัสผ่านหรืออีเมล์ผิดพลาด')
-            } else {
-                // ถ้าเท่าไปหน้าต่อไป
+    //         // ถ้าพาทที่กำลังไปไม่อยู่ใน  listauthenPath ให้กลับไปหน้าล็อคอิน
+    //         if (to.path !== listauthenPath) {
+    //             // กลับไปหน้าล็อคอิน
+    //             this.$router.replace({ path: '/login_admin' })
+    //             alert('รหัสผ่านหรืออีเมล์ผิดพลาด')
+    //         } else {
+    //             // ถ้าเท่าไปหน้าต่อไป
 
-            }
-        }
-    },
-    props: [
-        'loginFunction',
-        'listauthenPath',
-    ]
-        // loginFunction : {
-        //     type: Function
-        // },
-    ,
+    //         }
+    //     }
+    // },
+    // props: [
+    //     // 'loginFunction',
+    //     // 'listauthenPath',
+    // ]
+    //     // loginFunction : {
+    //     //     type: Function
+    //     // },
+    // ,
     methods: {
         Forgotpassword() {
             this.$router.replace({ path: '/forgotpassword' })
+        },
+        addLogin(){
+            this.$router.push({path:'/main_admin'})
         }
-        // addLogin(){
         //     console.log('addLogin()')
         //     console.log(this.Login)
         //     let response = await axios.post(
@@ -60,8 +62,6 @@ export default {
         //         this.$router.push({path:'/main_admin'})
         //     } else {
         //         console.log("555")
-        // this.$router.push({path:'/main_admin'})
-
         //     // .then(function(response){
         //     //     console.log(response)
         //     //     if (response.data.message == 'ok'){
@@ -71,7 +71,7 @@ export default {
         //     //     }
         //     // })
 
-        //   }
+          
 
         // }
     }
@@ -97,7 +97,7 @@ export default {
                     v-model="this.Login.pwd">
 
                 <button class="w-100 btn btn-lg btn-signin"
-                    @click="this.loginFunction(this.Login.Emp_Mail, this.Login.pwd, '/main_admin')">เข้าสู่ระบบ</button>
+                    @click="addLogin">เข้าสู่ระบบ</button>
                 <!-- @click="this.loginFunction(this.Login.Emp_Mail, this.Login.pwd, '/main_admin')" -->
                 <button class="text-white forgot" @click="Forgotpassword">ลืมรหัสผ่านใช่หรือไม่?</button>
             </div>

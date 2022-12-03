@@ -1,11 +1,19 @@
 <template>
     <div class="body">
     <div align="center">
-        <h4>วีรภัทร เอี๊ยบกงไซ</h4>
+        <div class="name" align="center" >
+            <label for="name" >ชื่อพนักงาน : </label>
+            <select name="name" required="" style="width: 120;height:22px;border-left-width: 10px;" data-v-1b1f7bb2="">
+                <option value="Test Admin">Test Admin</option>
+                <option value="Test Employee">Test Employee</option>
+                <option value="Test Executves">Test Executves</option>
+            </select>
+        </div>
         <!-- <div class="d-flex justify-content-between " style="height: 30px;">
             <router-link to="/Main_admin"><img src="/img/ArrowLeft.png" class="arrow"  type="button"></router-link>
             <router-link to="/Checkin"><img src="/img/ArrowR.png" class="arrow"  type="button"></router-link>
         </div> -->
+
         <div class="year" align="center" >
             <label for="leave" style="width: 20px; height: 30px;">ปี</label>
             <select  name="year" required style="width: 72px; height: 22px;" @change="test()">
