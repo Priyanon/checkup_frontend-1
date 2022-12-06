@@ -19,9 +19,9 @@ export default {
   methods: {
     async addLeaves() {
       await axios
-        .post("http://192.168.43.240:3000/add/leaves", this.Leaves)
+        .post("http://192.168.1.43:3000/add/leaves", this.Leaves)
         .then(function (response) {
-          alert("insert successfully! : " + response);
+          alert("ส่งไปลาสำเร็จ : ");
         });
     },
     // เพิ่ม error
@@ -45,7 +45,7 @@ export default {
               
               <div class="form-group">
                 <label for="exampleFormControlInput1" class="form-label">รหัสพนักงาน</label>
-                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="รหัสพนักงาน" v-model="Leaves.Emp_ID">
+                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="รหัสพนักงาน" v-model="Leaves.Emp_ID">
               </div>
 
               <div class="form-group col-sm-12">
@@ -113,7 +113,7 @@ export default {
                 <div class="row mt-4">
                   <div class="form-group col-md-6">
                     <button style="width: 100%; font-family: kanit !important" class="btn btn-primary"
-                      @click="this.addLeaves()">
+                      @click="this.addLeaves">
                       ยืนยัน
                     </button>
                   </div>

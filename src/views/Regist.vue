@@ -81,7 +81,7 @@ export default {
         Emp_Birthday: '',
         Emp_Sex: '',
         Emp_IssueDate: '',
-        Emp_Address: '',
+        Emp_Addressnow: '',
         Emp_Phone: '',
         Emp_Mail: '',
         Emp_Age: '',
@@ -92,7 +92,7 @@ export default {
         Emp_race: '',
         Emp_Scanpic: '',
         Emp_religion: '',
-        Emp_Addressnow: '',
+        Emp_Depart: '',
         Emp_Pic: '',
         Role: ''
       },
@@ -247,7 +247,7 @@ export default {
 
       <div class="form-group ">
         <label for="exampleFormControlInput1">รหัสพนักงาน</label>
-        <input name="userID" type="number" id="userID" placeholder="" required v-model="this.Employee.Emp_ID">
+        <input name="userID" type="text" id="userID" placeholder="" required v-model="this.Employee.Emp_ID">
         <ErrorMessage name="userID" class="error-feedback" />
       </div>
       <div class="form-group">
@@ -347,7 +347,7 @@ export default {
 
       <div class="form-group">
         <label for="exampleFormControlInput1">แผนก</label>
-        <select id="department" name="department" class="form-select" placeholder="" required v-model="this.Employee.Emp_Address">
+        <select id="department" name="department" class="form-select" placeholder="" required v-model="this.Employee.Emp_Depart">
           <option value="Reherch and Development">Reherch and Development </option>
           <option value="Customer care">Customer care</option>
           <option value="Marketing">Marketing</option>
